@@ -11,7 +11,8 @@ const movieSchema = new Schema({
     runtime: Number,
     cast: actorSchema,
     imageUrl: String,
-    release: Date
+    release: Date,
+    tags: [String]
 })
 
 const Movie = model('Movie', movieSchema);
