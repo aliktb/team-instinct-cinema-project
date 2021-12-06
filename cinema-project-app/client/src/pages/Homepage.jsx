@@ -1,3 +1,8 @@
+import "../css/generic.css";
+//import "../css/Background.css"
+
+
+
 const Homepage = () => {
     return (
         <div>
@@ -23,6 +28,7 @@ const Homepage = () => {
                 <h3>Top Films</h3>
 
             </div>
+
 
 
             <footer>
