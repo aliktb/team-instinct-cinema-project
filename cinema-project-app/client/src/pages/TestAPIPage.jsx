@@ -1,6 +1,11 @@
 import logo from "../resources/logo.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "reactstrap";
+import { UncontrolledPopover } from "reactstrap";
+import { PopoverHeader } from "reactstrap";
+import { PopoverBody } from "reactstrap";
 
 const TestAPIPage = () => {
   const [apiResponse, setApiResponse] = useState("");
@@ -26,6 +31,18 @@ const TestAPIPage = () => {
           Learn React
         </a>
         <p className="App-intro">{apiResponse}</p>
+
+        <div>
+          <Button id="UncontrolledPopover" type="button">
+            Launch Popover
+          </Button>
+          <UncontrolledPopover placement="right" target="UncontrolledPopover">
+            <PopoverHeader>Popover Title</PopoverHeader>
+            <PopoverBody>
+              If you are reading this, then reactstrap is working.
+            </PopoverBody>
+          </UncontrolledPopover>
+        </div>
       </header>
     </div>
   );
