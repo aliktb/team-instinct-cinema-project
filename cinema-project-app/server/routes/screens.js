@@ -31,3 +31,13 @@ router.get('/name/:name', (req, res, next) => {
         }
     })
 })
+
+router.post('/create', (req, res, next) => {
+    const screen = new Screen(req.body);
+    screen.save().then((result) => {
+        JSON.stringify(result)
+        res.status(201).send(result);
+    }).catch((error) => {
+        res.status(500).send(error);
+    })
+})
