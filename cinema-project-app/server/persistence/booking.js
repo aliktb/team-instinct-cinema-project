@@ -11,6 +11,6 @@ const bookingSchema = new Schema({
     seats: [seatSchema]
 })
 
-const Booking = model(Booking, bookingSchema);
+const Booking = model('Booking', bookingSchema);
 
 module.exports = { 'Booking': Booking }
