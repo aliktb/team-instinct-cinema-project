@@ -1,14 +1,9 @@
 import "./css/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-
 import TestAPIPage from "./pages/TestAPIPage";
-<<<<<<< HEAD
-import Navigationbar from "./component/Navigationbar";
+import Navigationbar from "./components/Navigationbar";
 import Homepage from "./pages/Homepage";
-=======
-import Background from "./Components/Background";
->>>>>>> origin/dev
 
 function App() {
   return (
