@@ -53,3 +53,13 @@ router.post('/create', (req, res, next) => {
         res.status(500).send(error);
     })
 })
+
+router.delete('/delete/:id', (req, res) => {
+    Movie.findByIdAndDelete(req.params.id, (error, result) => {
+        if (error) {
+            res.status(404).send(error.message);
+        } else {
+            res.status(204).send(`Movie: ${req.params.id} deleted successfully`);
+        }
+    })
+})
