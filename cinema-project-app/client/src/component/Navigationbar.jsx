@@ -60,11 +60,18 @@ const Navigationbar = () => {
                             </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
-                                    getting here
+                                    about us
                                 </DropdownItem>
                                 <DropdownItem>
-                                    places to go
+                                    Getting here
                                 </DropdownItem>
+                                <DropdownItem>
+                                    Places to go
+                                </DropdownItem>
+                                <DropdownItem>
+                                    Contact us
+                                </DropdownItem>
+
                                 <DropdownItem divider />
                                 <DropdownItem>
 
