@@ -3,12 +3,19 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
 import TestAPIPage from "./pages/TestAPIPage";
+<<<<<<< HEAD
+import Navigationbar from "./component/Navigationbar";
+import Homepage from "./pages/Homepage";
+=======
 import Background from "./Components/Background";
+>>>>>>> origin/dev
 
 function App() {
   return (
     <div>
-      <Router>
+      <Navigationbar />
+      <Homepage />
+      {/* <Router>
         <Routes>
           <Route
             path="/"
@@ -18,7 +25,7 @@ function App() {
           <Route path="test" element={<TestAPIPage />}></Route>
           <Route path="background" element={<Background />}></Route>
         </Routes>
-      </Router>
+      </Router> */}
     </div>
   );
 }
