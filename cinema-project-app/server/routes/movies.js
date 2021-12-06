@@ -13,3 +13,13 @@ router.get('/', (req, res, next) => {
         }
     })
 })
+
+router.get('/title/:title', (req, res, next) => {
+    Movie.find({ "title": `/${req.params.title}/` }, (error, movies) => {
+        if (error) {
+            console.error(error);
+        } else {
+            res.status(200).send(movies);
+        }
+    })
+})
