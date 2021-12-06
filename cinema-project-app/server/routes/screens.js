@@ -51,3 +51,15 @@ router.delete('/delete/:id', (req, res, next) => {
         }
     })
 })
+
+router.put('/update/:id', (req, res, next) => {
+    Screen.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, result) => {
+        if (error) {
+            res.send(error);
+        } else {
+            res.status(202).send(result);
+        }
+    })
+})
+
+module.exports = router;
