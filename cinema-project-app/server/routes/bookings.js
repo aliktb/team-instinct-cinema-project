@@ -14,12 +14,21 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/ref/:ref', (req, res, next) => {
-    Movie.findOne({ "bookingRef": req.params.ref }, (error, movies) => {
-
+    Movie.findOne({ "bookingRef": req.params.ref }, (error, result) => {
         if (error) {
             res.send(error);
         } else {
-            res.status(200).send(movies);
+            res.status(200).send(result);
+        }
+    })
+})
+
+router.get('/:id', (req, res, next) => {
+    Movie.findById(req.params.id, (error, result) => {
+        if (error) {
+            res.send(error);
+        } else {
+            res.status(200).send(result);
         }
     })
 })
