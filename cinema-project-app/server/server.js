@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 //test API router setup
 const testAPIRouter = require("./routes/testAPI");
+const bookingRouter = require("./routes/bookings")
 const moviesRouter = require('./routes/movies');
 const PORT = process.env.PORT || 3001;
 
@@ -31,6 +32,7 @@ app.use(express.json());
 
 // app.use("/testAPI", testAPIRouter);
 
+app.use('/bookings', bookingRouter);
 app.use('/movies', moviesRouter);
 
 app.get("/api", (req, res) => {
