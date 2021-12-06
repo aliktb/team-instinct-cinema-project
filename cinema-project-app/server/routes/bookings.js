@@ -3,7 +3,7 @@ const { Booking } = require('../persistence/booking')
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    Movie.find((error, bookings) => {
+    Booking.find((error, bookings) => {
         if (error) {
             console.error(error);
             res.send(error)
@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/ref/:ref', (req, res, next) => {
-    Movie.findOne({ "bookingRef": req.params.ref }, (error, result) => {
+    Booking.findOne({ "bookingRef": req.params.ref }, (error, result) => {
         if (error) {
             res.send(error);
         } else {
@@ -24,11 +24,21 @@ router.get('/ref/:ref', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    Movie.findById(req.params.id, (error, result) => {
+    Booking.findById(req.params.id, (error, result) => {
         if (error) {
             res.send(error);
         } else {
             res.status(200).send(result);
         }
+    })
+})
+
+router.post('/create', (req, res, next) => {
+    const booking = new Booking(req.body);
+    booking.save().then((result) => {
+        JSON.stringify(result)
+        res.status(201).send(result);
+    }).catch((error) => {
+        res.status(500).send(error);
     })
 })
