@@ -47,10 +47,9 @@ router.get('/:id', (req, res, next) => {
 router.post('/create', (req, res, next) => {
     const movie = new Movie(req.body);
     movie.save().then((result) => {
-        JSON.stringify((result) => {
-            res.status(201).send(result);
-        }).catch((error) => {
-            res.status(500).send(error);
-        })
+        JSON.stringify(result)
+        res.status(201).send(result);
+    }).catch((error) => {
+        res.status(500).send(error);
     })
 })
