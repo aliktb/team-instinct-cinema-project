@@ -8,6 +8,7 @@ router.get('/', (req, res, next) => {
     Movie.find((error, movies) => {
         if (error) {
             console.error(error);
+            res.send(error)
         } else {
             res.status(200).send(movies);
         }
@@ -15,9 +16,11 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/title/:title', (req, res, next) => {
-    Movie.find({ "title": `/${req.params.title}/` }, (error, movies) => {
+    const search = `/${req.params.title}/i`
+    Movie.find({ "title": { $regex: req.params.title, $options: "i" } }, (error, movies) => {
+
         if (error) {
-            console.error(error);
+            res.send(error);
         } else {
             res.status(200).send(movies);
         }
@@ -25,9 +28,9 @@ router.get('/title/:title', (req, res, next) => {
 })
 
 router.get('/tag/:tag', (req, res, next) => {
-    Movie.find({ "tags": `/${req.params.tag}/` }, (error, movies) => {
+    Movie.find({ tags: { $regex: req.params.tag, $options: "i" } }, (error, movies) => {
         if (error) {
-            console.error(error);
+            res.send(error);
         } else {
             res.status(200).send(movies);
         }

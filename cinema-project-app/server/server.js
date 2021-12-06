@@ -26,7 +26,10 @@ mongoose.connect(database, { useNewUrlParser: true }).then(
 );
 
 //middleware to use testAPIROuter
-app.use("/testAPI", testAPIRouter);
+
+app.use(express.json());
+
+// app.use("/testAPI", testAPIRouter);
 
 app.use('/movies', moviesRouter);
 
