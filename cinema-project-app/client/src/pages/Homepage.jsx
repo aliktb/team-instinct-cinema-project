@@ -1,8 +1,6 @@
 import "../css/generic.css";
 //import "../css/Background.css"
 
-
-
 const Homepage = () => {
     return (
         <div>
