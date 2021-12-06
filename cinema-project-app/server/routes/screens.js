@@ -13,7 +13,17 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    Screen.find(req.params.id, (error, result) => {
+    Screen.findById(req.params.id, (error, result) => {
+        if (error) {
+            res.status(error.status).send(error);
+        } else {
+            res.status(200).send(result);
+        }
+    })
+})
+
+router.get('/name/:name', (req, res, next) => {
+    Screen.find({ "name": req.params.name }, (error, result) => {
         if (error) {
             res.status(error.status).send(error);
         } else {
