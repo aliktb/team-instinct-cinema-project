@@ -8,7 +8,6 @@ const Homepage = () => {
             <h2> Cinematic Cinemas, here for all your entertainment needs </h2>
             <h3> Come and catch up on the latest movies!</h3>
 
-            {/* {backgroundImage:`../resources/cinemaBG` }; */}
 
 
 
