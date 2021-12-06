@@ -35,11 +35,11 @@ router.get('/tag/:tag', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    Movie.findById(req.params.id, (error, movies) => {
+    Movie.findById(req.params.id, (error, result) => {
         if (error) {
             console.error(error);
         } else {
-            res.status(200).send(movies);
+            res.status(200).send(result);
         }
     })
 })
@@ -54,12 +54,22 @@ router.post('/create', (req, res, next) => {
     })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', (req, res, next) => {
     Movie.findByIdAndDelete(req.params.id, (error, result) => {
         if (error) {
             res.status(404).send(error.message);
         } else {
             res.status(204).send(`Movie: ${req.params.id} deleted successfully`);
+        }
+    })
+})
+
+router.put('/update/:id', (req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, result) => {
+        if (error) {
+            res.send(error);
+        } else {
+            res.status(202).send(result);
         }
     })
 })
