@@ -11,3 +11,13 @@ router.get('/', (req, res, next) => {
         }
     })
 })
+
+router.get('/:id', (req, res, next) => {
+    Screen.find(req.params.id, (error, result) => {
+        if (error) {
+            res.status(error.status).send(error);
+        } else {
+            res.status(200).send(result);
+        }
+    })
+})
