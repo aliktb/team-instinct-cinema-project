@@ -43,7 +43,7 @@ const Navigationbar = () => {
 
                         <NavItem>
                             <NavLink href="....">
-
+                                Film Classifications
                             </NavLink>
                         </NavItem>
 
@@ -69,7 +69,13 @@ const Navigationbar = () => {
                                     Places to go
                                 </DropdownItem>
                                 <DropdownItem>
+
                                     Contact us
+                                </DropdownItem>
+
+                                <DropdownItem>
+
+                                    Help
                                 </DropdownItem>
 
                                 <DropdownItem divider />
