@@ -1,15 +1,16 @@
 import { Navbar, NavLink, NavItem, UncontrolledDropdown, DropdownItem, NavbarText, NavbarBrand, NavbarToggler, DropdownToggle, Collapse, Nav, DropdownMenu } from 'reactstrap';
-
+import '../css/Navigationbar.css';
 
 const Navigationbar = () => {
     return (
         <div>
+        <header>
             <Navbar
                 color="light"
                 expand="md"
                 light
             >
-                <NavbarBrand href="/">
+                <NavbarBrand class="logo" href="/">
                     Cinematic
                 </NavbarBrand>
                 <NavbarToggler onClick={function noRefCheck() { }} />
@@ -18,26 +19,26 @@ const Navigationbar = () => {
                         className="me-auto"
                         navbar
                     >
-                        <NavItem>
-                            <NavLink href="/components/">
-                                Listing Gallery
+                            <NavItem>
+                                <NavLink href="/components/">
+                                <li href="#"><a>Listing Gallery</a></li>
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="....">
-                                New Listings
-                            </NavLink>
-                        </NavItem>
-
-                        <NavItem>
-                            <NavLink href="....">
-                                Bookings
+                                <li href="#"><a>New Listings</a></li>
                             </NavLink>
                         </NavItem>
 
                         <NavItem>
                             <NavLink href="....">
-                                Discussion Board
+                            <li href="#"><a>Bookings</a></li>
+                            </NavLink>
+                        </NavItem>
+
+                        <NavItem>
+                            <NavLink href="....">
+                                <li href="#"><a>Dsicussion Board</a></li>
                             </NavLink>
                         </NavItem>
 
@@ -45,6 +46,7 @@ const Navigationbar = () => {
                             <NavLink href="....">
                                 Film Classifications
                             </NavLink>
+                            
                         </NavItem>
 
 
@@ -90,8 +92,8 @@ const Navigationbar = () => {
                     </NavbarText>
                 </Collapse>
             </Navbar>
+    </header>
         </div>
-
 
 
     );
