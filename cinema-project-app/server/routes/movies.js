@@ -33,3 +33,13 @@ router.get('/tag/:tag', (req, res, next) => {
         }
     })
 })
+
+router.get('/:id', (req, res, next) => {
+    Movie.findById(req.params.id, (error, movies) => {
+        if (error) {
+            console.error(error);
+        } else {
+            res.status(200).send(movies);
+        }
+    })
+})
