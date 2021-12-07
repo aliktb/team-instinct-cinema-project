@@ -20,7 +20,7 @@ const DiscussionBoard = () => {
 
         .then((response) => setApiResponse1(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/blade")
 
         .then((response) => setApiResponse2(response.data[0]));
       axios

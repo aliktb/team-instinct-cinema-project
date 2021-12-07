@@ -2,12 +2,15 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import axios from "axios";
 import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
-import StarRating from "../Components/StarRating";
 
-const NewDiscussionPost = () => {
-  const [newPost, setNewPost] = useState({});
-
-  let newPostObj = { name: "", text: "", movieId: "", thread: "", rating: "" };
+const NewDiscussionPost = (movieIdParam) => {
+  let newPostObj = {
+    name: "",
+    text: "",
+    movieId: { movieIdParam }.movieIdParam.movieIdParam,
+    thread: "",
+    rating: "",
+  };
 
   return (
     <div style={{ maxWidth: "500px" }} className="center">
@@ -19,7 +22,7 @@ const NewDiscussionPost = () => {
             name="Name"
             placeholder="Enter name"
             type="text"
-            onChange={newPostObj.name}
+            onChange={(e) => (newPostObj.name = e.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -30,18 +33,35 @@ const NewDiscussionPost = () => {
             type="textarea"
             rows="5"
             placeholder="Insert comment here"
+            onChange={(e) => (newPostObj.text = e.target.value)}
           />
         </FormGroup>
-        <ReactStars {...StarRating} />
+        <ReactStars
+          {...{
+            size: 50,
+            count: 5,
+            color: "grey",
+            activeColor: "yellow",
+            value: 0,
+
+            isHalf: true,
+
+            onChange: (e) => {
+              console.log(e);
+              newPostObj.rating = e;
+              console.log(newPostObj);
+            },
+          }}
+        />
         <Button
           color="primary"
           onClick={() => {
-            setNewPost(newPostObj);
-
+            console.log(newPostObj);
             axios
-              .post("http://localhost:3000/posts/create", newPost)
+              .post("http://localhost:3000/posts/create", newPostObj)
               .then(function (response) {
                 console.log(response);
+                console.log(newPostObj);
               })
               .catch(function (error) {
                 console.log(error);

@@ -2,26 +2,32 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NewDiscussionPost from "../Components/NewDisussionPost";
+import DiscussionPostCard from "../Components/DiscussionPostCard";
 
 const DiscussionPage = () => {
   const params = useParams();
-  const [posts, setPosts] = useState();
+  const [data, setData] = useState([]);
 
-  console.log(params);
+  console.log(params.movieId);
 
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       axios
-  //         .get("http://localhost:3001/movies/title/Lord")
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get(`http://localhost:3001/posts/movie/${params.movieId}`)
 
-  //         .then((response) => setPosts(response.data[0]));
-  //     }, 500);
-  //   }, []);
+        .then((response) => setData(response.data));
+    }, 1000);
+  }, []);
 
   return (
     <div>
-      <p>{params.title}</p>
-      <NewDiscussionPost />
+      <p>{params.movieId}</p>
+      <NewDiscussionPost movieIdParam={params.movieId} />
+      <div>
+        {data.map((postData) => (
+          <DiscussionPostCard post={postData} />
+        ))}
+      </div>
     </div>
   );
 };

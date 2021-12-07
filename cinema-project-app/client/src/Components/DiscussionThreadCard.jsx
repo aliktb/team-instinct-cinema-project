@@ -29,7 +29,7 @@ const DiscussionThreadCard = ({ title, rating, movieId }) => {
             bulk of the card's content.
           </CardText>
           <Link to={`${movieId}`}>
-            <Button>Go to thread</Button>
+            <Button color="primary">Go to thread</Button>
           </Link>
         </CardBody>
       </Card>
