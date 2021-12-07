@@ -72,14 +72,6 @@ const Navigationbar = () => {
                                     Contact us
                                 </DropdownItem>
 
-                                <DropdownItem href="/Help">
-                                    Help
-                                </DropdownItem>
-
-                                <DropdownItem divider />
-                                <DropdownItem>
-
-                                </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>

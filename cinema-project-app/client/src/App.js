@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import TestAPIPage from "./pages/TestAPIPage";
 
-import GettingThere from "./pages/GettingThere";
+import GettingHere from "./pages/GettingHere";
 
-import Navigationbar from "./components/Navigationbar";
+import Navigationbar from "./Components/Navigationbar";
 import Homepage from "./pages/Homepage";
 
-import Help from "./pages/Help";
+
 
 
 function App() {
@@ -28,10 +28,10 @@ function App() {
             <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route>
             <Route path="/Film_Classification" element={<FilmClass />}></Route>
             <Route path="/About" element={<AboutUs />}></Route> */}
-            <Route path="/Getting_Here" element={<GettingThere />}></Route>
+            <Route path="/Getting_Here" element={<GettingHere />}></Route>
             {/* <Route path="/Places_to_go" element={<Places />}></Route> */}
             {/* <Route path="/Contact_us" element={<Contact />}></Route> */}
-            <Route path="/Help" element={<Help />}></Route>
+
 
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
