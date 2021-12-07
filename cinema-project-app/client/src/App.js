@@ -3,21 +3,19 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import TestAPIPage from "./pages/TestAPIPage";
 
+
 import GettingHere from "./pages/GettingHere";
 
 import Navigationbar from "./Components/Navigationbar";
 import Homepage from "./pages/Homepage";
+import Newlistings from "./pages/NewListings";
 import FilmClass from "./pages/FilmClass";
-
 
 
 function App() {
   return (
     <div>
-
       <Navigationbar />
-
-
       <div>
         <Router>
           <Routes>
@@ -37,8 +35,6 @@ function App() {
           </Routes>
         </Router>
       </div>
-
-
     </div>
   );
 }
