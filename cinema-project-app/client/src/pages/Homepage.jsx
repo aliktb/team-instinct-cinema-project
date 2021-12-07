@@ -9,7 +9,7 @@ const Homepage = () => {
             <header>
 
             </header>
-            <h2> Cinematic Cinemas, here for all your entertainment needs </h2>
+            <h2> QA Cinemas, here for all your entertainment needs </h2>
             <h3> Come and catch up on the latest movies!</h3>
 
 

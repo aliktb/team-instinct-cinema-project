@@ -10,7 +10,7 @@ const Navigationbar = () => {
                 light
             >
                 <NavbarBrand href="/">
-                    Cinematic
+                    QA Cinemas
                 </NavbarBrand>
                 <NavbarToggler onClick={function noRefCheck() { }} />
                 <Collapse navbar>
