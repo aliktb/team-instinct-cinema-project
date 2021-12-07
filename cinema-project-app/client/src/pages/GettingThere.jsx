@@ -12,9 +12,7 @@ const GettingThere = () => {
           marginheight="0"
           marginwidth="0"
         ></iframe>
-        <a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/">
-          divi discount
-        </a>
+
         <br />
         <a href="https://www.embedgooglemap.net">google embed</a>
       </div>
