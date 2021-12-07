@@ -10,7 +10,7 @@ const Navigationbar = () => {
                 light
             >
                 <NavbarBrand href="/">
-                    Cinematic
+                    QA Cinemas
                 </NavbarBrand>
                 <NavbarToggler onClick={function noRefCheck() { }} />
                 <Collapse navbar>
@@ -19,30 +19,30 @@ const Navigationbar = () => {
                         navbar
                     >
                         <NavItem>
-                            <NavLink href="/components/">
+                            <NavLink href="/Listing_Gallery/">
                                 Listing Gallery
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/newlistings">
+                            <NavLink href="/New_Listings">
                                 New Listings
                             </NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="....">
+                            <NavLink href="/Bookings">
                                 Bookings
                             </NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="....">
+                            <NavLink href="/DiscussionBoard">
                                 Discussion Board
                             </NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="....">
+                            <NavLink href="/Film_Classification">
                                 Film Classifications
                             </NavLink>
                         </NavItem>
@@ -59,29 +59,19 @@ const Navigationbar = () => {
                                 About us
                             </DropdownToggle>
                             <DropdownMenu right>
-                                <DropdownItem>
+                                <DropdownItem href="/About">
                                     about us
                                 </DropdownItem>
-                                <DropdownItem>
+                                <DropdownItem href="/Getting_Here">
                                     Getting here
                                 </DropdownItem>
-                                <DropdownItem>
+                                <DropdownItem href="/Places_to_go">
                                     Places to go
                                 </DropdownItem>
-                                <DropdownItem>
-
+                                <DropdownItem href="/Contact_us">
                                     Contact us
                                 </DropdownItem>
 
-                                <DropdownItem>
-
-                                    Help
-                                </DropdownItem>
-
-                                <DropdownItem divider />
-                                <DropdownItem>
-
-                                </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>
