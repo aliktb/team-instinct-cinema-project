@@ -4,7 +4,7 @@ const FilmClass = () => {
         <div>
 
             <h2>Film Classifications</h2>
-            <p>Film classifications are decided by the British Board of Film Classification's (BBFC) published and regularly updated guidelines on viewer suitability.
+            <p>Film classifications are decided by the British Board of Film Classification's (BBFC) who publish and regularly update guidelines on viewer suitability.
                 BBFC Compliance Officers look at issues such as bad language, dangerous behaviour, discrimination, drugs, horror, nudity, sex, violence and sexual violence, when making recommendations. They also consider context, tone and impact - how it makes the audience feel.
             </p>
 
