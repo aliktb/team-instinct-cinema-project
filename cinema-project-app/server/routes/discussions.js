@@ -1,4 +1,5 @@
 const express = require('express');
+const { isValidObjectId } = require('mongoose');
 const { Discussion } = require('../persistence/discussion');
 const router = express.Router();
 
