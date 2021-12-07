@@ -36,3 +36,4 @@ update - posts/update/{id}
 delete - posts/delete/{id}
 get all - posts/
 get by id - posts/{id}
+get by movie id - posts/movie/{id}
