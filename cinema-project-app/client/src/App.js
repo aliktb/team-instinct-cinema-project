@@ -7,32 +7,38 @@ import GettingThere from "./pages/GettingThere";
 
 import Navigationbar from "./components/Navigationbar";
 import Homepage from "./pages/Homepage";
-<<<<<<< HEAD
-import Background from "./components/Background";
-import "./css/Background.css"
-=======
+
+import Help from "./pages/Help";
 
 
->>>>>>> 7e3c4413bd3b663f87ce8584e945747c24116bb8
 function App() {
   return (
     <div>
 
       <Navigationbar />
-      {/* <Background /> */}
-      <Homepage />
-      {/* <Router>
-        <Routes>
-          <Route
-            path="/"
-            exact
-            element={<p>change me from client/app.js</p>}
-          ></Route>
-          <Route path="getting_there" element={<GettingThere />}></Route>
-          <Route path="test" element={<TestAPIPage />}></Route>
-          <Route path="background" element={<Background />}></Route>
-        </Routes>
-      </Router> */}
+
+
+      <div>
+        <Router>
+          <Routes>
+            <Route path="/" exact element={<Homepage />}></Route>
+            {/* <Route path="/Listing_Gallery" element={<ListGallery />}></Route>
+            <Route path="/New_Listings" element={<NewListings />}></Route>
+            <Route path="/Bookings" element={<Bookings />}></Route>
+            <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route>
+            <Route path="/Film_Classification" element={<FilmClass />}></Route>
+            <Route path="/About" element={<AboutUs />}></Route> */}
+            <Route path="/Getting_Here" element={<GettingThere />}></Route>
+            {/* <Route path="/Places_to_go" element={<Places />}></Route> */}
+            {/* <Route path="/Contact_us" element={<Contact />}></Route> */}
+            <Route path="/Help" element={<Help />}></Route>
+
+            {/* <Route path="*" element={<NotFound />}></Route> */}
+          </Routes>
+        </Router>
+      </div>
+
+
     </div>
   );
 }
