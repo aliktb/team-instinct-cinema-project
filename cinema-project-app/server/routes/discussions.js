@@ -15,7 +15,18 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    Discussion.findById((error, result) => {
+    Discussion.findById(req.params.id, (error, result) => {
+        if (error) {
+            console.log(error);
+            res.send(error);
+        } else {
+            res.status(200).send(result)
+        }
+    })
+})
+
+router.get('/movie/:id', (req, res, next) => {
+    Discussion.findOne({ "movieId": req.params.id }, (error, result) => {
         if (error) {
             console.log(error);
             res.send(error);
