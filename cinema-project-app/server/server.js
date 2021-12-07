@@ -9,6 +9,7 @@ const testAPIRouter = require("./routes/testAPI");
 const bookingRouter = require("./routes/bookings")
 const moviesRouter = require('./routes/movies');
 const screenRouter = require('./routes/screens');
+const discussionRouter = require('./routes/discussions')
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -36,6 +37,7 @@ app.use(express.json());
 app.use('/bookings', bookingRouter);
 app.use('/movies', moviesRouter);
 app.use('/screens', screenRouter);
+app.use('/posts', discussionRouter)
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
