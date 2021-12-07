@@ -1,13 +1,18 @@
-import  NewCarousel  from "../Components/NewCarousel";
+import NewCarousel from "../Components/NewCarousel";
+import Newcard from "../Components/NewCard";
 
 const Newlistings = () => {
-    return ( 
-        <>
-            <h2> Welcome to the latest movies been shown currently!</h2>
-            <NewCarousel />
+  return (
+    <>
+      <br></br>
+      <h2> Welcome to QA Cinema's latest releases!</h2>
+      <br></br>
+      <NewCarousel />
+      <br></br>
+      <br></br>
+      <Newcard />
+    </>
+  );
+};
 
-        </>
-     );
-}
- 
 export default Newlistings;

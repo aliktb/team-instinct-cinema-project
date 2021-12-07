@@ -2,14 +2,17 @@ import "./css/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import TestAPIPage from "./pages/TestAPIPage";
-import Navigationbar from "./components/Navigationbar";
+import Navigationbar from "./Components/Navigationbar";
 import Homepage from "./pages/Homepage";
+import Newlistings from "./pages/NewListings";
+// import Background from "./Components/Background";
 
 function App() {
   return (
     <div>
-      <Navigationbar />
-      <Homepage />
+      <Navigationbar/>
+      {/* <Homepage/> */}
+      <Newlistings/>
       {/* <Router>
         <Routes>
           <Route

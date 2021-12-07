@@ -24,7 +24,7 @@ const Navigationbar = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="....">
+                            <NavLink href="/newlistings">
                                 New Listings
                             </NavLink>
                         </NavItem>
