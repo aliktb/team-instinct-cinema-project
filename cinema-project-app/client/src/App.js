@@ -3,14 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import TestAPIPage from "./pages/TestAPIPage";
 
-
 import GettingHere from "./pages/GettingHere";
 
 import Navigationbar from "./Components/Navigationbar";
 import Homepage from "./pages/Homepage";
 import NewListings from "./pages/NewListings";
 import FilmClass from "./pages/FilmClass";
-
+import Listingsgallery from "./pages/ListingsGallery";
 
 function App() {
   return (
@@ -20,7 +19,10 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" exact element={<Homepage />}></Route>
-            {/* <Route path="/Listing_Gallery" element={<ListGallery />}></Route> */}
+            <Route
+              path="/Listings_Gallery"
+              element={<Listingsgallery />}
+            ></Route>
             <Route path="/New_Listings" element={<NewListings />}></Route>
             {/* <Route path="/Bookings" element={<Bookings />}></Route>
             <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route> */}
@@ -29,7 +31,6 @@ function App() {
             <Route path="/Getting_Here" element={<GettingHere />}></Route>
             {/* <Route path="/Places_to_go" element={<Places />}></Route> */}
             {/* <Route path="/Contact_us" element={<Contact />}></Route> */}
-
 
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
