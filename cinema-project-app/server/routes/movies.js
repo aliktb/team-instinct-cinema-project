@@ -16,9 +16,17 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/title/:title', (req, res, next) => {
-    const search = `/${req.params.title}/i`
     Movie.find({ "title": { $regex: req.params.title, $options: "i" } }, (error, movies) => {
+        if (error) {
+            res.send(error);
+        } else {
+            res.status(200).send(movies);
+        }
+    })
+})
 
+router.get('/cast/:cast', (req, res, next) => {
+    Movie.find({ "cast": { $regex: req.params.cast, $options: "i" } }, (error, movies) => {
         if (error) {
             res.send(error);
         } else {
