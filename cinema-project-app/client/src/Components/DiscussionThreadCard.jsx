@@ -11,7 +11,12 @@ import {
 } from "reactstrap";
 import { useEffect } from "react";
 
-const DiscussionThreadCard = ({ title, rating, movieId }) => {
+const DiscussionThreadCard = ({
+  title,
+  rating,
+  movieId,
+  threadDescription,
+}) => {
   //   const newTitle = filmA.rating;
 
   useEffect(() => {
@@ -23,11 +28,8 @@ const DiscussionThreadCard = ({ title, rating, movieId }) => {
       <Card>
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
-          <CardText>{rating}</CardText>
-          <CardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </CardText>
+          <CardText>Rating: {rating}</CardText>
+          <CardText>{threadDescription}</CardText>
           <Link to={`${movieId}`}>
             <Button color="primary">Go to thread</Button>
           </Link>

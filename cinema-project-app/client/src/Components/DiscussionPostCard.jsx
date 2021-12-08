@@ -63,15 +63,89 @@ const DiscussionPostCard = (props) => {
         <Card>
           <CardBody>
             <CardTitle tag="h5">{post.name}</CardTitle>
-            <CardSubtitle className="mb-2 text-muted" tag="h6">
-              Card subtitle
-            </CardSubtitle>
+
             <CardText>{post.text}</CardText>
 
-            <Button onClick={handleDeletePost}>Delete</Button>
-            <Button>Update</Button>
+            <Button color="success" outline onClick={toggle}>
+              Update
+            </Button>
+
+            <Button
+              color="danger"
+              onClick={toggleDeleteModal}
+              className="float-end"
+            >
+              Delete
+            </Button>
           </CardBody>
         </Card>
+
+        <Modal isOpen={modal} toggle={toggle}>
+          <ModalHeader toggle={toggle}>Update Post</ModalHeader>
+          <ModalBody>
+            <FormGroup>
+              <Label for="authorName">Name</Label>
+              <Input
+                id="authorName"
+                name="Name"
+                placeholder="Enter name"
+                type="text"
+                defaultValue={post.name}
+                onChange={(e) => (post.name = e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="commentBox">Comment</Label>
+              <Input
+                id="commentBox"
+                name="text"
+                type="textarea"
+                rows="5"
+                placeholder="Insert comment here"
+                defaultValue={post.text}
+                onChange={(e) => (post.text = e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="ratingInput">Rating</Label>
+              <ReactStars
+                id="ratingInput"
+                {...{
+                  size: 50,
+                  count: 5,
+                  color: "grey",
+                  activeColor: "gold",
+                  value: post.rating,
+                  isHalf: true,
+                  onChange: (e) => {
+                    console.log(e);
+                    post.rating = e;
+                    console.log(post);
+                  },
+                }}
+              />
+            </FormGroup>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={handleUpdatePost}>
+              Do Something
+            </Button>{" "}
+            <Button onClick={toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+
+        <Modal isOpen={deleteModal} toggle={toggleDeleteModal}>
+          <ModalHeader toggle={toggleDeleteModal}>Delete Post</ModalHeader>
+          <ModalBody>
+            Are you sure you want to delete? This operation is irreversible!
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" onClick={handleDeletePost}>
+              Delete
+            </Button>{" "}
+            <Button onClick={toggleDeleteModal}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   } else {
@@ -154,7 +228,7 @@ const DiscussionPostCard = (props) => {
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={handleUpdatePost}>
-              Do Something
+              Update
             </Button>{" "}
             <Button onClick={toggle}>Cancel</Button>
           </ModalFooter>

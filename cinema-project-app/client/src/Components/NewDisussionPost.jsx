@@ -1,4 +1,4 @@
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import axios from "axios";
 import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 
 const NewDiscussionPost = (props) => {
   let movieIdParam = props;
+
   let newPostObj = {
     name: "",
     text: "",

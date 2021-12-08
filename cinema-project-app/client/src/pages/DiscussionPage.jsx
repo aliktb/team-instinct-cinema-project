@@ -4,16 +4,28 @@ import axios from "axios";
 import NewDiscussionPost from "../Components/NewDisussionPost";
 import DiscussionPostCard from "../Components/DiscussionPostCard";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const DiscussionPage = () => {
   const params = useParams();
   const [data, setData] = useState([]);
+  const [movie, setMovie] = useState("");
   const [deleteState, setDeleteState] = useState(0);
   const [, updateState] = useState();
 
   const forceUpdate = useCallback(() => updateState({}), []);
 
   console.log(params.movieId);
+
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get(`http://localhost:3001/movies/${params.movieId}`)
+
+        .then((response) => setMovie(response.data));
+      console.log(movie);
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,7 +53,15 @@ const DiscussionPage = () => {
   return (
     <div>
       <div id="discussionPageDiv">
-        <p>{params.movieId}</p>
+        <div>
+          <h2 style={{ textAlign: "center" }}>Thread</h2>
+          <h3 style={{ textAlign: "center" }}>{movie.title} Thread</h3>
+        </div>
+        <div className="center" style={{ maxWidth: "500px" }}>
+          <Link to="/DiscussionBoard">
+            <Button>&larr; Back to Discussion Board</Button>
+          </Link>
+        </div>
         <NewDiscussionPost
           movieIdParam={params.movieId}
           onDelete={updateList}
