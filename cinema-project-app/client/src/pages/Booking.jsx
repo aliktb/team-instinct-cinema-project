@@ -6,7 +6,6 @@ import seatClicked from '../resources/booking/chairHover.png';
 import seatHover from '../resources/booking/chairSelected.png';
 import { useEffect, useState } from "react";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown } from "reactstrap";
-import BookingDetails from "../Components/BookingDetails";
 
 const Booking = () => {
 
@@ -17,7 +16,8 @@ const Booking = () => {
         children: 0,
         adults: 0,
         movieTitle: "",
-        screen: ""
+        screen: "",
+        total: 0
     }
 
     const [bookingDetails, setBookingDetails] = useState(bookingObject);
@@ -30,6 +30,7 @@ const Booking = () => {
     const [paymentButton, setPaymentButton] = useState(<></>);
     const [bookButton, setBookButton] = useState();
     const [confirmation, setConfirmation] = useState(false)
+    const [children, setChildren] = useState(0);
 
     const [allMovies, setAllMovies] = useState([]);
 
@@ -108,20 +109,29 @@ const Booking = () => {
             let localSeating;
             console.log(operation);
             if (operation == "add") {
-                localSeating = seatArray;
+                localSeating = tempObj.seats;
                 localSeating.push(seat)
                 tempObj.adults = tempObj.adults + 1;
             } else {
-                localSeating = seatArray;
+                localSeating = tempObj.seats;
                 let seatForDeletion = localSeating.indexOf(seat);
                 localSeating.splice(seatForDeletion, 1);
                 tempObj.adults = tempObj.adults - 1;
             }
+            tempObj.seats = localSeating;
+            console.log(tempObj.seats)
+            while (bookingDetails.children > localSeating.length) {
+                console.log("test")
+                tempObj.adults = tempObj.adults + 1;
+                tempObj.children = tempObj.children - 1;
+            }
+            setChildren(tempObj.children);
+            console.log(tempObj);
+            tempObj.total = ((bookingDetails.adults * 10.99) + (bookingDetails.children * 4.99)).toFixed(2);
             setBookingDetails(tempObj);
-            setSeatArray(localSeating);
             if (localSeating.length > 0) {
                 setPaymentButton(
-                    <Button>Pay now</Button>
+                    <Button onClick>Pay now</Button>
                 )
             } else {
                 setPaymentButton(
@@ -153,18 +163,33 @@ const Booking = () => {
             }
         })
 
+        let childrenUpdate = (e) => {
+
+            let tempObj = bookingDetails;
+            tempObj.adults = tempObj.seats.length;
+            tempObj.children = 0;
+            tempObj.adults = tempObj.adults - Number(e.target.value);
+            tempObj.children = tempObj.children + Number(e.target.value);
+            tempObj.total = ((bookingDetails.adults * 10.99) + (bookingDetails.children * 4.99)).toFixed(2);
+            setBookingDetails(tempObj);
+            console.log(tempObj)
+            setChildren(e.target.value)
+        }
 
         return (
             <div>
                 <div style={{ display: "flex" }}>
                     <div style={{ width: "300px" }}>
-                        <BookingDetails seats={seatArray} booking={bookingDetails} setBooking={setBookingDetails} />
+                        {/* <BookingDetails seats={seatArray} booking={bookingDetails} setBooking={setBookingDetails} /> */}
                         <div>
                             {bookingDetails.screen}<br></br>
                             {bookingDetails.movieTitle}<br></br>
+                            selected seats:<br></br>
+                            {bookingDetails.seats.map((seat) => { return <>{seat}, </> })}<br></br>
                             Adults: {bookingDetails.adults}<br></br>
-                            Children: {bookingDetails.children}<br></br>
-                            Total: £{(bookingDetails.adults * 10.99) + (bookingDetails.children * 4.99)}
+                            Children: {children}<br></br>
+                            <input type="range" max={bookingDetails.seats.length} onChange={(e) => { childrenUpdate(e) }} /><br></br>
+                            Total: £{bookingDetails.total}
                         </div>
                     </div>
                     <div style={{ position: "relative", width: "50%" }}>
@@ -176,7 +201,7 @@ const Booking = () => {
                     </div>
                 </div>
                 {paymentButton}
-                <Button onClick={() => { setConfirmation(false); }}>Cancel</Button>
+                <Button onClick={() => { setBookingDetails(bookingObject); setSeatArray([]); setConfirmation(false); }}>Cancel</Button>
             </div >
         )
 
