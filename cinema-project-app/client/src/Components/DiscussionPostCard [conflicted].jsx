@@ -29,8 +29,6 @@ const DiscussionPostCard = (props) => {
   const toggle = () => setModal(!modal);
   const toggleDeleteModal = () => setDeleteModal(!deleteModal);
 
-  console.log(props);
-
   const handleUpdatePost = (e) => {
     e.preventDefault();
     console.log("test");
@@ -41,7 +39,6 @@ const DiscussionPostCard = (props) => {
 
     console.log(`post updated : ${post}`);
     toggle();
-    props.onDelete();
   };
 
   const handleDeletePost = (e) => {
@@ -53,8 +50,6 @@ const DiscussionPostCard = (props) => {
       .then((response) => console.log(response));
     console.log("post deleted");
     console.log(deleteState);
-    toggleDeleteModal();
-    props.onDelete();
   };
 
   if (post.rating == null) {
@@ -78,9 +73,11 @@ const DiscussionPostCard = (props) => {
     return (
       <div style={{ maxWidth: "500px" }} className="center">
         <Card>
-          <CardBody>
+          <CardBody id="cardBodyId">
             <CardTitle tag="h5">{post.name}</CardTitle>
-
+            <CardSubtitle className="mb-2 text-muted" tag="h6">
+              Card subtitle
+            </CardSubtitle>
             <CardText>{post.text}</CardText>
             <ReactStars
               {...{
@@ -92,17 +89,37 @@ const DiscussionPostCard = (props) => {
               }}
             />
 
-            <Button color="success" outline onClick={toggle}>
+            <Button color="success" onClick={toggle}>
               Update
             </Button>
 
-            <Button
-              color="danger"
-              onClick={toggleDeleteModal}
-              className="float-end"
-            >
-              Delete
-            </Button>
+            <Button onClick={handleDeletePost}>Delete</Button>
+            <div>
+              <Button color="danger" onClick={function noRefCheck() {}}>
+                Click Me
+              </Button>
+              <Modal toggle={function noRefCheck() {}}>
+                <ModalHeader toggle={function noRefCheck() {}}>
+                  Modal title
+                </ModalHeader>
+                <ModalBody>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="primary" onClick={function noRefCheck() {}}>
+                    Do Something
+                  </Button>{" "}
+                  <Button onClick={function noRefCheck() {}}>Cancel</Button>
+                </ModalFooter>
+              </Modal>
+            </div>
           </CardBody>
         </Card>
 
@@ -160,18 +177,28 @@ const DiscussionPostCard = (props) => {
           </ModalFooter>
         </Modal>
 
-        <Modal isOpen={deleteModal} toggle={toggleDeleteModal}>
-          <ModalHeader toggle={toggleDeleteModal}>Delete Post</ModalHeader>
-          <ModalBody>
-            Are you sure you want to delete? This operation is irreversible!
-          </ModalBody>
-          <ModalFooter>
-            <Button color="danger" onClick={handleDeletePost}>
-              Delete
-            </Button>{" "}
-            <Button onClick={toggleDeleteModal}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
+        <div>
+          <Modal toggle={function noRefCheck() {}}>
+            <ModalHeader toggle={function noRefCheck() {}}>
+              Modal title
+            </ModalHeader>
+            <ModalBody>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={function noRefCheck() {}}>
+                Do Something
+              </Button>{" "}
+              <Button onClick={function noRefCheck() {}}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+        </div>
       </div>
     );
   }

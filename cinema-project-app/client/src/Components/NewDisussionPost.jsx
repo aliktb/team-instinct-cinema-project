@@ -2,8 +2,10 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import axios from "axios";
 import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
+import { useParams } from "react-router";
 
-const NewDiscussionPost = (movieIdParam) => {
+const NewDiscussionPost = (props) => {
+  let movieIdParam = props;
   let newPostObj = {
     name: "",
     text: "",
@@ -36,23 +38,25 @@ const NewDiscussionPost = (movieIdParam) => {
             onChange={(e) => (newPostObj.text = e.target.value)}
           />
         </FormGroup>
-        <ReactStars
-          {...{
-            size: 50,
-            count: 5,
-            color: "grey",
-            activeColor: "yellow",
-            value: 0,
-
-            isHalf: true,
-
-            onChange: (e) => {
-              console.log(e);
-              newPostObj.rating = e;
-              console.log(newPostObj);
-            },
-          }}
-        />
+        <FormGroup>
+          <Label for="ratingInput">Rating</Label>
+          <ReactStars
+            id="ratingInput"
+            {...{
+              size: 50,
+              count: 5,
+              color: "grey",
+              activeColor: "gold",
+              value: 0,
+              isHalf: true,
+              onChange: (e) => {
+                console.log(e);
+                newPostObj.rating = e;
+                console.log(newPostObj);
+              },
+            }}
+          />
+        </FormGroup>
         <Button
           color="primary"
           onClick={() => {
@@ -66,6 +70,7 @@ const NewDiscussionPost = (movieIdParam) => {
               .catch(function (error) {
                 console.log(error);
               });
+            props.onDelete();
           }}
         >
           Submit post
