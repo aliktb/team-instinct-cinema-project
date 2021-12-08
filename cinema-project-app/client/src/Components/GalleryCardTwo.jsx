@@ -13,7 +13,7 @@ const GalleryCardTwo = () => {
   return (
     <>
       <CardGroup>
-        <Card>
+        <Card style={{ Maxwidth: "18rem" }} className="m-2">
           <CardImg
             alt="Card image cap"
             src="https://images.mymovies.net/images/film/cin/350x522/fid20689.jpg"
@@ -37,7 +37,7 @@ const GalleryCardTwo = () => {
             </Button>
           </CardBody>
         </Card>
-        <Card>
+        <Card style={{ Maxwidth: "18rem" }} className="m-2">
           <CardImg
             alt="Card image cap"
             src="https://images.mymovies.net/images/film/cin/350x522/fid21109.jpg?sc=.99"
@@ -62,7 +62,7 @@ const GalleryCardTwo = () => {
             </Button>
           </CardBody>
         </Card>
-        <Card>
+        <Card style={{ Maxwidth: "18rem" }} className="m-2">
           <CardImg
             alt="Card image cap"
             src="https://images.mymovies.net/images/film/cin/350x522/fid20291.jpg"
