@@ -32,7 +32,7 @@ const Newcard = () => {
               lead-in to additional content. This content is a little bit
               longer.
             </CardText>
-            <Button>Show More</Button>
+            <Button href="/Movie_One">Show More</Button>
           </CardBody>
         </Card>
         <br></br>
@@ -53,7 +53,7 @@ const Newcard = () => {
               lead-in to additional content. This content is a little bit
               longer.
             </CardText>
-            <Button>Show More</Button>
+            <Button href="/Movie_Two">Show More</Button>
           </CardBody>
         </Card>
         <br></br>
@@ -74,7 +74,7 @@ const Newcard = () => {
               lead-in to additional content. This content is a little bit
               longer.
             </CardText>
-            <Button>Show More</Button>
+            <Button href="/Movie_Three">Show More</Button>
           </CardBody>
         </Card>
         <br></br>
@@ -95,7 +95,7 @@ const Newcard = () => {
               lead-in to additional content. This content is a little bit
               longer.
             </CardText>
-            <Button>Show More</Button>
+            <Button href="/Movie_Four">Show More</Button>
           </CardBody>
         </Card>
       </CardColumns>

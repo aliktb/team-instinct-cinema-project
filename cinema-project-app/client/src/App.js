@@ -13,6 +13,10 @@ import FilmClass from "./pages/FilmClass";
 import Listingsgallery from "./pages/ListingsGallery";
 
 import AboutUs from "./pages/AboutUs";
+import MovieOne from "./pages/MovieOne";
+import MovieTwo from "./pages/MovieTwo";
+import MovieThree from "./pages/MovieThree";
+import MovieFour from "./pages/MovieFour";
 
 
 
@@ -29,6 +33,10 @@ function App() {
               element={<Listingsgallery />}
             ></Route>
             <Route path="/New_Listings" element={<NewListings />}></Route>
+            <Route path="/Movie_One" element={<MovieOne/>}></Route>
+            <Route path="/Movie_Two" element={<MovieTwo/>}></Route>
+            <Route path="/Movie_Three" element={<MovieThree/>}></Route>
+            <Route path="/Movie_Four" element={<MovieFour/>}></Route>
             {/* <Route path="/Bookings" element={<Bookings />}></Route>
             <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route> */}
             <Route path="/Film_Classification" element={<FilmClass />}></Route>

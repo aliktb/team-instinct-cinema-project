@@ -1,6 +1,6 @@
 import NewCarousel from "../Components/NewCarousel";
 import Newcard from "../Components/NewCard";
-import GalleryFooter from "../Components/GalleryCard";
+import GalleryFooter from "../Components/GalleryFooter";
 
 const Newlistings = () => {
   return (
