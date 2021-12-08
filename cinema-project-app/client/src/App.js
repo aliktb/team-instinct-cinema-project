@@ -10,6 +10,7 @@ import Navigationbar from "./Components/Navigationbar";
 import Homepage from "./pages/Homepage";
 import NewListings from "./pages/NewListings";
 import FilmClass from "./pages/FilmClass";
+import AboutUs from "./pages/AboutUs";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
             {/* <Route path="/Bookings" element={<Bookings />}></Route>
             <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route> */}
             <Route path="/Film_Classification" element={<FilmClass />}></Route>
-            {/* <Route path="/About" element={<AboutUs />}></Route> */}
+            <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/Getting_Here" element={<GettingHere />}></Route>
             {/* <Route path="/Places_to_go" element={<Places />}></Route> */}
             {/* <Route path="/Contact_us" element={<Contact />}></Route> */}
