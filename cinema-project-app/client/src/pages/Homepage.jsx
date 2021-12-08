@@ -1,7 +1,8 @@
 import "../css/generic.css";
-//import "../css/Background.css"
+import "../css/center.css"
 import { Badge } from "reactstrap";
 import cinemapic from "../resources/cinemaBg.jpeg";
+
 const Homepage = () => {
     return (
         <div>
@@ -9,7 +10,8 @@ const Homepage = () => {
             <header>
 
             </header>
-            <h2> QA Cinemas, here for all your entertainment needs </h2>
+
+            <h2><strong> QA Cinemas, Here For All Your Entertainment Needs</strong> </h2>
             <h3> Come and catch up on the latest movies!</h3>
 
 
@@ -24,7 +26,6 @@ const Homepage = () => {
                 </Badge>  </h3>
 
             </div>
-
 
             <div class="TopFilms">
                 <br>
