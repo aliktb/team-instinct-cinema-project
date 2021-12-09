@@ -51,6 +51,7 @@ const Navigationbar = () => {
                 <DropdownItem href="/Getting_Here">Getting here</DropdownItem>
                 <DropdownItem href="/Places_to_go">Places to go</DropdownItem>
                 <DropdownItem href="/Contact_us">Contact us</DropdownItem>
+                <DropdownItem href="/Opening_Times">Opening Times</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
