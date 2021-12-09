@@ -35,7 +35,7 @@ const Contact = () => {
                     <div className='row'>
                         <div className='col-12 text-center'>
                             <div className='contactForm'>
-                                <form onSubmit={handleSubmit} id='contact-form' noValidate>
+                                <form onSubmit={handleSubmit} id='contact-form' noValidate >
 
                                     <div className='row formRow'>
                                         <div className='col-6'>

@@ -43,6 +43,8 @@ function App() {
               element={<Listingsgallery />}
             ></Route>
             <Route path="/New_Listings" element={<NewListings />}></Route>
+
+
             <Route path="/Movie_One" element={<MovieOne/>}></Route>
             <Route path="/Movie_Two" element={<MovieTwo/>}></Route>
             <Route path="/Movie_Three" element={<MovieThree/>}></Route>
@@ -53,6 +55,7 @@ function App() {
               path="/DiscussionBoard"
               element={<DiscussionBoard />}
             ></Route>
+
             <Route
               path="/DiscussionBoard/:movieId"
               element={<DiscussionPage />}
@@ -66,7 +69,9 @@ function App() {
             <Route path="/Contact_us" element={<Contact />}></Route>
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
+
           <GalleryFooter/>
+
         </Router>
       </div>
     </div>
