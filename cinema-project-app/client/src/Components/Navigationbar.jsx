@@ -41,17 +41,21 @@ const Navigationbar = () => {
                 Film Classifications
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/Search">Search Films</NavLink>
+            </NavItem>
 
             <UncontrolledDropdown inNavbar nav>
               <DropdownToggle caret nav>
-                About us
+                MORE
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem href="/About">about us</DropdownItem>
+                <DropdownItem href="/About">About us</DropdownItem>
+                <DropdownItem href="/Opening_Times">Opening Times</DropdownItem>
+                <DropdownItem href="/Screens">Screens</DropdownItem>
                 <DropdownItem href="/Getting_Here">Getting here</DropdownItem>
                 <DropdownItem href="/Places_to_go">Places to go</DropdownItem>
                 <DropdownItem href="/Contact_us">Contact us</DropdownItem>
-                <DropdownItem href="/Opening_Times">Opening Times</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
