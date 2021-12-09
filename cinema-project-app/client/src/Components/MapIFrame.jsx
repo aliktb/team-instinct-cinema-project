@@ -8,7 +8,7 @@ const MapIFrame = () => {
           title="map"
           className="responsive-iframe"
           style={{
-            borderRadius: 60,
+            borderRadius: "1rem",
           }}
           id="gmap_canvas"
           src="https://maps.google.com/maps?q=buckingham%20palace&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -18,7 +18,10 @@ const MapIFrame = () => {
           marginwidth="0"
         ></iframe>
         <div>
-          <a href="https://www.embedgooglemap.net" style={{ fontSize: "10px" }}>
+          <a
+            href="https://www.embedgooglemap.net"
+            style={{ fontSize: "0.2rem" }}
+          >
             google embed
           </a>
         </div>

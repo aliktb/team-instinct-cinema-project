@@ -59,7 +59,14 @@ const DiscussionPostCard = (props) => {
 
   if (post.rating == null) {
     return (
-      <div style={{ maxWidth: "500px" }} className="center">
+      <div
+        style={{
+          maxWidth: "500px",
+          marginTop: "0.5rem",
+          marginBottom: "0.5rem",
+        }}
+        className="center"
+      >
         <Card>
           <CardBody>
             <CardTitle tag="h5">{post.name}</CardTitle>
@@ -150,7 +157,14 @@ const DiscussionPostCard = (props) => {
     );
   } else {
     return (
-      <div style={{ maxWidth: "500px" }} className="center">
+      <div
+        style={{
+          maxWidth: "500px",
+          marginTop: "0.5rem",
+          marginBottom: "0.5rem",
+        }}
+        className="center"
+      >
         <Card>
           <CardBody>
             <CardTitle tag="h5">{post.name}</CardTitle>
