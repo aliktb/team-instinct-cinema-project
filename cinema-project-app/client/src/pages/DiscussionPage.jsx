@@ -74,7 +74,7 @@ const DiscussionPage = () => {
           <Button
             onClick={updateList}
             className="center"
-            style={{ maxWidth: "400px" }}
+            style={{ maxWidth: "400px", marginBottom: "2rem" }}
           >
             Refresh Posts
           </Button>
