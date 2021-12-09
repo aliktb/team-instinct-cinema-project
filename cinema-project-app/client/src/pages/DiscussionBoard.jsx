@@ -58,7 +58,7 @@ const DiscussionBoard = () => {
             <th></th>
             <th></th>
             <th>
-              <h2>Discussion Board</h2>
+              <h2 className="display-4">Discussion Board</h2>
             </th>
             <th></th>
           </tr>

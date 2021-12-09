@@ -54,8 +54,12 @@ const DiscussionPage = () => {
     <div>
       <div id="discussionPageDiv">
         <div>
-          <h2 style={{ textAlign: "center" }}>Thread</h2>
-          <h3 style={{ textAlign: "center" }}>{movie.title} Thread</h3>
+          <h2 style={{ textAlign: "center" }} className="display-4">
+            Thread
+          </h2>
+          <h3 style={{ textAlign: "center" }} className="display-6">
+            {movie.title} Thread
+          </h3>
         </div>
         <div className="center" style={{ maxWidth: "500px" }}>
           <Link to="/DiscussionBoard">

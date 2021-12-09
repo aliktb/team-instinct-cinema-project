@@ -3,7 +3,9 @@ import MapIFrame from "../Components/MapIFrame";
 const GettingHere = () => {
   return (
     <div class="mx-2">
-      <h3>Getting Here</h3>
+      <h3 className="display-6" style={{ textAlign: "center" }}>
+        Getting Here
+      </h3>
       <div className="center mapouter">
         <img
           src="https://www.woodworkingnetwork.com/sites/default/files/usa_kebony_theatresquared_kristianalveo_hi_res-23.jpg"
