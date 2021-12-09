@@ -1,4 +1,3 @@
-import GalleryFooter from "../Components/GalleryFooter";
 import GalleryCard from "../Components/GalleryCard";
 import GalleryCardTwo from "../Components/GalleryCardTwo";
 import GalleryCarousel from "../Components/GalleryCarousel";
@@ -13,8 +12,6 @@ const Listingsgallery = () => {
       <GalleryCard />
       <br></br>
       <GalleryCardTwo />
-      <br></br>
-      <GalleryFooter />
     </>
   );
 };
