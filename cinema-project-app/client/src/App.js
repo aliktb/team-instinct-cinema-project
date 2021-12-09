@@ -22,13 +22,17 @@ import Booking from "./pages/Booking";
 import DiscussionBoard from "./pages/DiscussionBoard";
 import PlacesToGo from "./pages/PlacesToGo";
 import OpeningTimes from "./pages/OpeningTimes";
-import SearchPage from "./pages/SearchPage"
-
+import SearchPage from "./pages/SearchPage";
 
 import DiscussionPage from "./pages/DiscussionPage";
 import GalleryFooter from "./Components/GalleryFooter";
 import Contact from "./pages/Contact";
+import CheckoutForm from "./pages/CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
 
+import { Elements, CardElement } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
 function App() {
   return (
@@ -43,12 +47,15 @@ function App() {
               element={<Listingsgallery />}
             ></Route>
             <Route path="/New_Listings" element={<NewListings />}></Route>
-            <Route path="/Movie_One" element={<MovieOne/>}></Route>
-            <Route path="/Movie_Two" element={<MovieTwo/>}></Route>
-            <Route path="/Movie_Three" element={<MovieThree/>}></Route>
-            <Route path="/Movie_Four" element={<MovieFour/>}></Route>
+            <Route path="/Movie_One" element={<MovieOne />}></Route>
+            <Route path="/Movie_Two" element={<MovieTwo />}></Route>
+            <Route path="/Movie_Three" element={<MovieThree />}></Route>
+            <Route path="/Movie_Four" element={<MovieFour />}></Route>
             <Route path="/Bookings" element={<Booking />}></Route>
-            <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route>
+            <Route
+              path="/DiscussionBoard"
+              element={<DiscussionBoard />}
+            ></Route>
             <Route
               path="/DiscussionBoard"
               element={<DiscussionBoard />}
@@ -64,9 +71,22 @@ function App() {
             <Route path="/Places_to_go" element={<PlacesToGo />}></Route>
             <Route path="/Opening_Times" element={<OpeningTimes />}></Route>
             <Route path="/Contact_us" element={<Contact />}></Route>
+            <Route
+              path="/test"
+              exact
+              element={
+                <div>
+                  <Elements stripe={stripePromise}>
+                    <CardElement />
+                    <CheckoutForm />
+                  </Elements>
+                </div>
+              }
+            ></Route>
+
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
-          <GalleryFooter/>
+          <GalleryFooter />
         </Router>
       </div>
     </div>
