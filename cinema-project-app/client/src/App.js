@@ -14,8 +14,9 @@ import Listingsgallery from "./pages/ListingsGallery";
 
 import AboutUs from "./pages/AboutUs";
 import Booking from "./pages/Booking";
-
-
+import PlacesToGo from "./pages/PlacesToGo";
+import DiscussionBoard from "./pages/DiscussionBoard";
+import DiscussionPage from "./pages/DiscussionPage";
 
 function App() {
   return (
@@ -31,7 +32,14 @@ function App() {
             ></Route>
             <Route path="/New_Listings" element={<NewListings />}></Route>
             <Route path="/Booking" element={<Booking />}></Route>
-            <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route>
+            <Route
+              path="/DiscussionBoard"
+              element={<DiscussionBoard />}
+            ></Route>
+            <Route
+              path="/DiscussionBoard/:movieId"
+              element={<DiscussionPage />}
+            ></Route>
             <Route path="/Film_Classification" element={<FilmClass />}></Route>
             <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/Getting_Here" element={<GettingHere />}></Route>
