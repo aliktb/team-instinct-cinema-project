@@ -9,6 +9,7 @@ get all - movies/
 get by id - movies/{id}
 get by title - movies/title/{title}
 get by tag - movies/tag/{tag}
+get by cast - movies/cast/{name}
 
 booking routes
 
@@ -17,7 +18,7 @@ update - bookings/update/{id}
 delete - bookings/delete/{id}
 get all - bookings/
 get by id - bookings/{id}
-get by reference bookings/ref/{reference}
+get by reference - bookings/ref/{reference}
 
 screen routes
 
@@ -27,6 +28,7 @@ delete - screens/delete/{id}
 get all - screens/
 get by id - screens/{id}
 get by movie title - screens/title/{title}
+get by exact movie title - screens/title/e/{title}
 get by movie tag - screens/tag/{tag}
 
 discussion routes

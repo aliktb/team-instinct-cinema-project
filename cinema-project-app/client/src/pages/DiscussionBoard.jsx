@@ -20,11 +20,11 @@ const DiscussionBoard = () => {
 
         .then((response) => setApiResponse1(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/blade")
 
         .then((response) => setApiResponse2(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/2049")
 
         .then((response) => setApiResponse3(response.data[0]));
       axios
@@ -57,11 +57,26 @@ const DiscussionBoard = () => {
           <tr>
             <th></th>
             <th></th>
-            <th>Thread</th>
+            <th>
+              <h2>Discussion Board</h2>
+            </th>
             <th></th>
           </tr>
         </thead>
         <tbody>
+          {/* <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td>
+              <DiscussionThreadCard
+                title="General"
+                movieId="General12345678912345678"
+                rating="All ages welcome"
+                threadDescription="This a general thread where you can discuss any topics relating to our cinema, places to go nearby, and anything film related."
+              />
+            </td>
+            <td></td>
+          </tr> */}
           <tr>
             <th scope="row"></th>
             <td></td>
@@ -70,6 +85,7 @@ const DiscussionBoard = () => {
                 title={apiResponse1.title}
                 rating={apiResponse1.rating}
                 movieId={apiResponse1._id}
+                threadDescription={`This is a dedicated thread for ${apiResponse1.title}. Anyone brave enough to walk through the gates of Mordor, step this way. Just remember not to stare into the eye of Sauron.`}
               />
             </td>
             <td></td>
@@ -82,6 +98,7 @@ const DiscussionBoard = () => {
               title={apiResponse2.title}
               rating={apiResponse2.rating}
               movieId={apiResponse2._id}
+              threadDescription={`Any fans of the Original ${apiResponse2.title} this thread is for you.`}
             />
             <td></td>
           </tr>
@@ -93,6 +110,7 @@ const DiscussionBoard = () => {
               title={apiResponse3.title}
               rating={apiResponse3.rating}
               movieId={apiResponse3._id}
+              threadDescription={`Let's face it. You loved the original Bladerunner. You don't have high hopes for this one but any excuse to see Ryan Gosling right? Share your thoughts here.`}
             />
             <td></td>
           </tr>

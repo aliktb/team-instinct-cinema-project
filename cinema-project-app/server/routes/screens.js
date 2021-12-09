@@ -63,7 +63,7 @@ router.put('/update/:id', (req, res, next) => {
 })
 
 router.get('/title/:title', (req, res, next) => {
-    Movie.find({ "showings.movie.title": { $regex: req.params.title, $options: "i" } }, (error, showings) => {
+    Screen.find({ "showings.movie.title": { $regex: req.params.title, $options: "i" } }, (error, showings) => {
         if (error) {
             res.send(error);
         } else {
@@ -72,8 +72,18 @@ router.get('/title/:title', (req, res, next) => {
     })
 })
 
+router.get("/title/e/:title", (req, res, next) => {
+    Screen.find({ "showings.movie.title": req.params.title }, (error, showings) => {
+        if (error) {
+            res.status(404).send(error);
+        } else {
+            res.status(200).send(showings);
+        }
+    })
+})
+
 router.get('/tag/:tag', (req, res, next) => {
-    Movie.find({ "showings.movie.tags": { $regex: req.params.tag, $options: "i" } }, (error, showings) => {
+    Screen.find({ "showings.movie.tags": { $regex: req.params.tag, $options: "i" } }, (error, showings) => {
         if (error) {
             res.send(error);
         } else {
