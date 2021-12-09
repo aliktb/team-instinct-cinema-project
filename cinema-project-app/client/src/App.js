@@ -14,9 +14,14 @@ import Listingsgallery from "./pages/ListingsGallery";
 
 import AboutUs from "./pages/AboutUs";
 import Booking from "./pages/Booking";
-import PlacesToGo from "./pages/PlacesToGo";
+
 import DiscussionBoard from "./pages/DiscussionBoard";
+import PlacesToGo from "./pages/PlacesToGo";
+import OpeningTimes from "./pages/OpeningTimes";
+
+
 import DiscussionPage from "./pages/DiscussionPage";
+
 
 function App() {
   return (
@@ -36,14 +41,17 @@ function App() {
               path="/DiscussionBoard"
               element={<DiscussionBoard />}
             ></Route>
+
             <Route
               path="/DiscussionBoard/:movieId"
               element={<DiscussionPage />}
             ></Route>
+
             <Route path="/Film_Classification" element={<FilmClass />}></Route>
             <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/Getting_Here" element={<GettingHere />}></Route>
             <Route path="/Places_to_go" element={<PlacesToGo />}></Route>
+            <Route path="/Opening_Times" element={<OpeningTimes />}></Route>
             {/* <Route path="/Contact_us" element={<Contact />}></Route> */}
 
             {/* <Route path="*" element={<NotFound />}></Route> */}
