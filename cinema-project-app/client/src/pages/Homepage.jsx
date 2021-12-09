@@ -42,10 +42,7 @@ const Homepage = () => {
 
             </div>
 
-            <div>
-
-            <GalleryFooter/>
-            </div>
+           
 
             <footer>
 
