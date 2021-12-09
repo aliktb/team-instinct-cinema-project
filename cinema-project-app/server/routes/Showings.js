@@ -1,9 +1,9 @@
 const express = require('express');
-const { Screen } = require('../persistence/screen');
+const { Showing } = require('../persistence/Showing');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    Screen.find((error, screens) => {
+    Showing.find((error, screens) => {
         if (error) {
             res.status(error.status).send(error);
         } else {
@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    Screen.findById(req.params.id, (error, result) => {
+    Showing.findById(req.params.id, (error, result) => {
         if (error) {
             res.status(error.status).send(error);
         } else {
@@ -23,7 +23,7 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.get('/name/:name', (req, res, next) => {
-    Screen.find({ "name": req.params.name }, (error, result) => {
+    Showing.find({ "name": req.params.name }, (error, result) => {
         if (error) {
             res.status(error.status).send(error);
         } else {
@@ -33,8 +33,8 @@ router.get('/name/:name', (req, res, next) => {
 })
 
 router.post('/create', (req, res, next) => {
-    const screen = new Screen(req.body);
-    screen.save().then((result) => {
+    const showing = new Showing(req.body);
+    showing.save().then((result) => {
         JSON.stringify(result)
         res.status(201).send(result);
     }).catch((error) => {
@@ -43,7 +43,7 @@ router.post('/create', (req, res, next) => {
 })
 
 router.delete('/delete/:id', (req, res, next) => {
-    Screen.findByIdAndDelete(req.params.id, (error, result) => {
+    Showing.findByIdAndDelete(req.params.id, (error, result) => {
         if (error) {
             res.status(404).send(error.message);
         } else {
@@ -53,7 +53,7 @@ router.delete('/delete/:id', (req, res, next) => {
 })
 
 router.put('/update/:id', (req, res, next) => {
-    Screen.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, result) => {
+    Showing.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, result) => {
         if (error) {
             res.send(error);
         } else {
@@ -63,7 +63,7 @@ router.put('/update/:id', (req, res, next) => {
 })
 
 router.get('/title/:title', (req, res, next) => {
-    Screen.find({ "dates.showings.movie.title": { $regex: req.params.title, $options: "i" } }, (error, showings) => {
+    Showing.find({ "movie.title": { $regex: req.params.title, $options: "i" } }, (error, showings) => {
         if (error) {
             res.send(error);
         } else {
@@ -73,7 +73,7 @@ router.get('/title/:title', (req, res, next) => {
 })
 
 router.get("/title/e/:title", (req, res, next) => {
-    Screen.find({ "dates.showings.movie.title": req.params.title }, (error, showings) => {
+    Showing.find({ "movie.title": req.params.title }, (error, showings) => {
         if (error) {
             res.status(404).send(error);
         } else {
@@ -83,7 +83,7 @@ router.get("/title/e/:title", (req, res, next) => {
 })
 
 router.get('/tag/:tag', (req, res, next) => {
-    Screen.find({ "dates.showings.movie.tags": { $regex: req.params.tag, $options: "i" } }, (error, showings) => {
+    Showing.find({ "movie.tags": { $regex: req.params.tag, $options: "i" } }, (error, showings) => {
         if (error) {
             res.send(error);
         } else {
