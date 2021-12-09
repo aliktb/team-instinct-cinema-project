@@ -1,0 +1,16 @@
+h4 {
+
+    font-style: italic;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.image {
+    background-color: transparent !important;
+}
+
+h6{
+    font-weight: bold;
+    color:black;
+}
