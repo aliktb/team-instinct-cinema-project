@@ -83,7 +83,7 @@ router.get("/title/e/:title", (req, res, next) => {
 })
 
 router.get('/tag/:tag', (req, res, next) => {
-    Movie.find({ "showings.movie.tags": { $regex: req.params.tag, $options: "i" } }, (error, showings) => {
+    Screen.find({ "showings.movie.tags": { $regex: req.params.tag, $options: "i" } }, (error, showings) => {
         if (error) {
             res.send(error);
         } else {
