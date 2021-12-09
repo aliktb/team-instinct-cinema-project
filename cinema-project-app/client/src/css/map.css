@@ -4,9 +4,9 @@
 
 }
 
-.center {
+.center-map {
     margin: auto;
-    min-width: 360px;
+    min-width: 400px;
     width: 50%;
     padding: 10px;
 }
