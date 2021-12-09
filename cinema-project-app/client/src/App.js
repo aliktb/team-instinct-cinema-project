@@ -13,6 +13,10 @@ import FilmClass from "./pages/FilmClass";
 import Listingsgallery from "./pages/ListingsGallery";
 
 import AboutUs from "./pages/AboutUs";
+import MovieOne from "./pages/MovieOne";
+import MovieTwo from "./pages/MovieTwo";
+import MovieThree from "./pages/MovieThree";
+import MovieFour from "./pages/MovieFour";
 import Booking from "./pages/Booking";
 
 import DiscussionBoard from "./pages/DiscussionBoard";
@@ -22,6 +26,7 @@ import SearchPage from "./pages/SearchPage"
 
 
 import DiscussionPage from "./pages/DiscussionPage";
+import GalleryFooter from "./Components/GalleryFooter";
 
 
 function App() {
@@ -37,11 +42,12 @@ function App() {
               element={<Listingsgallery />}
             ></Route>
             <Route path="/New_Listings" element={<NewListings />}></Route>
-            <Route path="/Booking" element={<Booking />}></Route>
-            <Route
-              path="/DiscussionBoard"
-              element={<DiscussionBoard />}
-            ></Route>
+            <Route path="/Movie_One" element={<MovieOne />}></Route>
+            <Route path="/Movie_Two" element={<MovieTwo />}></Route>
+            <Route path="/Movie_Three" element={<MovieThree />}></Route>
+            <Route path="/Movie_Four" element={<MovieFour />}></Route>
+            <Route path="/Bookings" element={<Booking />}></Route>
+            <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route>
 
             <Route
               path="/DiscussionBoard/:movieId"
@@ -58,6 +64,7 @@ function App() {
 
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
+          <GalleryFooter />
         </Router>
       </div>
     </div>

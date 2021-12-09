@@ -5,6 +5,9 @@ const GalleryFooter = () => {
   return (
     <>
       <ListGroup>
+      <ListGroupItem color="secondary">
+          <Link to="/"> Home </Link>
+        </ListGroupItem>
         <ListGroupItem color="secondary">
           <Link to="/About"> About Us </Link>
         </ListGroupItem>
