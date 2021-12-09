@@ -27,6 +27,7 @@ import SearchPage from "./pages/SearchPage"
 
 import DiscussionPage from "./pages/DiscussionPage";
 import GalleryFooter from "./Components/GalleryFooter";
+import Contact from "./pages/Contact";
 
 
 function App() {
@@ -52,20 +53,17 @@ function App() {
               path="/DiscussionBoard"
               element={<DiscussionBoard />}
             ></Route>
-
             <Route
               path="/DiscussionBoard/:movieId"
               element={<DiscussionPage />}
             ></Route>
-
             <Route path="/Film_Classification" element={<FilmClass />}></Route>
             <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/Getting_Here" element={<GettingHere />}></Route>
             <Route path="/Search" element={<SearchPage />}></Route>
             <Route path="/Places_to_go" element={<PlacesToGo />}></Route>
             <Route path="/Opening_Times" element={<OpeningTimes />}></Route>
-            {/* <Route path="/Contact_us" element={<Contact />}></Route> */}
-
+            <Route path="/Contact_us" element={<Contact />}></Route>
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
           <GalleryFooter/>
