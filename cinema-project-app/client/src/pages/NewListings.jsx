@@ -1,6 +1,5 @@
 import NewCarousel from "../Components/NewCarousel";
 import Newcard from "../Components/NewCard";
-import GalleryFooter from "../Components/GalleryFooter";
 
 const Newlistings = () => {
   return (
@@ -12,9 +11,6 @@ const Newlistings = () => {
       <br></br>
       <br></br>
       <Newcard />
-      <br></br>
-      <br></br>
-      <GalleryFooter/>
     </>
   );
 };

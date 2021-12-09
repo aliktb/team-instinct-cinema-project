@@ -4,6 +4,8 @@ import {
   CardTitle,
   CardText,
   CardSubtitle,
+  UncontrolledCarousel,
+  List,
 } from "reactstrap";
 
 const MovieTwoCard = () => {
@@ -11,12 +13,38 @@ const MovieTwoCard = () => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div className="col">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/en/f/fe/No_Time_to_Die_poster.jpg"
-              style={{ maxWidth: "100%" }}
-              id="No Time To Die"
-            ></img>
+          <div
+            className="col"
+            style={{ display: "flex", "flex-direction": "column" }}
+          >
+            <UncontrolledCarousel
+              items={[
+                {
+                  altText: "",
+                  caption: "",
+                  key: 1,
+                  src: "https://www.007.com/wp-content/uploads/2020/05/B25_11846_RC.jpg",
+                },
+                {
+                  altText: "",
+                  caption: "",
+                  key: 2,
+                  src: "https://www.007.com/wp-content/uploads/2020/05/B25_08653_RC2-640x427.jpg",
+                },
+                {
+                  altText: "",
+                  caption: "",
+                  key: 3,
+                  src: "https://www.007.com/wp-content/uploads/2020/05/B25_36645_RC2.jpg",
+                },
+                {
+                  altText: "",
+                  caption: "",
+                  key: 4,
+                  src: "https://www.007.com/wp-content/uploads/2020/05/B25_17531_RC2.jpg",
+                },
+              ]}
+            />
           </div>
           <div
             className="col"
@@ -33,13 +61,18 @@ const MovieTwoCard = () => {
                     Description
                   </CardSubtitle>
                   <CardText>
-                    James Bond is enjoying a tranquil life in Jamaica after
-                    leaving active service. However, his peace is short-lived as
-                    his old CIA friend, Felix Leiter, shows up and asks for
-                    help. The mission to rescue a kidnapped scientist turns out
-                    to be far more treacherous than expected, leading Bond on
-                    the trail… MORE Release date:30 September 2021 (United
-                    Kingdom)Trending Director:Cary Joji Fukunaga
+                    <List>
+                      <li>
+                        James Bond is enjoying a tranquil life in Jamaica after
+                        leaving active service. However, his peace is
+                        short-lived as his old CIA friend, Felix Leiter, shows
+                        up and asks for help. The mission to rescue a kidnapped
+                        scientist turns out to be far more treacherous than
+                        expected, leading Bond on the trail…
+                      </li>
+                      <li>Release date:30 September 2021 (United Kingdom)</li>
+                      <li>Director:Cary Joji Fukunaga</li>
+                    </List>
                   </CardText>
                 </CardBody>
               </Card>

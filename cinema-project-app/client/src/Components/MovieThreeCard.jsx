@@ -4,6 +4,8 @@ import {
   CardTitle,
   CardText,
   CardSubtitle,
+  UncontrolledCarousel,
+  List,
 } from "reactstrap";
 
 const MovieThreeCard = () => {
@@ -12,11 +14,28 @@ const MovieThreeCard = () => {
       <div className="container mt-5">
         <div className="row">
           <div className="col">
-            <img
-              src="https://s1.cdn.autoevolution.com/images/news/the-matrix-4-title-and-trailer-action-revealed-during-wbs-cinemacon-event-168197_1.jpg"
-              style={{ maxWidth: "100%" }}
-              id="The Matrix Resurrections"
-            ></img>
+            <UncontrolledCarousel
+              items={[
+                {
+                  altText: "",
+                  caption: "",
+                  key: 1,
+                  src: "https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/11/cool-new-poster-for-the-matrix-resurrections.jpg",
+                },
+                {
+                  altText: "",
+                  caption: "",
+                  key: 2,
+                  src: "https://www.gameinformer.com/sites/default/files/2021/09/09/4ac40dce/the-matrix-resurrections-trailer-reaction-cinemacon.jpg",
+                },
+                {
+                  altText: "",
+                  caption: "",
+                  key: 3,
+                  src: "https://sportshub.cbsistatic.com/i/2021/11/18/9f2d676a-5b9f-4381-8f4f-25051184b722/the-matrix-resurrections-poster-neo-trinity-header.jpg",
+                },
+              ]}
+            />
           </div>
           <div
             className="col"
@@ -24,7 +43,7 @@ const MovieThreeCard = () => {
           >
             <div className="my-5">
               <Card
-                style={{ maxWidth: "45rem", height: "17rem" }}
+                style={{ maxWidth: "45rem", height: "12rem" }}
                 className="m-2"
               >
                 <CardBody>
@@ -33,10 +52,15 @@ const MovieThreeCard = () => {
                     Description
                   </CardSubtitle>
                   <CardText>
-                    Plagued by strange memories, Neo's life takes an unexpected
-                    turn when he finds himself back inside the Matrix. Release
-                    date:22 December 2021 (United Kingdom). Director:Lana
-                    Wachowski.
+                    <List>
+                      <li>
+                        Plagued by strange memories, Neo's life takes an
+                        unexpected turn when he finds himself back inside the
+                        Matrix.
+                      </li>
+                      <li>Release date: 22 December 2021 (United Kingdom)</li>
+                      <li>Director: Lana Wachowski</li>
+                    </List>
                   </CardText>
                 </CardBody>
               </Card>

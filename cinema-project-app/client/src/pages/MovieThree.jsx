@@ -4,6 +4,10 @@ const MovieThree = () => {
   return (
     <>
       <MovieThreeCard />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

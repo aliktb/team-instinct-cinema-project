@@ -3,7 +3,11 @@ import MovieOneCard from "../Components/MovieOneCard";
 const MovieOne = () => {
   return (
     <>
-      <MovieOneCard/>
+      <MovieOneCard />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };
