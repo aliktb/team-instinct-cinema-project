@@ -35,7 +35,7 @@ function App() {
             <Route path="/Film_Classification" element={<FilmClass />}></Route>
             <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/Getting_Here" element={<GettingHere />}></Route>
-            {/* <Route path="/Places_to_go" element={<Places />}></Route> */}
+            <Route path="/Places_to_go" element={<PlacesToGo />}></Route>
             {/* <Route path="/Contact_us" element={<Contact />}></Route> */}
 
             {/* <Route path="*" element={<NotFound />}></Route> */}
