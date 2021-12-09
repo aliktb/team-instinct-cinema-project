@@ -18,7 +18,6 @@ const OpeningTimes = () => {
         <br />
         <br />
       </div>
-      <GalleryFooter />
     </div>
   );
 };

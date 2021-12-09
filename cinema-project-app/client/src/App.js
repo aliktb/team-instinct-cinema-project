@@ -26,6 +26,7 @@ import SearchPage from "./pages/SearchPage"
 
 
 import DiscussionPage from "./pages/DiscussionPage";
+import GalleryFooter from "./Components/GalleryFooter";
 
 
 function App() {
@@ -45,9 +46,8 @@ function App() {
             <Route path="/Movie_Two" element={<MovieTwo/>}></Route>
             <Route path="/Movie_Three" element={<MovieThree/>}></Route>
             <Route path="/Movie_Four" element={<MovieFour/>}></Route>
-            {/* <Route path="/Bookings" element={<Bookings />}></Route>
-            <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route> */}
-            <Route path="/Booking" element={<Booking />}></Route>
+            <Route path="/Bookings" element={<Booking />}></Route>
+            <Route path="/DiscussionBoard" element={<DiscussionBoard />}></Route>
             <Route
               path="/DiscussionBoard"
               element={<DiscussionBoard />}
@@ -68,6 +68,7 @@ function App() {
 
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
+          <GalleryFooter/>
         </Router>
       </div>
     </div>
