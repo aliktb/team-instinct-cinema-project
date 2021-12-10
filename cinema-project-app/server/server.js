@@ -10,7 +10,7 @@ const bookingRouter = require("./routes/bookings")
 const moviesRouter = require('./routes/movies');
 const screenRouter = require('./routes/screens');
 const discussionRouter = require('./routes/discussions');
-const showingRouter = require('./routes/Showings');
+const showingRouter = require('./routes/showings');
 const PORT = process.env.PORT || 3001;
 
 const app = express();
