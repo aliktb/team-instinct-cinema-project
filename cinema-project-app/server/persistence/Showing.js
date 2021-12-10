@@ -8,8 +8,9 @@ const movieSchema = new Schema({
     runtime: Number,
     cast: [String],
     imageUrl: String,
-    release: Date,
-    tags: [String]
+    release: String,
+    tags: [String],
+    description: String
 })
 
 const seatSchema = new Schema({
@@ -17,22 +18,16 @@ const seatSchema = new Schema({
     taken: Boolean
 })
 
-const timeSchema = new Schema({
-    time: Number,
+showingSchema = new Schema({
+    screen: String,
+    date: String,
+    timeRaw: Number,
+    time: String,
     movie: movieSchema,
     seats: [seatSchema]
+
 })
 
-const showingSchema = new Schema({
-    date: [String],
-    showings: [timeSchema]
-})
+const Showing = model('Showing', showingSchema);
 
-const screenSchema = new Schema({
-    name: String,
-    dates: [showingSchema]
-})
-
-const Screen = model('Screen', screenSchema);
-
-module.exports = { 'Screen': Screen };
+module.exports = { 'Showing': Showing };
