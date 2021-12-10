@@ -27,6 +27,7 @@ import SearchPage from "./pages/SearchPage";
 import DiscussionPage from "./pages/DiscussionPage";
 import GalleryFooter from "./Components/GalleryFooter";
 import Contact from "./pages/Contact";
+import "./css/general.css";
 
 import ScreensPage from "./pages/ScreensPage";
 
@@ -52,10 +53,7 @@ function App() {
               path="/DiscussionBoard"
               element={<DiscussionBoard />}
             ></Route>
-            <Route
-              path="/DiscussionBoard"
-              element={<DiscussionBoard />}
-            ></Route>
+
             <Route
               path="/DiscussionBoard/:movieId"
               element={<DiscussionPage />}
