@@ -22,3 +22,10 @@ body {
         background-position: 0% 50%;
     }
 }
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    
+
+}

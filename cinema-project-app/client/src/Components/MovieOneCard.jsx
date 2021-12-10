@@ -7,6 +7,8 @@ import {
   UncontrolledCarousel,
   List,
 } from "reactstrap";
+import React from 'react';
+import "../css/moviecards.css";
 
 const MovieOneCard = () => {
   return (
@@ -14,13 +16,16 @@ const MovieOneCard = () => {
       <div className="container mt-5">
         <div className="row">
           <div
-            className="col"
+            className="col-lg container"
             style={{ display: "flex", "flex-direction": "column" }}
           >
+            <div style={{ maxWidth: "100% "}} className="vertical-center">
             <UncontrolledCarousel
+              style={{ height: "100%" }}
               items={[
                 {
                   altText: "",
+
                   caption: "",
                   key: 1,
                   src: "https://media1.popsugar-assets.com/files/thumbor/-m0-1pXULQO3asqNegPNdIDTIbc/fit-in/728xorig/filters:format_auto-!!-:strip_icc-!!-/2021/02/24/891/n/1922283/93a881e66036b5e31f4b72.14118522_/i/spider-man-3-movie-details.jpg",
@@ -39,14 +44,15 @@ const MovieOneCard = () => {
                 },
               ]}
             />
+            </div>
           </div>
           <div
-            className="col"
+            className="col-sm"
             style={{ display: "flex", "flex-direction": "column" }}
           >
             <div className="my-5">
               <Card
-                style={{ maxWidth: "45rem", height: "17rem" }}
+                style={{ maxWidth: "45rem" }}
                 className="m-2"
               >
                 <CardBody>

@@ -3,9 +3,9 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 
 const GalleryFooter = () => {
   return (
-    <>
+    <div style={{ position: "absolute;", bottom: "0px", width: "100%" }}>
       <ListGroup>
-      <ListGroupItem color="secondary">
+        <ListGroupItem color="secondary">
           <Link to="/"> Home </Link>
         </ListGroupItem>
         <ListGroupItem color="secondary">
@@ -24,7 +24,7 @@ const GalleryFooter = () => {
           © QA Cinemas Limited 2019 to 2021. All rights reserved
         </ListGroupItem>
       </ListGroup>
-    </>
+    </div>
   );
 };
 

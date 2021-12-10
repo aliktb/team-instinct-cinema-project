@@ -1,53 +1,109 @@
 import { useState } from "react";
 import Search from "../Components/Search";
-import { Card, CardBody, CardTitle, CardGroup } from 'reactstrap';
-
+import {
+  Alert,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardGroup,
+} from "reactstrap";
 
 const SearchPage = () => {
+  const [results, setResults] = useState([]);
 
-    const [results, setResults] = useState([]);
+  if (results.length >= 1) {
+    console.log(results);
+    const card = results.map((movies) => {
+      console.log(movies);
 
-    if (results.length > 0) {
+      let tagsAsString = movies.tags[0];
 
-        const card = results.map((movies) => {
+      for (let i = 1; i < movies.tags.length; i++) {
+        tagsAsString = tagsAsString + ", " + movies.tags[i];
+        console.log(tagsAsString);
+      }
 
-            console.log(movies)
-            return (
-                <span>
-                    <Card body colour="primary" outline style={{ maxWidth: "20rem", height: "25rem" }} className="m-2">
-                        {/* <CardImg alt={movies.title} top width="100%" /> */}
-                        <CardBody>
-                            
-                            <CardTitle tag="h5">{movies.title}</CardTitle>
-                            <CardTitle tag="h5">{movies.tags}</CardTitle>
-                            <CardTitle tag="h5">{movies.rating}</CardTitle>
-                            <CardTitle tag="h5">{movies.runtime}</CardTitle>
-                            <CardTitle tag="h5">{movies.release}</CardTitle>
-                            
-                        </CardBody>
-                    </Card>
-                </span>
-            );
-        });
+      // const castList = movies.cast.map((castMember) => {
+      //   return <li>{castMember}</li>;
+      // });
 
-        return (
-            <div>
-                <Search setResults={setResults} />
-                <div>
-                    <CardGroup>
-                        <>{card}</>
-                    </CardGroup>
-                </div>
-            </div>
-        );
-    } else {
+      // let castList;
 
-        return (
-            <div>
-                <Search setResults={setResults} />
-            </div>
-        );
-    }
-}
+      // for (let i = 0; i < movies.cast.length; i++) {
+      //   castList += "<li>{movies.cast}</li>";
+      // }
+
+      return (
+        <span>
+          <Card
+            body
+            colour="primary"
+            outline
+            style={{
+              width: "20rem",
+              padding: "0.5rem",
+              borderRadius: "0.5rem",
+            }}
+            className="m-2"
+          >
+            {/* <CardImg alt={movies.title} top width="100%" /> */}
+            <CardBody style={{ padding: "2px" }}>
+              <CardImg
+                alt={movies.title}
+                src={movies.imageUrl}
+                width="100%"
+                style={{ marginBottom: "1rem", borderRadius: "0.5rem" }}
+              />
+              <CardTitle tag="h5">
+                <b>Title:</b> {movies.title}
+              </CardTitle>
+              <CardTitle tag="h5">
+                <b>Tags: </b>
+                {tagsAsString}
+                {/* {movies.tags[0]} */}
+              </CardTitle>
+              <CardTitle tag="h5">
+                <b>Rating: </b>
+                {movies.rating}
+              </CardTitle>
+              <CardTitle tag="h5">
+                <b>Runtime: </b>
+                {movies.runtime} minutes
+              </CardTitle>
+              <CardTitle tag="h5">
+                <b>Release Date: </b>
+                {new Date(movies.release).toUTCString().slice(0, 16)}
+              </CardTitle>
+              <CardTitle tag="h5">
+                <b>Castlist: </b>
+                {/* <ul>{castList}</ul> */}
+              </CardTitle>
+            </CardBody>
+          </Card>
+        </span>
+      );
+    });
+
+    return (
+      <div className="page-container">
+        <Search setResults={setResults} />
+        <div>
+          <CardGroup>
+            <>{card}</>
+          </CardGroup>
+        </div>
+      </div>
+    );
+  } else {
+    console.log(results);
+    return (
+      <div className="page-container">
+        <Search setResults={setResults} />
+      </div>
+    );
+  }
+};
+
 
 export default SearchPage;
