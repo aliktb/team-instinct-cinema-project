@@ -1,5 +1,5 @@
 const express = require('express');
-const { Showing } = require('../persistence/Showing');
+const { Showing } = require('../persistence/showing');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -74,6 +74,16 @@ router.get('/title/:title', (req, res, next) => {
 
 router.get("/title/e/:title", (req, res, next) => {
     Showing.find({ "movie.title": req.params.title }, (error, showings) => {
+        if (error) {
+            res.status(404).send(error);
+        } else {
+            res.status(200).send(showings);
+        }
+    })
+})
+
+router.get("/date/:date", (req, res, next) => {
+    Showing.find({ "date": req.params.date }, (error, showings) => {
         if (error) {
             res.status(404).send(error);
         } else {
