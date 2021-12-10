@@ -50,7 +50,7 @@ const MovieOneCard = () => {
           >
             <div className="my-5">
               <Card
-                style={{ maxWidth: "45rem", height: "17rem" }}
+                style={{ maxWidth: "45rem" }}
                 className="m-2"
               >
                 <CardBody>
