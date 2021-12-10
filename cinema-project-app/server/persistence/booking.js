@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
-const seatSchema = new Schema({
-    screen: String,
-    seat: String
-})
+
 
 const bookingSchema = new Schema({
     bookingRef: Number,
+    showingDate: String,
+    showingTime: String,
     name: String,
-    seats: [seatSchema],
+    seats: [String],
     children: Number,
     adults: Number,
     movieTitle: String,
-    date: Date
+    screen: String,
+    total: Number
+
 })
 
 const Booking = model('Booking', bookingSchema);

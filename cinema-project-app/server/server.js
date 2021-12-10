@@ -11,8 +11,8 @@ const moviesRouter = require('./routes/movies');
 const screenRouter = require('./routes/screens');
 const discussionRouter = require('./routes/discussions');
 const showingRouter = require('./routes/showings');
+const paymentRouter = require('./routes/payments')
 const PORT = process.env.PORT || 3001;
-
 const app = express();
 
 //cors setup
@@ -39,7 +39,8 @@ app.use('/bookings', bookingRouter);
 app.use('/movies', moviesRouter);
 app.use('/screens', screenRouter);
 app.use('/showings', showingRouter);
-app.use('/posts', discussionRouter)
+app.use('/posts', discussionRouter);
+app.use('/payments', paymentRouter);
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
