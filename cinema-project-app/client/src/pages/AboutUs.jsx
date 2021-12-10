@@ -14,14 +14,14 @@ import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div className="lead">
       <div style={{ textAlign: "center" }}>
-        <h2 class="center">
+        <h2 class="center" className="display-2">
           <strong>A Little Bit About QA Cinemas!...</strong>
         </h2>
         <div>
           <div>
-            <h4>
+            <h4 className="display-2">
               QA Cinemas have been providing you with action packed
               entertainment for over 20 years!
             </h4>

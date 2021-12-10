@@ -30,6 +30,7 @@ import Contact from "./pages/Contact";
 import "./css/general.css";
 
 import ScreensPage from "./pages/ScreensPage";
+import "./css/ScreensPage.css";
 
 function App() {
   return (
