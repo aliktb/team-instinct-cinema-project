@@ -7,6 +7,8 @@ import {
   UncontrolledCarousel,
   List,
 } from "reactstrap";
+import React from 'react';
+import "../css/moviecards.css";
 
 const MovieOneCard = () => {
   return (
@@ -14,9 +16,10 @@ const MovieOneCard = () => {
       <div className="container mt-5">
         <div className="row">
           <div
-            className="col"
+            className="col-lg container"
             style={{ display: "flex", "flex-direction": "column" }}
           >
+            <div style={{ maxWidth: "100% "}} className="vertical-center">
             <UncontrolledCarousel
               items={[
                 {
@@ -39,9 +42,10 @@ const MovieOneCard = () => {
                 },
               ]}
             />
+            </div>
           </div>
           <div
-            className="col"
+            className="col-sm"
             style={{ display: "flex", "flex-direction": "column" }}
           >
             <div className="my-5">

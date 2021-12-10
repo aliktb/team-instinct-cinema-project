@@ -29,6 +29,7 @@ import GalleryFooter from "./Components/GalleryFooter";
 import Contact from "./pages/Contact";
 
 import ScreensPage from "./pages/ScreensPage";
+import "./css/ScreensPage.css";
 
 function App() {
   return (

@@ -31,7 +31,7 @@ const SearchPage = () => {
         });
 
         return (
-            <div>
+            <div className="page-container">
                 <Search setResults={setResults} />
                 <div>
                     <CardGroup>
@@ -43,7 +43,7 @@ const SearchPage = () => {
     } else {
 
         return (
-            <div>
+            <div className="page-container">
                 <Search setResults={setResults} />
             </div>
         );
