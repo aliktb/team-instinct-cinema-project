@@ -45,7 +45,7 @@ const MovieThreeCard = () => {
           >
             <div className="my-5">
               <Card
-                style={{ maxWidth: "45rem", height: "12rem" }}
+                style={{ maxWidth: "45rem" }}
                 className="m-2"
               >
                 <CardBody>
