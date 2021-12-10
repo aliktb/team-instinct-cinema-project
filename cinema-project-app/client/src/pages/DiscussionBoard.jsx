@@ -12,41 +12,51 @@ const DiscussionBoard = () => {
   const [apiResponse6, setApiResponse6] = useState({});
   const [apiResponse7, setApiResponse7] = useState({});
   const [apiResponse8, setApiResponse8] = useState({});
+  const [apiResponse9, setApiResponse9] = useState({});
+  const [apiResponse10, setApiResponse10] = useState({});
 
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/Resident")
 
         .then((response) => setApiResponse1(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/blade")
+        .get("http://localhost:3001/movies/title/Pirates")
 
         .then((response) => setApiResponse2(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/2049")
+        .get("http://localhost:3001/movies/title/Boss")
 
         .then((response) => setApiResponse3(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/West")
 
         .then((response) => setApiResponse4(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/Ron")
 
         .then((response) => setApiResponse5(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/King")
 
         .then((response) => setApiResponse6(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/Venom")
 
         .then((response) => setApiResponse7(response.data[0]));
       axios
-        .get("http://localhost:3001/movies/title/Lord")
+        .get("http://localhost:3001/movies/title/Matrix")
 
         .then((response) => setApiResponse8(response.data[0]));
+      axios
+        .get("http://localhost:3001/movies/title/Time")
+
+        .then((response) => setApiResponse9(response.data[0]));
+      axios
+        .get("http://localhost:3001/movies/title/Spider")
+
+        .then((response) => setApiResponse10(response.data[0]));
     }, 500);
   }, []);
 
@@ -85,7 +95,7 @@ const DiscussionBoard = () => {
                 title={apiResponse1.title}
                 rating={apiResponse1.rating}
                 movieId={apiResponse1._id}
-                threadDescription={`This is a dedicated thread for ${apiResponse1.title}. Anyone brave enough to walk through the gates of Mordor, step this way. Just remember not to stare into the eye of Sauron.`}
+                threadDescription={`This is a dedicated thread for ${apiResponse1.title}.`}
               />
             </td>
             <td></td>
@@ -98,7 +108,7 @@ const DiscussionBoard = () => {
               title={apiResponse2.title}
               rating={apiResponse2.rating}
               movieId={apiResponse2._id}
-              threadDescription={`Any fans of the Original ${apiResponse2.title} this thread is for you.`}
+              threadDescription={`This is a dedicated thread for ${apiResponse2.title}.`}
             />
             <td></td>
           </tr>
@@ -110,7 +120,7 @@ const DiscussionBoard = () => {
               title={apiResponse3.title}
               rating={apiResponse3.rating}
               movieId={apiResponse3._id}
-              threadDescription={`Let's face it. You loved the original Bladerunner. You don't have high hopes for this one but any excuse to see Ryan Gosling right? Share your thoughts here.`}
+              threadDescription={`This is a dedicated thread for ${apiResponse3.title}.`}
             />
             <td></td>
           </tr>
@@ -122,6 +132,7 @@ const DiscussionBoard = () => {
               title={apiResponse4.title}
               rating={apiResponse4.rating}
               movieId={apiResponse4._id}
+              threadDescription={`This is a dedicated thread for ${apiResponse4.title}.`}
             />
             <td> </td>
           </tr>
@@ -132,6 +143,7 @@ const DiscussionBoard = () => {
               title={apiResponse5.title}
               rating={apiResponse5.rating}
               movieId={apiResponse5._id}
+              threadDescription={`This is a dedicated thread for ${apiResponse5.title}.`}
             />
             <td> </td>
           </tr>
@@ -142,6 +154,7 @@ const DiscussionBoard = () => {
               title={apiResponse6.title}
               rating={apiResponse6.rating}
               movieId={apiResponse6._id}
+              threadDescription={`This is a dedicated thread for ${apiResponse6.title}.`}
             />
             <td> </td>
           </tr>
@@ -152,6 +165,7 @@ const DiscussionBoard = () => {
               title={apiResponse7.title}
               rating={apiResponse7.rating}
               movieId={apiResponse7._id}
+              threadDescription={`This is a dedicated thread for ${apiResponse7.title}.`}
             />
             <td> </td>
           </tr>
@@ -162,6 +176,29 @@ const DiscussionBoard = () => {
               title={apiResponse8.title}
               rating={apiResponse8.rating}
               movieId={apiResponse8._id}
+              threadDescription={`This is a dedicated thread for ${apiResponse8.title}.`}
+            />
+            <td> </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td></td>
+            <DiscussionThreadCard
+              title={apiResponse9.title}
+              rating={apiResponse9.rating}
+              movieId={apiResponse9._id}
+              threadDescription={`This is a dedicated thread for ${apiResponse9.title}.`}
+            />
+            <td> </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td></td>
+            <DiscussionThreadCard
+              title={apiResponse10.title}
+              rating={apiResponse10.rating}
+              movieId={apiResponse10._id}
+              threadDescription={`This is a dedicated thread for ${apiResponse10.title}.`}
             />
             <td> </td>
           </tr>

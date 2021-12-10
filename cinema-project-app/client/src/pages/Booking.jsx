@@ -1,15 +1,18 @@
 import axios from "axios";
-import screenImage from '../resources/booking/screenCropped.png';
-import seatTaken from '../resources/booking/chairTaken.png';
-import seatEmpty from '../resources/booking/chair.png';
-import seatClicked from '../resources/booking/chairHover.png';
-import seatHover from '../resources/booking/chairSelected.png';
+import screenImage from "../resources/booking/screenCropped.png";
+import seatTaken from "../resources/booking/chairTaken.png";
+import seatEmpty from "../resources/booking/chair.png";
+import seatClicked from "../resources/booking/chairHover.png";
+import seatHover from "../resources/booking/chairSelected.png";
 import React, { useEffect, useState } from "react";
+
 import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input, Alert } from "reactstrap";
 
 
 
+
 const Booking = () => {
+
 
     const bookingObject = {
         bookingRef: 0,
@@ -133,7 +136,12 @@ const Booking = () => {
             })
         }
 
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/movies/").then((data) => {
+      let moviesList = data.data.map((movie) => {
         return (
+
             <div style={{ display: "flex" }}>
                 <div>
                     <p>Your Order: </p>
@@ -168,8 +176,11 @@ const Booking = () => {
                     if (tempScreening.seats[i].seat === newSeat) {
                         tempScreening.seats[i].taken = true;
                     }
+
                 }
+              }
             }
+
 
             console.log(tempScreening);
             axios.put(`http://localhost:3001/showings/update/${selectedScreening._id}`, tempScreening).then((data) => {
@@ -245,8 +256,81 @@ const Booking = () => {
             setBookingDetails(tempObj);
             console.log(tempObj);
             setChildren(e.target.value);
-        }
 
+        }
+      }
+      console.log(currentScreenT);
+      axios.put(
+        `http://localhost:3001/screens/update/${currentScreenT._id}`,
+        currentScreenT
+      );
+    };
+
+    const updateBooking = (seat, operation) => {
+      let tempObj = bookingDetails;
+      tempObj.screen = currentMovie.screen;
+      tempObj.movieTitle = currentMovie.title;
+      tempObj.showingTime = currentMovie.time;
+      let localSeating;
+      console.log(operation);
+      if (operation == "add") {
+        localSeating = tempObj.seats;
+        localSeating.push(seat);
+        tempObj.adults = tempObj.adults + 1;
+      } else {
+        localSeating = tempObj.seats;
+        let seatForDeletion = localSeating.indexOf(seat);
+        localSeating.splice(seatForDeletion, 1);
+        tempObj.adults = tempObj.adults - 1;
+      }
+      tempObj.seats = localSeating;
+      console.log(tempObj.seats);
+      while (bookingDetails.children > localSeating.length) {
+        tempObj.adults = tempObj.adults + 1;
+        tempObj.children = tempObj.children - 1;
+      }
+      setChildren(tempObj.children);
+      console.log(tempObj);
+      tempObj.total = (
+        bookingDetails.adults * 10.99 +
+        bookingDetails.children * 4.99
+      ).toFixed(2);
+      setBookingDetails(tempObj);
+      if (localSeating.length > 0) {
+        setPaymentButton(
+          <Button
+            onClick={() => {
+              updateSeating();
+              setPayments(true);
+            }}
+          >
+            Pay now
+          </Button>
+        );
+      } else {
+        setPaymentButton(<></>);
+      }
+    };
+
+    console.log(currentMovie);
+    console.log(showingArray);
+    let filteredShowingArray = showingArray.filter((screen) => {
+      return screen.name == currentMovie.screen;
+    });
+    console.log(filteredShowingArray);
+    currentScreenT = filteredShowingArray[0];
+    let currentShowing = filteredShowingArray[0].showings.filter((showing) => {
+      return (
+        `${String(showing.time).slice(0, -2)}:${String(showing.time).slice(
+          -2,
+          String(showing.time).length
+        )}` == currentMovie.time && showing.movie.title == currentMovie.title
+      );
+    });
+    console.log(currentShowing);
+
+    let seats = currentShowing[0].seats.map((seat) => {
+      if (seat.taken) {
         return (
             <div>
                 <div style={{ display: "flex" }}>
@@ -289,8 +373,108 @@ const Booking = () => {
                     {currentMovieList}
                 </div>
             </div >
+
         );
-    }
-}
+      }
+    });
+
+    const childrenUpdate = (e) => {
+      let tempObj = bookingDetails;
+      tempObj.adults = tempObj.seats.length;
+      tempObj.children = 0;
+      tempObj.adults = tempObj.adults - Number(e.target.value);
+      tempObj.children = tempObj.children + Number(e.target.value);
+      tempObj.total = (
+        bookingDetails.adults * 10.99 +
+        bookingDetails.children * 4.99
+      ).toFixed(2);
+      setBookingDetails(tempObj);
+      console.log(tempObj);
+      setChildren(e.target.value);
+    };
+
+    return (
+      <div>
+        <div style={{ display: "flex" }}>
+          <div style={{ width: "300px" }}>
+            {/* <BookingDetails seats={seatArray} booking={bookingDetails} setBooking={setBookingDetails} /> */}
+            <div>
+              {bookingDetails.screen}
+              <br></br>
+              {bookingDetails.movieTitle}
+              <br></br>
+              {bookingDetails.showingTime} {bookingDetails.showingDate}
+              <br></br>
+              selected seats:<br></br>
+              {bookingDetails.seats.map((seat) => {
+                return <>{seat}, </>;
+              })}
+              <br></br>
+              Adults: {bookingDetails.adults}
+              <br></br>
+              Children: {children}
+              <br></br>
+              <input
+                type="range"
+                max={bookingDetails.seats.length}
+                onChange={(e) => {
+                  childrenUpdate(e);
+                }}
+              />
+              <br></br>
+              Total: £{bookingDetails.total}
+              <br></br>
+              Name:{" "}
+              <Input
+                type="text"
+                placeholder="Enter your name here..."
+                onChange={(e) => {
+                  let tempObj = bookingDetails;
+                  tempObj.name = e.target.value;
+                  setBookingDetails(tempObj);
+                  console.log(bookingDetails.name);
+                }}
+              ></Input>
+            </div>
+          </div>
+          <div style={{ position: "relative", width: "50%" }}>
+            <img
+              style={{}}
+              src={screenImage}
+              alt={filteredShowingArray[0].name}
+            />
+            <p style={{ position: "absolute", top: "40px", left: "45%" }}>
+              {filteredShowingArray[0].name}
+            </p>
+            <div style={{ display: "flex", "flex-wrap": "wrap" }}>{seats}</div>
+          </div>
+        </div>
+        {paymentButton}
+        <Button
+          onClick={() => {
+            setBookingDetails(bookingObject);
+            setConfirmation(false);
+          }}
+        >
+          Cancel
+        </Button>
+      </div>
+    );
+  } else {
+    return (
+      <div style={{ padding: "4em" }}>
+        <p style={{ color: "white" }}>
+          {movieName} {movieTime}
+        </p>
+        <UncontrolledDropdown style={{ display: "inline-block" }}>
+          <DropdownToggle caret>Select a movie</DropdownToggle>
+          <DropdownMenu>{allMovies}</DropdownMenu>
+        </UncontrolledDropdown>
+        {times}
+        {bookButton}
+      </div>
+    );
+  }
+};
 
 export default Booking;

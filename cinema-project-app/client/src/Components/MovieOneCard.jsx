@@ -21,9 +21,11 @@ const MovieOneCard = () => {
           >
             <div style={{ maxWidth: "100% "}} className="vertical-center">
             <UncontrolledCarousel
+              style={{ height: "100%" }}
               items={[
                 {
                   altText: "",
+
                   caption: "",
                   key: 1,
                   src: "https://media1.popsugar-assets.com/files/thumbor/-m0-1pXULQO3asqNegPNdIDTIbc/fit-in/728xorig/filters:format_auto-!!-:strip_icc-!!-/2021/02/24/891/n/1922283/93a881e66036b5e31f4b72.14118522_/i/spider-man-3-movie-details.jpg",
