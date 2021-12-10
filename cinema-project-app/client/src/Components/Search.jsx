@@ -1,13 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import RadioButton from "./RadioButton";
-import { Input, Button } from "reactstrap";
+import { Input, Button, Alert } from "reactstrap";
 
 const Search = ({ setResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchType, setSearchType] = useState("");
+  const [emptySearch, setEmptySearch] = useState(false);
   const search = () => {
     if (searchTerm != "") {
+      setEmptySearch(false);
       if (searchType === "title") {
         axios
           .get(`http://localhost:3001/movies/title/${searchTerm}`)
@@ -43,30 +45,62 @@ const Search = ({ setResults }) => {
       }
     } else {
       console.log("empty search attempted");
+      setEmptySearch(true);
     }
   };
 
-  return (
-    <div>
-      <div class="center">
-        <h2 className="display-2" style={{ textAlign: "left" }}>
-          Search
-        </h2>
-        <Input
-          type="text"
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-          }}
-        ></Input>
+  if (emptySearch) {
+    return (
+      <div>
+        <div class="center">
+          <h2 className="display-2" style={{ textAlign: "left" }}>
+            Search
+          </h2>
+          <Input
+            type="text"
+            placeholder="Search by Movie, Actor or tags"
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              console.log(e.target.value + "e target value ");
+            }}
+          ></Input>
 
-        <RadioButton setSearch={setSearchType} />
+          <RadioButton setSearch={setSearchType} />
 
-        <Button type="button" onClick={search}>
-          Search
-        </Button>
+          <Button type="button" onClick={search}>
+            Search
+          </Button>
+          <Alert color="danger" style={{ marginTop: "3rem" }}>
+            Please enter some text before searching
+          </Alert>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <div class="center">
+          <h2 className="display-2" style={{ textAlign: "left" }}>
+            Search
+          </h2>
+          <Input
+            type="text"
+            placeholder="Search by Movie, Actor or tags"
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              console.log(e.target.value + "e target value ");
+            }}
+          ></Input>
+
+          <RadioButton setSearch={setSearchType} />
+
+          <Button type="button" onClick={search}>
+            Search
+          </Button>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Search;
