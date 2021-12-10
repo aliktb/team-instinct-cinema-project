@@ -15,7 +15,7 @@ const Newcard = () => {
   return (
     <div class="center">
       <CardColumns>
-        <Card style={{ maxWidth: "45rem", height: "42rem" }} className="m-2">
+        <Card style={{ maxWidth: "45rem" }} className="m-2">
           <CardImg
             alt="Spider-Man: No Way Home"
             src="https://cdn.flickeringmyth.com/wp-content/uploads/2021/11/SPider-Man-No-Way-Home-UK-posters-1.jpg"
@@ -36,7 +36,7 @@ const Newcard = () => {
           </CardBody>
         </Card>
         <br></br>
-        <Card style={{ maxWidth: "45rem", height: "41rem" }} className="m-2">
+        <Card style={{ maxWidth: "45rem" }} className="m-2">
           <CardImg
             alt="No Time To Die"
             src="https://upload.wikimedia.org/wikipedia/en/f/fe/No_Time_to_Die_poster.jpg"
@@ -57,7 +57,7 @@ const Newcard = () => {
           </CardBody>
         </Card>
         <br></br>
-        <Card style={{ maxWidth: "45rem", height: "33rem" }} className="m-2">
+        <Card style={{ maxWidth: "45rem" }} className="m-2">
           <CardImg
             alt="The Matrix Resurrections"
             src="https://s1.cdn.autoevolution.com/images/news/the-matrix-4-title-and-trailer-action-revealed-during-wbs-cinemacon-event-168197_1.jpg"
@@ -78,7 +78,7 @@ const Newcard = () => {
           </CardBody>
         </Card>
         <br></br>
-        <Card style={{ maxWidth: "45rem", height: "34rem" }} className="m-2">
+        <Card style={{ maxWidth: "45rem" }} className="m-2">
           <CardImg
             alt="Venom"
             src="https://images.thedirect.com/media/article_full/venom-release-date-poster.jpg"

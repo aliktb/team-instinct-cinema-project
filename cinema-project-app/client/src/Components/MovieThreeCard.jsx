@@ -13,7 +13,8 @@ const MovieThreeCard = () => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div className="col">
+          <div className="col container">
+            <div style={{ maxWidth: "100% "}} className="vertical-center">
             <UncontrolledCarousel
               items={[
                 {
@@ -36,6 +37,7 @@ const MovieThreeCard = () => {
                 },
               ]}
             />
+            </div>
           </div>
           <div
             className="col"
