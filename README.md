@@ -99,15 +99,15 @@ We Used Git for versioning
 
 # Authors
 - **Ali Khattab** - [aliktb](https://github.com/aliktb)
-<br/>
+
 - **Eamon Moradi** - [Eamon97](https://github.com/eamon97)
-<br/>
+
 - **Sean Fernyhough** - [sean-fernyhough](https://github.com/sean-fernyhough)
-<br/>
+
 - **Hamza Shah** - [hamza12618](https://github.com/hamza12618)
-<br/>
+
 - **Hamid Mohammed** - [HMohammed96](https://github.com/HMohammed96)
-<br/>
+
 - **Adam Yusuf Mussa** - [Amussa123](https://github.com/Amussa123)
 
 # Acknowledgements
