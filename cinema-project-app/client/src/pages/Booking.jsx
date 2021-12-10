@@ -6,6 +6,7 @@ import seatClicked from '../resources/booking/chairHover.png';
 import seatHover from '../resources/booking/chairSelected.png';
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input, Alert } from "reactstrap";
+import PaymentProvider from "../Components/PaymentProvider";
 
 
 
@@ -13,8 +14,9 @@ const Booking = () => {
 
     const bookingObject = {
         bookingRef: 0,
-        showingDate: 0,
-        showingTime: 0,
+        bookingDate: "",
+        showingDate: "",
+        showingTime: "",
         name: "",
         seats: [],
         children: 0,
@@ -137,7 +139,8 @@ const Booking = () => {
             <div style={{ display: "flex" }}>
                 <div>
                     <p>Your Order: </p>
-                    <p>Name: {bookingDetails.name}<br></br>
+                    <p> Booking Code: {bookingDetails.bookingRef}<br></br>
+                        Name: {bookingDetails.name}<br></br>
                         Movie: {bookingDetails.movieTitle}<br></br>
                         Showing: {bookingDetails.showingTime} {bookingDetails.showingDate}<br></br>
                         Screen: {bookingDetails.screen}<br></br>
@@ -149,15 +152,25 @@ const Booking = () => {
 
 
 
-                    <Button type="button" onClick={() => { clearSeats(); setBookingDetails(bookingObject); setPayments(false) }}>Cancel</Button>
-                    <Button type="button">confirm</Button>
+                    <Button type="button" onClick={() => { clearSeats(); setBookingDetails(bookingObject); setPayments(false); setPaymentButton(null) }}>Cancel</Button>
+                    {/* <Button type="button">confirm</Button> */}
                 </div>
                 <div>
+                    <PaymentProvider booking={bookingDetails} />
                 </div>
             </div >
         )
 
     } else if (confirmation) {
+
+        let userName = "";
+
+        const confirmExit = () => {
+            console.log("exiting")
+            window.confirm("are you sure")
+        }
+
+        window.onbeforeunload = confirmExit;
 
         const updateSeating = () => {
             let seats = bookingDetails.seats;
@@ -181,6 +194,7 @@ const Booking = () => {
 
         const updateBooking = (seat, operation) => {
             let tempObj = bookingDetails;
+            tempObj.bookingRef = String(new Date().getTime()).slice(-8);
             tempObj.screen = selectedScreening.screen;
             tempObj.movieTitle = selectedScreening.movie.title;
             tempObj.showingTime = selectedScreening.time;
@@ -261,7 +275,8 @@ const Booking = () => {
                             Children: {children}<br></br>
                             <input type="range" max={bookingDetails.seats.length} onChange={(e) => { childrenUpdate(e) }} /><br></br>
                             Total: £{bookingDetails.total}<br></br>
-                            Name: <Input type="text" placeholder="Enter your name here..." onChange={(e) => { let tempObj = bookingDetails; tempObj.name = e.target.value; setBookingDetails(tempObj); console.log(bookingDetails.name) }}></Input>
+                            Name: {bookingDetails.name}<br></br>
+                            <Input type="text" placeholder="Enter your name here..." onChange={(e) => { let tempObj = bookingDetails; tempObj.name = e.target.value; setBookingDetails(tempObj); console.log(bookingDetails.name); }}></Input>
                         </div>
                     </div>
                     <div style={{ position: "relative", width: "50%" }}>
@@ -273,7 +288,7 @@ const Booking = () => {
                     </div>
                 </div>
                 {paymentButton}
-                <Button onClick={() => { setBookingDetails(bookingObject); setConfirmation(false); }}>Cancel</Button>
+                <Button onClick={() => { setBookingDetails(bookingObject); setPaymentButton(null); setConfirmation(false) }}>Cancel</Button>
             </div >
         )
 
