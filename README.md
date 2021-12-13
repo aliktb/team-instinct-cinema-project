@@ -91,7 +91,7 @@ Deployment can be acheived by running
   once you're in the project directory within your terminal. The webpage uses localhost:3000 as api URL and the MongoDB URL uses localhost:27017.
 
 
-# Build With
+# Built With
 
 # Versioning
 We Used Git for versioning
@@ -109,6 +109,12 @@ We Used Git for versioning
 - **Hamid Mohammed** - [HMohammed96](https://github.com/HMohammed96)
 
 - **Adam Yusuf Mussa** - [Amussa123](https://github.com/Amussa123)
+
+# License
+- **Bootstrap** - [Bootstrap License](https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE)
+- **Reactstrap** - [Reactstrap License](https://github.com/reactstrap/reactstrap/blob/master/LICENSE)
+- **StripeLicense** - [StripeLicense](https://stripe.com/gb/legal)
+- **EmailJsLicense** -[EmailJsLicense](https://github.com/eleith/emailjs/blob/main/LICENSE)
 
 # Acknowledgements
 Many thanks go to the QA Academy and their trainers for their expertise and support
