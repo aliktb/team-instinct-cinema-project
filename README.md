@@ -110,6 +110,11 @@ We Used Git for versioning
 
 - **Adam Yusuf Mussa** - [Amussa123](https://github.com/Amussa123)
 
+# License
+- **Bootstrap** - [Bootstrap License](https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE)
+- **Reactstrap** - [Reactstrap License](https://github.com/reactstrap/reactstrap/blob/master/LICENSE)
+- **StripeLicense** - [StripeLicense](https://stripe.com/gb/legal)
+
 # Acknowledgements
 Many thanks go to the QA Academy and their trainers for their expertise and support
 
