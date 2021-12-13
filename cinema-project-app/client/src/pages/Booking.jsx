@@ -237,11 +237,11 @@ const Booking = () => {
         let seats = selectedScreening.seats.map((seat) => {
             if (seat.taken) {
                 return (
-                    <img style={{ width: "80px", margin: "5px" }} src={seatTaken}></img >
+                    <img style={{ width: "8%", margin: "1%" }} src={seatTaken}></img >
                 )
             } else {
                 return (
-                    <img style={{ width: "80px", margin: "5px" }} id={seat.seat} src={seatEmpty} data-clicked={0} alt={seat.seat} onMouseEnter={(e) => { if (e.target.dataset.clicked != true) { e.target.src = seatHover }; }} onMouseLeave={(e) => { if (e.target.dataset.clicked != true) { e.target.src = seatEmpty } }} onClick={(e) => {
+                    <img style={{ width: "8%", margin: "1%" }} id={seat.seat} src={seatEmpty} data-clicked={0} alt={seat.seat} onMouseEnter={(e) => { if (e.target.dataset.clicked != true) { e.target.src = seatHover }; }} onMouseLeave={(e) => { if (e.target.dataset.clicked != true) { e.target.src = seatEmpty } }} onClick={(e) => {
                         e.target.src = seatClicked; e.target.dataset.clicked = e.target.dataset.clicked == 0 ? 1 : 0; e.target.src = seatHover; if (e.target.dataset.clicked == true) { updateBooking(e.target.id, "add") } else { updateBooking(e.target.id, "remove") };
                     }} />
                 )
@@ -280,9 +280,9 @@ const Booking = () => {
                             <Input type="text" placeholder="Enter your name here..." onChange={(e) => { let tempObj = bookingDetails; tempObj.name = e.target.value; setBookingDetails(tempObj); console.log(bookingDetails.name); }}></Input>
                         </div>
                     </div>
-                    <div style={{ position: "relative", width: "50%" }}>
-                        <img style={{}} src={screenImage} alt={selectedScreening.screen} />
-                        <p style={{ position: "absolute", top: "40px", left: "45%" }}>{selectedScreening.screen}</p>
+                    <div style={{ position: "relative", width: "50%", textAlign: "center" }}>
+                        <p style={{ marginBottom: "0px", }}>{selectedScreening.screen}</p>
+                        <img style={{ width: "100%" }} src={screenImage} alt={selectedScreening.screen} />
                         <div style={{ display: "flex", "flex-wrap": "wrap" }}>
                             {seats}
                         </div>
