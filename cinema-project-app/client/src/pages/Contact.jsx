@@ -29,13 +29,14 @@ const Contact = () => {
 
 
 
+
             <h3 class="center"><u>Send an Email</u></h3>
             <div className='ContactForm'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-12 text-center'>
                             <div className='contactForm'>
-                                <form onSubmit={handleSubmit} id='contact-form' noValidate>
+                                <form action="/action_page.php" method="get" onSubmit={handleSubmit} id='contact-form'  >
 
                                     <div className='row formRow'>
                                         <div className='col-6'>
@@ -45,6 +46,7 @@ const Contact = () => {
                                                 className='form-control formInput'
                                                 placeholder='Name'
                                                 ref={nameRef}
+                                                required
                                             ></input>
                                         </div>
                                         <div className='col-6'>
@@ -54,6 +56,7 @@ const Contact = () => {
                                                 className='form-control formInput'
                                                 placeholder='Email address'
                                                 ref={emailRef}
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
                                             ></input>
                                         </div>
                                     </div>
@@ -78,6 +81,7 @@ const Contact = () => {
                                                 className='form-control formInput'
                                                 placeholder='Message'
                                                 ref={messageRef}
+                                                required
                                             ></textarea>
                                         </div>
                                     </div>
