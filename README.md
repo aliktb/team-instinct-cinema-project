@@ -91,7 +91,7 @@ Deployment can be acheived by running
   once you're in the project directory within your terminal. The webpage uses localhost:3000 as api URL and the MongoDB URL uses localhost:27017.
 
 
-# Build With
+# Built With
 
 # Versioning
 We Used Git for versioning
