@@ -5,10 +5,11 @@ import seatEmpty from '../resources/booking/chair.png';
 import seatClicked from '../resources/booking/chairHover.png';
 import seatHover from '../resources/booking/chairSelected.png';
 import React, { useEffect, useState } from "react";
-import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input, Alert, Table } from "reactstrap";
+import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input } from "reactstrap";
 import PaymentProvider from "../Components/PaymentProvider";
 import { Link } from "react-router-dom";
 import Concessions from "../Components/Concessions";
+import MovieListBooking from "../Components/MovieListBooking";
 
 
 
@@ -36,87 +37,13 @@ const Booking = () => {
 
 
     const [selectedScreening, setSelectedScreening] = useState();
-    const [currentMovieList, setCurrentMovieList] = useState();
     const [nameError, setNameError] = useState("");
     const [enteredName, setEnteredName] = useState("");
+    const [movieDate, setMovieDate] = useState(new Date().toISOString().slice(0, 10));
 
-
-    const makeCards = (date) => {
-        axios.get(`http://localhost:3001/showings/date/${date}`).then((data) => {
-            console.log(data.data);
-            if (data.data.length > 0) {
-                let processedMovies = []
-                let todaysMovies = data.data.map((showing) => {
-                    if (!processedMovies.includes(showing.movie.title)) {
-                        let timesStandard = data.data.filter((screening) => { return screening.movie.title === showing.movie.title && screening.screen === "Standard" })
-                        timesStandard.sort((time1, time2) => { return time1.timeRaw - time2.timeRaw })
-                        let timesFilteredStandard = timesStandard.map((time) => { return <Button onClick={() => { setSelectedScreening(time); setConfirmation(true) }}> {time.time}</Button > })
-                        let timesDeluxe = data.data.filter((screening) => { return screening.movie.title === showing.movie.title && screening.screen === "Deluxe" })
-                        timesDeluxe.sort((time1, time2) => { return time1.timeRaw - time2.timeRaw })
-                        let timesFilteredDeluxe = timesDeluxe.map((time) => { return <Button onClick={() => { setSelectedScreening(time); setConfirmation(true) }}>{time.time}</Button> })
-
-                        processedMovies.push(showing.movie.title)
-                        return (
-                            <Card style={{ margin: "0px 0px 20px 200px" }}>
-                                <div style={{ display: "flex" }}>
-                                    <div style={{ height: "200px" }}>
-                                        <CardImg src={showing.movie.imageUrl} style={{ height: "100%", width: "100%", marginRight: "20px" }}></CardImg>
-                                    </div>
-                                    <div>
-                                        <CardTitle>{showing.movie.title}</CardTitle>
-                                        <CardBody>
-                                            <CardText>{showing.movie.description}</CardText>
-                                            <div style={{ display: "flex" }}>
-                                                <div>
-                                                    <p style={{ margin: "10px 8px 6px 8px" }}>Standard:</p>
-                                                    <p style={{ margin: "16px 8px 0px 8px" }}>Deluxe:</p>
-                                                </div>
-                                                <div>
-                                                    <div style={{ display: "flex", margin: "5px" }}>
-                                                        {timesFilteredStandard}
-                                                    </div>
-                                                    <div style={{ display: "flex", margin: "5px" }}>
-                                                        {timesFilteredDeluxe}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </CardBody>
-                                    </div>
-                                </div>
-                            </Card>
-                        )
-                    }
-                })
-
-
-                setCurrentMovieList(
-                    <div>
-                        {/* <p>Movies on {`${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`}: </p> */}
-                        <p style={{ marginLeft: "200px" }}>Movies on {`${new Date(date).toUTCString().slice(0, 16)}`}: </p>
-
-                        {todaysMovies}
-                    </div>
-                )
-
-            } else {
-                setCurrentMovieList(
-                    <div>
-                        <p style={{ marginLeft: "200px" }}>Sorry, there are no movies on {`${new Date(date).toUTCString().slice(0, 16)}`}, try another date from the calender</p>
-                    </div >
-                )
-            }
-        })
-    }
-
-    useEffect(() => {
-        makeCards(new Date().toISOString().slice(0, 10));
-    }, [])
-
-
-
-    const moviesGet = (selectedDate) => {
-        makeCards(selectedDate);
-    }
+    // useEffect(() => {
+    //     setMovieDate();
+    // }, [])
 
 
     if (payments) {
@@ -328,11 +255,11 @@ const Booking = () => {
                 <div style={{ display: "flex", padding: "4em" }}>
                     <div>
                         <p>Select the date you would like to book for: </p>
-                        <Input type="date" style={{ width: "270px", position: "inline-block" }} onChange={(e) => { console.log(e.target.value); moviesGet(e.target.value) }} />
+                        <Input type="date" style={{ width: "270px", position: "inline-block" }} onChange={(e) => { console.log(e.target.value); if (e.target.value) { setMovieDate(e.target.value) } else { setMovieDate(new Date().toISOString().slice(0, 10)) } }} />
                         <Concessions />
                     </div>
                     <div>
-                        {currentMovieList}
+                        <MovieListBooking movieDate={movieDate} setSelectedScreening={setSelectedScreening} setConfirmation={setConfirmation} />
                     </div>
                 </div >
             </div>
