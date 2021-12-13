@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { useParams } from "react-router";
+import Explicit from "../resources/Explicit.json";
 
 const NewDiscussionPost = (props) => {
   let movieIdParam = props;
@@ -14,6 +15,15 @@ const NewDiscussionPost = (props) => {
     thread: "",
     rating: "",
   };
+  const testFunc = (e) => {
+    let middleText = e.target.value;
+    for (let word of Explicit.BadWord) { let re= new RegExp (`\\b${word}\\b`, "gi")
+      middleText = middleText.replaceAll(re, "*$/#&@!")
+    }
+    newPostObj.text = middleText;
+  }
+
+  console.log(Explicit.BadWord[1])
 
   return (
     <div style={{ maxWidth: "500px" }} className="center">
@@ -36,8 +46,11 @@ const NewDiscussionPost = (props) => {
             type="textarea"
             rows="5"
             placeholder="Insert comment here"
-            onChange={(e) => (newPostObj.text = e.target.value)}
+            
+            onChange={(e) => { testFunc(e) }}
           />
+
+        
         </FormGroup>
         <FormGroup>
           <Label for="ratingInput">Rating</Label>
