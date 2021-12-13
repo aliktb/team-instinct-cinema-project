@@ -23,6 +23,7 @@ import DiscussionBoard from "./pages/DiscussionBoard";
 import PlacesToGo from "./pages/PlacesToGo";
 import OpeningTimes from "./pages/OpeningTimes";
 import SearchPage from "./pages/SearchPage";
+import NotFound from "./pages/NotFound"
 
 import DiscussionPage from "./pages/DiscussionPage";
 import GalleryFooter from "./Components/GalleryFooter";
@@ -67,7 +68,7 @@ function App() {
             <Route path="/Opening_Times" element={<OpeningTimes />}></Route>
             <Route path="/Contact_us" element={<Contact />}></Route>
             <Route path="/Screens" element={<ScreensPage />}></Route>
-            {/* <Route path="*" element={<NotFound />}></Route> */}
+            <Route path="*" element={<NotFound />}></Route> 
           </Routes>
           <GalleryFooter />
         </Router>
