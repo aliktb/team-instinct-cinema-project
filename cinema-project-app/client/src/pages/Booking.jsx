@@ -7,6 +7,7 @@ import seatHover from '../resources/booking/chairSelected.png';
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input, Alert } from "reactstrap";
 import PaymentProvider from "../Components/PaymentProvider";
+import { Link } from "react-router-dom";
 
 
 
@@ -296,14 +297,17 @@ const Booking = () => {
 
 
         return (
-            <div style={{ display: "flex", padding: "4em" }}>
-                <div>
-                    <p>Select the date you would like to book for: </p><Input type="date" style={{ width: "270px", position: "inline-block" }} onChange={(e) => { console.log(e.target.value); moviesGet(e.target.value) }} />
-                </div>
-                <div>
-                    {currentMovieList}
-                </div>
-            </div >
+            <div>
+                <Link to="/Bookings/View"><Button>View existing booking</Button></Link>
+                <div style={{ display: "flex", padding: "4em" }}>
+                    <div>
+                        <p>Select the date you would like to book for: </p><Input type="date" style={{ width: "270px", position: "inline-block" }} onChange={(e) => { console.log(e.target.value); moviesGet(e.target.value) }} />
+                    </div>
+                    <div>
+                        {currentMovieList}
+                    </div>
+                </div >
+            </div>
         );
     }
 }
