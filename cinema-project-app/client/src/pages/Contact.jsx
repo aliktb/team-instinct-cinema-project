@@ -32,7 +32,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <div className="page-container">
       <h1 class="center">Contact us</h1>
 
       <p>Telephone: 0303 123 7300</p>
@@ -110,7 +110,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
