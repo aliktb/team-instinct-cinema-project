@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input, Alert, Table } from "reactstrap";
 import PaymentProvider from "../Components/PaymentProvider";
 import { Link } from "react-router-dom";
+import Concessions from "../Components/Concessions";
 
 
 
@@ -36,6 +37,8 @@ const Booking = () => {
 
     const [selectedScreening, setSelectedScreening] = useState();
     const [currentMovieList, setCurrentMovieList] = useState();
+    const [nameError, setNameError] = useState("");
+    const [enteredName, setEnteredName] = useState("");
 
 
     const makeCards = (date) => {
@@ -193,6 +196,20 @@ const Booking = () => {
 
         const calculate = () => { return selectedScreening.screen === "Deluxe" ? ((bookingDetails.adults * 10.99) + (bookingDetails.children * 4.99)).toFixed(2) : ((bookingDetails.adults * 8.99) + (bookingDetails.children * 3.99)).toFixed(2) }
 
+        let testVar = false;
+
+        const paymentButtonUpdate = () => {
+            if (bookingDetails.seats.length > 0 && testVar) {
+                setPaymentButton(
+                    <Button onClick={() => { updateSeating(); setPayments(true) }}>Pay now</Button>
+                )
+            } else {
+                setPaymentButton(
+                    <></>
+                )
+            }
+        }
+
         const updateBooking = (seat, operation) => {
             let tempObj = bookingDetails;
             tempObj.bookingRef = String(new Date().getTime()).slice(-8);
@@ -222,15 +239,10 @@ const Booking = () => {
             console.log(tempObj);
             tempObj.total = (calculate());
             setBookingDetails(tempObj);
-            if (localSeating.length > 0) {
-                setPaymentButton(
-                    <Button onClick={() => { updateSeating(); setPayments(true) }}>Pay now</Button>
-                )
-            } else {
-                setPaymentButton(
-                    <></>
-                )
+            if (enteredName.length > 0) {
+                testVar = true
             }
+            paymentButtonUpdate();
         }
 
 
@@ -262,6 +274,19 @@ const Booking = () => {
             setChildren(e.target.value);
         }
 
+        const nameUpdate = (e) => {
+            testVar = false
+            let tempObj = bookingDetails;
+            tempObj.name = e.target.value;
+            setBookingDetails(tempObj);
+            setEnteredName(e.target.value)
+            if (e.target.value.length > 0) {
+                testVar = true
+            }
+            console.log(bookingDetails.name);
+            paymentButtonUpdate();
+        }
+
         return (
             <div>
                 <div style={{ display: "flex" }}>
@@ -276,11 +301,12 @@ const Booking = () => {
                             Children: {children}<br></br>
                             <input type="range" max={bookingDetails.seats.length} onChange={(e) => { childrenUpdate(e) }} /><br></br>
                             Total: £{bookingDetails.total}<br></br>
-                            Name: {bookingDetails.name}<br></br>
-                            <Input type="text" placeholder="Enter your name here..." onChange={(e) => { let tempObj = bookingDetails; tempObj.name = e.target.value; setBookingDetails(tempObj); console.log(bookingDetails.name); }}></Input>
+                            Name: {enteredName}<br></br>
+                            <Input type="text" placeholder="Enter your name here..." onChange={(e) => { nameUpdate(e) }}></Input>
+                            <p>{nameError}</p>
                         </div>
                     </div>
-                    <div style={{ position: "relative", width: "50%", textAlign: "center" }}>
+                    <div style={{ position: "relative", width: "50%", textAlign: "center", margin: "0px auto 0px auto" }}>
                         <p style={{ marginBottom: "0px", }}>{selectedScreening.screen}</p>
                         <img style={{ width: "100%" }} src={screenImage} alt={selectedScreening.screen} />
                         <div style={{ display: "flex", "flex-wrap": "wrap" }}>
@@ -297,52 +323,13 @@ const Booking = () => {
 
 
         return (
-            <div>
+            <div className="page-container">
                 <Link to="/Bookings/View"><Button>View existing booking</Button></Link>
                 <div style={{ display: "flex", padding: "4em" }}>
                     <div>
                         <p>Select the date you would like to book for: </p>
                         <Input type="date" style={{ width: "270px", position: "inline-block" }} onChange={(e) => { console.log(e.target.value); moviesGet(e.target.value) }} />
-                        <div style={{ marginTop: "100px" }}>
-                            <p>Concessions:
-                            </p>
-                            <Table >
-                                <thead>
-                                    <tr>
-                                        <th>Item</th>
-                                        <th>Price: Regular</th>
-                                        <th>Price: Large</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Popcorn</td>
-                                        <td>£7.99</td>
-                                        <td>£9.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Drinks</td>
-                                        <td>£3.99</td>
-                                        <td>£4.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hot Dogs</td>
-                                        <td>£6.99</td>
-                                        <td>£8.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nachos</td>
-                                        <td>£6.99</td>
-                                        <td>£8.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tango Iceblast</td>
-                                        <td>£4.99</td>
-                                        <td>£5.99</td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                        </div>
+                        <Concessions />
                     </div>
                     <div>
                         {currentMovieList}
