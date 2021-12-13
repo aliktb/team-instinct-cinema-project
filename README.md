@@ -114,6 +114,7 @@ We Used Git for versioning
 - **Bootstrap** - [Bootstrap License](https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE)
 - **Reactstrap** - [Reactstrap License](https://github.com/reactstrap/reactstrap/blob/master/LICENSE)
 - **StripeLicense** - [StripeLicense](https://stripe.com/gb/legal)
+- **EmailJsLicense** -[EmailJsLicense](https://github.com/eleith/emailjs/blob/main/LICENSE)
 
 # Acknowledgements
 Many thanks go to the QA Academy and their trainers for their expertise and support
