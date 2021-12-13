@@ -5,7 +5,7 @@ import seatEmpty from '../resources/booking/chair.png';
 import seatClicked from '../resources/booking/chairHover.png';
 import seatHover from '../resources/booking/chairSelected.png';
 import React, { useEffect, useState } from "react";
-import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input, Alert } from "reactstrap";
+import { Button, Card, CardImg, CardBody, CardText, CardTitle, Input, Alert, Table } from "reactstrap";
 import PaymentProvider from "../Components/PaymentProvider";
 import { Link } from "react-router-dom";
 
@@ -301,7 +301,48 @@ const Booking = () => {
                 <Link to="/Bookings/View"><Button>View existing booking</Button></Link>
                 <div style={{ display: "flex", padding: "4em" }}>
                     <div>
-                        <p>Select the date you would like to book for: </p><Input type="date" style={{ width: "270px", position: "inline-block" }} onChange={(e) => { console.log(e.target.value); moviesGet(e.target.value) }} />
+                        <p>Select the date you would like to book for: </p>
+                        <Input type="date" style={{ width: "270px", position: "inline-block" }} onChange={(e) => { console.log(e.target.value); moviesGet(e.target.value) }} />
+                        <div style={{ marginTop: "100px" }}>
+                            <p>Concessions:
+                            </p>
+                            <Table >
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Price: Regular</th>
+                                        <th>Price: Large</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Popcorn</td>
+                                        <td>£7.99</td>
+                                        <td>£9.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Drinks</td>
+                                        <td>£3.99</td>
+                                        <td>£4.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hot Dogs</td>
+                                        <td>£6.99</td>
+                                        <td>£8.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nachos</td>
+                                        <td>£6.99</td>
+                                        <td>£8.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tango Iceblast</td>
+                                        <td>£4.99</td>
+                                        <td>£5.99</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </div>
                     </div>
                     <div>
                         {currentMovieList}
