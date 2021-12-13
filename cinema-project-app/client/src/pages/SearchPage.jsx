@@ -24,9 +24,9 @@ const SearchPage = () => {
         console.log(tagsAsString);
       }
 
-      // const castList = movies.cast.map((castMember) => {
-      //   return <li>{castMember}</li>;
-      // });
+      const castList = movies.cast.map((castMember, index) => {
+        return <li key={index}> {castMember}</li>;
+      });
 
       // let castList;
 
@@ -77,7 +77,7 @@ const SearchPage = () => {
               </CardTitle>
               <CardTitle tag="h5">
                 <b>Castlist: </b>
-                {/* <ul>{castList}</ul> */}
+                <ul>{castList}</ul>
               </CardTitle>
             </CardBody>
           </Card>
@@ -104,6 +104,5 @@ const SearchPage = () => {
     );
   }
 };
-
 
 export default SearchPage;
