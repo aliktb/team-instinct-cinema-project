@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import "../css/center.css";
 import emailjs from "emailjs-com";
+import { Button } from "reactstrap";
 
 const Contact = () => {
   const nameRef = useRef("");
@@ -33,16 +34,18 @@ const Contact = () => {
 
   return (
     <div className="page-container">
-      <h1 class="center">Contact us</h1>
-
-      <p>Telephone: 0303 123 7300</p>
-      <p>
-        Address: Buckingham Palace <br></br>London<br></br>SW1 1AA
-      </p>
-
+      <h1 style={{ textAlign: "center" }}>Contact us</h1>
+      <div className="mx-3">
+        <p>Telephone: 0303 123 7300</p>
+        <p>
+          Address: Buckingham Palace <br></br>London<br></br>SW1 1AA
+        </p>
+      </div>
       <h3 class="center">
         <u>Send an Email</u>
       </h3>
+      <br />
+
       <div className="ContactForm">
         <div className="container">
           <div className="row">
@@ -65,6 +68,7 @@ const Contact = () => {
                         required
                       ></input>
                     </div>
+
                     <div className="col-6">
                       <input
                         type="email"
@@ -76,7 +80,7 @@ const Contact = () => {
                       ></input>
                     </div>
                   </div>
-
+                  <br />
                   <div className="row formRow">
                     <div className="col">
                       <input
@@ -88,6 +92,7 @@ const Contact = () => {
                       ></input>
                     </div>
                   </div>
+                  <br />
 
                   <div className="row formRow">
                     <div className="col">
@@ -101,9 +106,11 @@ const Contact = () => {
                       ></textarea>
                     </div>
                   </div>
-                  <button className="submit-btn" type="submit">
+                  <br />
+                  <Button className="submit-btn mb-4" type="submit">
                     Send Email
-                  </button>
+                  </Button>
+                  <br></br>
                 </form>
               </div>
             </div>
