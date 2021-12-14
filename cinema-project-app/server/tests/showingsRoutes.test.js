@@ -104,4 +104,34 @@ describe('testing showings routes', function () {
                 done();
             })
     });
+
+
+
+    it("should return 202 when updating a showing", function (done) {
+        chai
+            .request(server)
+
+            .put("/Showings/update/61b87332569727777eb9c8c9")
+
+            .end((err, response) => {
+                expect(response).to.have.status(202);
+                expect(response).to.not.be.null;
+
+                done();
+            });
+    });
+
+    it("should return 204 when deleting a Showing", function (done) {
+        chai
+            .request(server)
+
+            .delete("/Showings/delete/61b8746ba0d0ee2a86702a35")
+
+            .end((err, response) => {
+                expect(response).to.have.status(204);
+                expect(response).to.not.be.null;
+
+                done();
+            });
+    });
 })
