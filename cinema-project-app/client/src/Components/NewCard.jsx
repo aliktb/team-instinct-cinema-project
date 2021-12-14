@@ -3,7 +3,6 @@ import {
   CardBody,
   CardImg,
   CardTitle,
-  CardText,
   CardColumns,
   CardSubtitle,
   Button

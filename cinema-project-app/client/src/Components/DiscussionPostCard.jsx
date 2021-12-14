@@ -5,17 +5,14 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardSubtitle,
   CardText,
   Button,
-  Form,
   FormGroup,
   Label,
   Input,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalInput,
   ModalFooter,
 } from "reactstrap";
 

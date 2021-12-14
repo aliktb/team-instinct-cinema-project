@@ -3,10 +3,7 @@ import "../css/center.css"
 import "../css/HomePage.css"
 import "../Components/NewCarousel"
 import { Badge } from "reactstrap";
-import cinemapic from "../resources/cinemaBg.jpeg";
 import NewCarousel from "../Components/NewCarousel";
-import GalleryFooter from "../Components/GalleryFooter"
-
 
 const Homepage = () => {
     return (

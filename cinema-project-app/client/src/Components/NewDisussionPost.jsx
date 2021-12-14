@@ -1,8 +1,6 @@
-import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import axios from "axios";
-import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
-import { useParams } from "react-router";
 import Explicit from "../resources/Explicit.json";
 
 const NewDiscussionPost = (props) => {

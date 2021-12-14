@@ -1,11 +1,11 @@
-import DiscussionBoard from "../pages/DiscussionBoard";
+
 import { Link } from "react-router-dom";
 
 import {
   Card,
   CardBody,
   CardTitle,
-  CardSubtitle,
+ 
   CardText,
   Button,
 } from "reactstrap";
@@ -21,7 +21,7 @@ const DiscussionThreadCard = ({
 
   useEffect(() => {
     console.log(rating);
-  }, []);
+  }, [rating]);
 
   return (
     <div>

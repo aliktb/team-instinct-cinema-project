@@ -1,4 +1,3 @@
-import GalleryFooter from "../Components/GalleryFooter";
 import TableOpeningTimes from "../Components/TableOpeningTimes";
 
 const OpeningTimes = () => {

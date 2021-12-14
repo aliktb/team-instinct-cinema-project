@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormGroup, Label, Input, Button, ButtonGroup } from "reactstrap";
+import { FormGroup, Label, Input} from "reactstrap";
 
 const RadioButton = ({ setSearch }) => {
   const [SearchVar, setSearchVar] = useState("");
@@ -9,9 +9,9 @@ const RadioButton = ({ setSearch }) => {
     setSearch(event.target.value);
   };
 
-  const resetRadioState = () => {
-    setSearchVar("");
-  };
+  // const resetRadioState = () => {
+  //   setSearchVar("");
+  // };
   console.log(SearchVar);
 
   return (
