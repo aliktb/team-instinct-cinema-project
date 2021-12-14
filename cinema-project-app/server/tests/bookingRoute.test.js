@@ -74,6 +74,33 @@ describe('testing bookings routes', function () {
                 expect(response).to.not.be.null;
                 done();
             });
+     });
+     it("should return 204 when deleting a booking", function (done) {
+    chai
+      .request(server)
+
+      .delete("/bookings/delete/61b874a5cdb04d2ed1a07bd6")
+
+      .end((err, response) => {
+        expect(response).to.have.status(204);
+        expect(response).to.not.be.null;
+
+        done();
+      });
+  });
+    
+    it("should return 202 when updating booking", function (done) {
+        chai
+            .request(server)
+        
+            .put('/bookings/update/61b86fdeeec7ca23103ae235')
+        
+            .end((err, response) => {
+                expect(response).to.have.status(202);
+                expect(response).to.not.be.null;
+
+                done();
+            });
     });
 
 });
