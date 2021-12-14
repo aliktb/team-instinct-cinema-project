@@ -11,15 +11,15 @@ The aim of the project was to develop a full stack application where users can n
 
 # Technologies Used:
 This project consisted of us using the following technlogies:
-Version Control System: Git
-• Source Code Management: GitHub
-• Kanban Board: Jira
-• Full-Stack Development Technologies: MERN stack
-o Database Management System: MongoDB Atlas database
-o Back-End Programming Language: Node
-o API Development Platform: Express
-o Front-End Development Framework: React
-• Unit Testing: Mocha, Chai
+- **Version Control System**: Git
+- **Source Code Management**: GitHub
+- **Kanban Board**: Jira
+- **Full-Stack Development Technologies**: MERN stack
+- **Database Management System**: MongoDB Atlas database
+- **Back-End Programming Language**: Node
+- **API Development Platform**: Express
+- **Front-End Development Framework**: React
+- **Unit Testing**: Mocha, Chai
 
 
 # Get started
