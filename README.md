@@ -80,6 +80,7 @@ client dependencies:
 - npm install --save bootstrap
 ```
 # Troubleshooting
+To make sure the Mongo DB URI in the secrets folder within the server folder matches the URI in the Mongo URI.js.
 
 # Testing
 Once you got the project setup intsall Mocha, Chai and Istanbul to view coverage. In your terminal run:
@@ -249,6 +250,14 @@ Deployment can be acheived by running
 
 
 # Built With
+Visual Studio Code: IDE
+Mongo DB
+Express
+React
+Node
+Mocha
+Chai
+
 
 # Versioning
 We Used Git for versioning
