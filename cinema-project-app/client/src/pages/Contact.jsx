@@ -52,8 +52,6 @@ const Contact = () => {
             <div className="col-12 text-center">
               <div className="contactForm">
                 <form
-                  action="/action_page.php"
-                  method="get"
                   onSubmit={handleSubmit}
                   id="contact-form"
                 >
