@@ -1,7 +1,7 @@
 import "./css/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import TestAPIPage from "./pages/TestAPIPage";
+
 
 import GettingHere from "./pages/GettingHere";
 

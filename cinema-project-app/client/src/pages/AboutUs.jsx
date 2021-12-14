@@ -2,15 +2,10 @@ import "../css/center.css";
 import {
   Card,
   CardBody,
-  CardImg,
   CardTitle,
-  CardGroup,
-  CardSubtitle,
   CardText,
-  Button,
   List,
 } from "reactstrap";
-import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (

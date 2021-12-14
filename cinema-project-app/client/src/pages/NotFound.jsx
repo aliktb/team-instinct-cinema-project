@@ -7,8 +7,8 @@ const NotFound = () => {
         <div className="row">
           <div className="col">
             <img
-            //   className="vertical-center"
               src="https://i.imgur.com/e1IneGq.jpg"
+              alt="john travolta confused gif from pulp fiction"
               style={{ maxWidth: "100%", height: "100%" }}
               id="liam"
             ></img>

@@ -8,14 +8,14 @@ const Search = ({ setResults }) => {
   const [searchType, setSearchType] = useState("");
   const [emptySearch, setEmptySearch] = useState(false);
   const search = () => {
-    if (searchTerm != "") {
+    if (searchTerm !== "") {
       setEmptySearch(false);
       if (searchType === "title") {
         axios
           .get(`http://localhost:3001/movies/title/${searchTerm}`)
           .then((response) => {
-            const movies = response.data;
-            console.log(response.data);
+            // const movies = response.data;
+            // console.log(response.data);
             // const filteredmovies = movies.filter((movies) => { return movies.title.includes(searchTerm) })
             // console.log(filteredmovies);
             //  setResults(filteredmovies);
@@ -25,8 +25,8 @@ const Search = ({ setResults }) => {
         axios
           .get(`http://localhost:3001/movies/tag/${searchTerm}`)
           .then((response) => {
-            const movies = response.data;
-            console.log(response.data);
+            // const movies = response.data;
+            // console.log(response.data);
             // const filteredtags = movies.filter((movies) => { return movies.tags.includes(searchTerm) })
             // console.log(filteredtags);
             // setResults(filteredtags);
@@ -36,8 +36,8 @@ const Search = ({ setResults }) => {
         axios
           .get(`http://localhost:3001/movies/cast/${searchTerm}`)
           .then((response) => {
-            const actors = response.data;
-            console.log(response.data);
+            // const actors = response.data;
+            // console.log(response.data);
             // const filteredactors = actors.filter((actors) => { return actors.title.includes(searchTerm) })
             // console.log(filteredactors);
             setResults(response.data);
