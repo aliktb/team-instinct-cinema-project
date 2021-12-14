@@ -84,7 +84,7 @@ const PlacesToGo = () => {
               alt="Crown Jewels"
             />
             <CardText
-              tags="h4"
+              tag="h4"
               style={{
                 paddingTop: "2rem",
                 fontSize: "1.8rem",
@@ -122,7 +122,7 @@ const PlacesToGo = () => {
               alt="Harry Potter World"
             />
             <CardText
-              tags="h4"
+              tag="h4"
               style={{
                 paddingTop: "2rem",
                 fontSize: "1.8rem",
@@ -157,7 +157,7 @@ const PlacesToGo = () => {
               alt="China Town"
             />
             <CardText
-              tags="h4"
+              tag="h4"
               style={{
                 paddingTop: "2rem",
                 fontSize: "1.8rem",
@@ -192,7 +192,7 @@ const PlacesToGo = () => {
               alt="British Museum"
             />
             <CardText
-              tags="h4"
+              tag="h4"
               style={{
                 paddingTop: "2rem",
                 fontSize: "1.8rem",
