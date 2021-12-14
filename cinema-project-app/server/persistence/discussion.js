@@ -7,7 +7,7 @@ const discussionSchema = new Schema({
     text: String,
     movieId: String,
     thread: String,
-    rating: Number,
+    rating: String,
 })
 
 const Discussion = model('Discussion', discussionSchema)

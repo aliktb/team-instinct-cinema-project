@@ -32,6 +32,7 @@ import "./css/general.css";
 
 import ScreensPage from "./pages/ScreensPage";
 import "./css/ScreensPage.css";
+import ViewBooking from "./pages/ViewBooking";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             <Route path="/Movie_Three" element={<MovieThree />}></Route>
             <Route path="/Movie_Four" element={<MovieFour />}></Route>
             <Route path="/Bookings" element={<Booking />}></Route>
+            <Route path="/Bookings/View" element={<ViewBooking />}></Route>
             <Route
               path="/DiscussionBoard"
               element={<DiscussionBoard />}
@@ -68,7 +70,7 @@ function App() {
             <Route path="/Opening_Times" element={<OpeningTimes />}></Route>
             <Route path="/Contact_us" element={<Contact />}></Route>
             <Route path="/Screens" element={<ScreensPage />}></Route>
-            <Route path="*" element={<NotFound />}></Route> 
+            <Route path="*" element={<NotFound />}></Route>
           </Routes>
           <GalleryFooter />
         </Router>

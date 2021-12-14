@@ -26,7 +26,7 @@ const MovieListBooking = ({ movieDate, setSelectedScreening, setConfirmation }) 
                             <Card className="cardMain">
                                 <div className="cardFlex">
                                     <div className="cardImageContainer">
-                                        <CardImg src={showing.movie.imageUrl} className='cardImageClass'></CardImg>
+                                        <img src={showing.movie.imageUrl} className='cardImageClass'></img>
                                     </div>
                                     <div>
                                         <CardTitle className="cardTitleClass">{showing.movie.title}</CardTitle>
