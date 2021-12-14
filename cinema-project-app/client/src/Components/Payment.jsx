@@ -152,7 +152,7 @@ const Payment = ({ booking }) => {
 
             <PaymentElement id="payment-element" />
 
-            <Button disabled={isLoading || !stripe || !elements} id="submit">
+            <Button disabled={isLoading || !stripe || !elements} id="submit" style={{ marginTop: "5%" }}>
 
                 <span id="button-text">
 

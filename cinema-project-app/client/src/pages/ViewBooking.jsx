@@ -32,7 +32,7 @@ const ViewBooking = () => {
         if (bookingDetails.movieTitle) {
 
             return (
-                <div>
+                <div className="bookingRefExtender">
                     <Link to="/Bookings"><Button>Back to bookings page</Button></Link>
                     <p>Booking Reference: {bookingDetails._id}</p>
                     <p>Booking code: {bookingDetails.bookingRef}</p>
@@ -48,7 +48,7 @@ const ViewBooking = () => {
 
         } else {
             return (
-                <div>
+                <div className="bookingRefExtender">
                     <Link to="/Bookings"><Button>Back to bookings page</Button></Link>
                     <p>No booking found</p>
                     <Button onClick={() => { setIsLoaded(false) }}>Back</Button>
@@ -58,7 +58,7 @@ const ViewBooking = () => {
 
     } else {
         return (
-            <div>
+            <div className="bookingRefExtender">
                 <Link to="/Bookings"><Button>Back to bookings page</Button></Link>
                 <p>Please enter a booking code or reference:</p>
                 <Input style={{ width: "300px" }} type="text" onChange={(e) => { setCode(e.target.value) }} />
