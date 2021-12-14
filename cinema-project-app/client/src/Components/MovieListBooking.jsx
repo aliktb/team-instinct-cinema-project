@@ -1,4 +1,4 @@
-import { Button, Card, CardImg, CardBody, CardText, CardTitle } from "reactstrap";
+import { Button, Card, CardBody, CardText, CardTitle } from "reactstrap";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -26,7 +26,7 @@ const MovieListBooking = ({ movieDate, setSelectedScreening, setConfirmation }) 
                             <Card className="cardMain">
                                 <div className="cardFlex">
                                     <div className="cardImageContainer">
-                                        <img src={showing.movie.imageUrl} className='cardImageClass'></img>
+                                        <img src={showing.movie.imageUrl} alt={showing.movie.title} className='cardImageClass'></img>
                                     </div>
                                     <div>
                                         <CardTitle className="cardTitleClass">{showing.movie.title}</CardTitle>
