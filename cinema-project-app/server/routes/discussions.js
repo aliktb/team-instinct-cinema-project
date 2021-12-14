@@ -54,7 +54,7 @@ router.delete("/delete/:id", (req, res, next) => {
     if (error) {
       res.status(404).send(error.message);
     } else {
-      res.status(204);
+      res.status(204).send();
     }
   });
 });
