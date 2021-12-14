@@ -22,15 +22,15 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-router.get('/name/:name', (req, res, next) => {
-    Showing.find({ "name": req.params.name }, (error, result) => {
-        if (error) {
-            res.status(error.status).send(error);
-        } else {
-            res.status(200).send(result);
-        }
-    })
-})
+// router.get('/name/:name', (req, res, next) => {
+//     Showing.find({ "name": req.params.name }, (error, result) => {
+//         if (error) {
+//             res.status(error.status).send(error);
+//         } else {
+//             res.status(200).send(result);
+//         }
+//     })
+// })
 
 router.post('/create', (req, res, next) => {
     const showing = new Showing(req.body);
