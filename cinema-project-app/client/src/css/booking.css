@@ -2,8 +2,14 @@
     min-height: 80vh;
 }
 
+.bookingRefInput {
+    width: 300px;
+    margin-bottom: 30px;
+}
+
 .bookingRefExtender {
     min-height: 60vh;
+    padding: 4em
 }
 
 .dateSelect {
