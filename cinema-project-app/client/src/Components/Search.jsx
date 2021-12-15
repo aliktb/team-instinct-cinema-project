@@ -20,28 +20,36 @@ const Search = ({ setResults }) => {
   const search = () => {
     if (searchTerm !== "") {
       setEmptySearch(false);
+      console.log(searchTerm)
       if (searchType === "title") {
         axios
           .get(`http://localhost:3001/movies/title/${searchTerm}`)
           .then((response) => {
+            console.log(response)
             let resultsArray = [];
             setCurLength(response.data.length);
+            console.log(response.data)
             for (let result of response.data) {
               console.log(result);
               axios.get(`http://localhost:3001/showings/title/e/${result.title}`).then((data) => {
-                console.log(data.data)
                 if (data.data.length > 0) {
-                  let futureShowings = data.data.filter((showing) => { return new Date(showing.date) < new Date() ? false : true })
-                  let deluxeShowings = futureShowings.filter((showing) => { return showing.screen === "Deluxe" ? true : false })
-                  let standardShowings = futureShowings.filter((showing) => { return showing.screen === "Standard" ? true : false })
-                  console.log(deluxeShowings);
-                  console.log(standardShowings);
-                  console.log("postSort");
+                  let futureShowings = data.data.filter((showing) => { return new Date(showing.date) >= new Date(Date().slice(4, -39)) ? true : false })
+
+                  let deluxeShowings = ((futureShowings.filter((showing) => { return showing.screen === "Deluxe" ? true : false })).sort((showing1, showing2) => { return showing1.date > showing2.date })).filter((showing) => { if (String(new Date(showing.date)) === String(new Date(Date().slice(4, -39)))) { return showing.timeRaw > Number(Date().slice(16, -34).replace(':', "")) ? true : false } else { return true } })
+                  let filteredDeluxe = deluxeShowings.filter((showing) => { return showing.date > deluxeShowings[0].date ? false : true })
+
+
+
+                  let standardShowings = (futureShowings.filter((showing) => { return showing.screen === "Standard" ? true : false })).sort((showing1, showing2) => { return showing1.date > showing2.date }).filter((showing) => { if (String(new Date(showing.date)) === String(new Date(Date().slice(4, -39)))) { return showing.timeRaw > Number(Date().slice(16, -34).replace(':', "")) ? true : false } else { return true } })
+                  let filteredStandard = standardShowings.filter((showing) => { return showing.date > standardShowings[0].date ? false : true })
+
+
+
                   if (deluxeShowings[0]) {
-                    result.nextDeluxe = deluxeShowings;
+                    result.nextDeluxe = filteredDeluxe;
                   }
                   if (standardShowings[0]) {
-                    result.nextStandard = standardShowings;
+                    result.nextStandard = filteredStandard;
                   }
                   console.log(result)
                   resultsArray.push(result);

@@ -108,8 +108,11 @@ const SearchPage = () => {
                 <b>Castlist: </b>
                 <ul>{castList}</ul>
               </CardTitle>
-              {standardShowing(movies)}
-              {deluxeShowing(movies)}
+              <CardTitle tag="h5">
+                <b>Next Showings: </b>
+                {standardShowing(movies)}
+                {deluxeShowing(movies)}
+              </CardTitle>
             </CardBody>
           </Card>
         </span>
