@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 // ================ test database setup ==================
 
 // ------------- change this to true when testing
-const testDB = false;
+const testDB = true;
 // ------------ only change this line when testing!!!
 
 let dbURI;
