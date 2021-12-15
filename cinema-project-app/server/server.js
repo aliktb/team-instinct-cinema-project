@@ -14,7 +14,7 @@ let dbURI;
 
 // Simple if else statement to determine if we're using test or prod db
 if (testDB == true) {
-  dbURI = "mongodb://localhost:27017/testCinemaDB";
+  dbURI = require("./secrets/mongoURI").mongoTestURI;
 } else {
   dbURI = require("./secrets/mongoURI").mongoURI;
 }
