@@ -74,7 +74,7 @@ describe("testing discussion routes", function () {
   it("should be status 200 when reading posts by id", function (done) {
     chai
       .request(server)
-      .get("/posts/61b9dc38c4b835ae45ab55db")
+      .get("/posts/61ba0121438802e1d1f1d967")
       .end((err, response) => {
         if (err) {
           console.log(`error: ${err}`);
@@ -134,14 +134,14 @@ describe("testing discussion routes", function () {
     }
     chai
       .request(server)
-      .put("/posts/update/61b9dc38c4b835ae45ab55db")
+      .put("/posts/update/61ba0121438802e1d1f1d967")
       .send(newObj)
       .end((err, response) => {
         expect(response).to.have.status(202);
         expect(response).to.not.be.null;
         expect(response.body.name).to.be.equal('updated name')
 
-        chai.request(server).put('/posts/update/61b9dc38c4b835ae45ab55db').send(createDiscussion)
+        chai.request(server).put('/posts/update/61ba0121438802e1d1f1d967').send(createDiscussion)
 
         done();
       });

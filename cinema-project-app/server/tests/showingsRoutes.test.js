@@ -165,19 +165,28 @@ describe("testing showings routes", function () {
   });
 
   it("should return 202 when updating a showing", function (done) {
+    let newObj = {
+      screen: "screenTwo",
+      date: "2021-12-19",
+      timeRaw: 1700,
+      time: "12:30",
+      movie: { title: "West Side Story", tags: ["Action", "Adventure"] },
+      seats: [{}],
+    }
     chai
       .request(server)
 
-      .put("/Showings/update/61b9d668c1688f472249e717")
-      .send(updateShowing)
+      .put("/Showings/update/61ba026281c395e0be00dd39")
+      .send(newObj)
 
       .end((err, response) => {
         expect(response).to.have.status(202);
-        expect(response.body.date).to.be.equal(updatedShowingsdate);
+        expect(response.body.date).to.be.equal("2021-12-19");
+
         expect(response).to.not.be.null;
         chai
           .request(server)
-          .put("/Showings/update/61b9d668c1688f472249e717")
+          .put("/Showings/update/61ba026281c395e0be00dd39")
           .send(createShowing);
         done();
       });

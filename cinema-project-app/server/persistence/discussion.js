@@ -8,7 +8,7 @@ const discussionSchema = new Schema({
     movieId: String,
     thread: String,
     rating: String,
-})
+}, { versionKey: false });
 
 const Discussion = model('Discussion', discussionSchema)
 
