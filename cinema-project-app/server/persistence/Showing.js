@@ -26,7 +26,7 @@ showingSchema = new Schema({
     movie: movieSchema,
     seats: [seatSchema]
 
-})
+}, { versionKey: false })
 
 const Showing = model('Showing', showingSchema);
 
