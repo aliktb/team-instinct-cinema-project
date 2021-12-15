@@ -3,6 +3,7 @@
 const { expect } = require("chai");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
+const { Movie } = require("../persistence/movie");
 const { Showing } = require("../persistence/showing");
 
 const server = require("../server.js");
@@ -24,7 +25,16 @@ describe("testing showings routes", function () {
     date: "2021-12-15",
     timeRaw: 1230,
     time: "12:30",
-    movie: {title:"West Side Story", tags: ["Action", "Adventure"]},
+    movie: { title: "West Side Story", tags: ["Action", "Adventure"] },
+    seats: [{}],
+  });
+
+  const updateShowing = new Showing({
+    screen: "screenTwo",
+    date: "2021-12-19",
+    timeRaw: "17:00",
+    time: "12:30",
+    movie: { title: "West Side Story", tags: ["Action", "Adventure"] },
     seats: [{}],
   });
 
@@ -158,12 +168,17 @@ describe("testing showings routes", function () {
     chai
       .request(server)
 
-      .put("/Showings/update/61b87332569727777eb9c8c9")
+      .put("/Showings/update/61b9d668c1688f472249e717")
+      .send(updateShowing)
 
       .end((err, response) => {
         expect(response).to.have.status(202);
+        expect(response.body.date).to.be.equal(updatedShowingsdate);
         expect(response).to.not.be.null;
-
+        chai
+          .request(server)
+          .put("/Showings/update/61b9d668c1688f472249e717")
+          .send(createShowing);
         done();
       });
   });
