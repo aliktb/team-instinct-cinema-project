@@ -17,7 +17,7 @@ describe("basic testing", function () {
   //test objects
   const createMovie = new Movie({
     title: "createMovieTitle",
-    rating: "12",
+    rating: "18",
     runtime: 100,
     cast: ["cast1", "cast"],
     imageUrl: "testUrl",
@@ -37,6 +37,17 @@ describe("basic testing", function () {
     description: "descriptionText",
   });
 
+  const updatedMovie = new Movie({
+    title: "updatedMovieTitle",
+    rating: "13",
+    runtime: 150,
+    cast: ["cast3", "cast4"],
+    imageUrl: "testUrl2",
+    release: "releaseDate2",
+    tags: ["tag3", "tag4"],
+    description: "descriptionText2",
+  });
+
   before((done) => {
     chai
       .request(server)
@@ -47,7 +58,7 @@ describe("basic testing", function () {
       });
   });
 
-  it("should return 201 when creating a new movie", function (done) {
+  it("should return 201 when creating a new movie [CREATE MOVIE]", function (done) {
     chai
       .request(server)
 
@@ -63,7 +74,7 @@ describe("basic testing", function () {
       });
   });
 
-  it("should return status 200 when reading a movie", function (done) {
+  it("should return status 200 when reading all movies [GET ALL]", function (done) {
     chai
       .request(server)
 
@@ -75,17 +86,26 @@ describe("basic testing", function () {
           done(err);
         }
 
+        const body = response.body;
         expect(response).to.have.status(200);
         expect(response).to.not.be.null;
+
+        //map every object within the response body
+        body.map((movie) => {
+          expect(movie).to.be.a("object");
+          expect(movie).to.contain.keys("rating");
+          expect(movie.runtime).to.be.a("number");
+        });
+
         done();
       });
   });
 
-  it("should return 200 when searching a title", function (done) {
+  it("should return 200 when searching a title [GET BY TITLE]", function (done) {
     chai
       .request(server)
 
-      .get("/movies/title/boss")
+      .get("/movies/title/createMovieTitle")
 
       .end((err, response) => {
         if (err) {
@@ -93,8 +113,14 @@ describe("basic testing", function () {
           done(err);
         }
 
+        const body = response.body;
         expect(response).to.have.status(200);
         expect(response).to.not.be.null;
+
+        body.map((movie) => {
+          expect(movie.title).to.be.equal("createMovieTitle");
+          expect(movie).to.not.be.null;
+        });
         done();
       });
   });
@@ -111,8 +137,14 @@ describe("basic testing", function () {
           done(err);
         }
 
+        const body = response.body;
         expect(response).to.have.status(200);
         expect(response).to.not.be.null;
+
+        body.map((movie) => {
+          expect(movie.cast[0]).to.be.equal("tag1");
+          expect(movie).to.not.be.null;
+        });
         done();
       });
   });
@@ -121,7 +153,7 @@ describe("basic testing", function () {
     chai
       .request(server)
 
-      .get("/movies/61b26e93bb8fde22737193a5")
+      .get("/movies/61b87979a2d60a8bcfa04425")
 
       .end((err, response) => {
         if (err) {
@@ -130,6 +162,8 @@ describe("basic testing", function () {
         }
 
         expect(response).to.have.status(200);
+        // console.log(response);
+        expect(response.body.title).to.have.keys("createMovieTitle");
         expect(response).to.not.be.null;
         done();
       });
@@ -167,16 +201,30 @@ describe("basic testing", function () {
       });
   });
 
-  it("should return 202 when updating a movie", function (done) {
+  it("should return 202 when updating a movie [UPDATE MOVIE]", function (done) {
     chai
       .request(server)
 
-      .put("/movies/update/61b7a54f1a40d2f7147c448e")
+      .put("/movies/update/61b9c757e8b9472a5b72c50e")
+
+      .send(updatedMovie)
 
       .end((err, response) => {
         expect(response).to.have.status(202);
+        console.log(response);
+        expect(response.body.title).to.be.equal("updatedMovieTitle");
         expect(response).to.not.be.null;
 
+        done();
+      });
+  });
+
+  after((done) => {
+    chai
+      .request(server)
+      .put("/movies/update/61b9c757e8b9472a5b72c50e")
+      .send(createMovie)
+      .end(() => {
         done();
       });
   });
