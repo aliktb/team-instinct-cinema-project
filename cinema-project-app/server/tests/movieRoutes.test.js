@@ -3,6 +3,7 @@
 const { expect } = require("chai");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
+const { Movie } = require("../persistence/movie");
 
 // Link our index file
 const server = require("../server.js");
@@ -13,7 +14,56 @@ chai.use(chaiHttp);
 // beforeEach((done) => setTimeout(done, 1000));
 
 describe("basic testing", function () {
-  it("should return status 200 when accessing route /", function (done) {
+  //test objects
+  const createMovie = new Movie({
+    title: "createMovieTitle",
+    rating: "12",
+    runtime: 100,
+    cast: ["cast1", "cast"],
+    imageUrl: "testUrl",
+    release: "releaseDate",
+    tags: ["tag1", "tag2"],
+    description: "descriptionText",
+  });
+
+  const readMovie = new Movie({
+    title: "createMovieTitle",
+    rating: "12",
+    runtime: 100,
+    cast: ["cast1", "cast"],
+    imageUrl: "testUrl",
+    release: "releaseDate",
+    tags: ["tag1", "tag2"],
+    description: "descriptionText",
+  });
+
+  before((done) => {
+    chai
+      .request(server)
+      .post("/movies/create")
+      .send(readMovie)
+      .end(() => {
+        done();
+      });
+  });
+
+  it("should return 201 when creating a new movie", function (done) {
+    chai
+      .request(server)
+
+      .post("/movies/create")
+      .send(createMovie)
+
+      .end((err, response) => {
+        expect(response).to.have.status(201);
+        expect(response).to.not.be.null;
+        expect(response).to.have.property("text", JSON.stringify(createMovie));
+
+        done();
+      });
+  });
+
+  it("should return status 200 when reading a movie", function (done) {
     chai
       .request(server)
 
@@ -99,21 +149,6 @@ describe("basic testing", function () {
 
         expect(response).to.have.status(200);
         expect(response).to.not.be.null;
-        done();
-      });
-  });
-
-  it("should return 201 when creating a new movie", function (done) {
-    chai
-      .request(server)
-
-      .post("/movies/create")
-      .send({ title: "testTitle" })
-
-      .end((err, response) => {
-        expect(response).to.have.status(201);
-        expect(response).to.not.be.null;
-
         done();
       });
   });
