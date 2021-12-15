@@ -27,42 +27,42 @@ const Navigationbar = () => {
           <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink href="/Listings_Gallery/">
-                <h4>Listings Gallery</h4>
+                <h4 class="box">Listings Gallery</h4>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/New_Listings">
-                <h4>New Listings</h4>
+                <h4 class="box">New Listings</h4>
               </NavLink>
             </NavItem>
 
             <NavItem>
               <NavLink href="/Bookings">
-                <h4>Bookings</h4>
+                <h4 class="box">Bookings</h4>
               </NavLink>
             </NavItem>
 
             <NavItem>
               <NavLink href="/DiscussionBoard">
-                <h4>Discussion Boards</h4>
+                <h4 class="box">Discussion Boards</h4>
               </NavLink>
             </NavItem>
 
             <NavItem>
               <NavLink href="/Film_Classification">
-                <h4>Film Classification</h4>
+                <h4 class="box">Film Classification</h4>
               </NavLink>
             </NavItem>
 
             <NavItem>
               <NavLink href="/Search">
-                <h4>Search Films</h4>
+                <h4 class="box">Search Films</h4>
               </NavLink>
             </NavItem>
 
             <UncontrolledDropdown inNavbar nav>
               <DropdownToggle caret nav>
-                <h4>More</h4>
+                <h4 class="box">More</h4>
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem href="/About">About us</DropdownItem>
