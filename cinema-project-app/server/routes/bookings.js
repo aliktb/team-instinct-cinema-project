@@ -56,7 +56,7 @@ router.delete('/delete/:id', (req, res, next) => {
 router.put('/update/:id', (req, res, next) => {
     Booking.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, result) => {
         if (error) {
-            res.send(error);
+            res.status(500).send(error);
         } else {
             res.status(202).send(result);
         }

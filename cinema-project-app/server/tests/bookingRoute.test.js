@@ -3,6 +3,7 @@
 const { expect } = require('chai');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const { Booking } = require("../persistence/booking"); 
 
 //Linking our index(sever) file
 const server = require('../server.js')
@@ -11,16 +12,68 @@ const server = require('../server.js')
 chai.use(chaiHttp);
 
 describe('testing bookings routes', function () {
+
+    const createBooking = new Booking({
+        bookingRef: '123456',
+        showingDate: 'testDate',
+        showingTime: 'testTime',
+        name: 'testName',
+        seats: "testSeats",
+        children: '2',
+        adults: "2",
+        movieTitle: 'testTitle',
+        screen: 'testString',
+        total: '4'
+    });
+
+    const readBooking = new Booking({
+        bookingRef: '123456',
+        showingDate: 'testDate',
+        showingTime: 'testTime',
+        name: 'testName',
+        seats: "testSeats",
+        children: '3',
+        adults: "3",
+        movieTitle: 'testTitle',
+        screen: 'testString',
+        total: '6'
+    });
+
+    const updateBooking = new Booking({
+        bookingRef: '123456',
+        showingDate: 'updatedDate',
+        showingTime: 'updatedTime',
+        name: 'updatedName',
+        seats: "updatedSeats",
+        children: '4',
+        adults: "4",
+        movieTitle: 'updatedTitle',
+        screen: 'updatedString',
+        total: '8'
+    });
+
+
+
+    before((done) => {
+        chai.request(server).post('/bookings/create')
+            .send(readBooking).
+            end(() => {
+            done();
+        });
+    })
+
+
     it('Should return status 201 when creating a new Booking', function (done) {
         chai
             .request(server)
         
             .post('/bookings/create')
-            .send({ name: "testName" })
+            .send(createBooking)
         
             .end((err, response) => {
                 expect(response).to.have.status(201);
                 expect(response).to.not.be.null;
+                expect(response).to.have.property('text',  JSON.stringify(createBooking))
 
                 done();
             });
@@ -29,7 +82,7 @@ describe('testing bookings routes', function () {
         chai
             .request(server)
         
-            .get('/bookings/61ae0688faf0519225a00b62')
+            .get('/bookings/61b9de2291f3716e80a31686')
             .end((err, response) => {
                 if (err) {
                     console.log("something is wrong...")
@@ -37,6 +90,7 @@ describe('testing bookings routes', function () {
                 }
                 
                 expect(response).to.have.status(200);
+                expect(response.body._id).to.be.equal('61b9de2291f3716e80a31686');
                 expect(response).to.not.be.null;
                 done();
             });
@@ -52,9 +106,18 @@ describe('testing bookings routes', function () {
                     console.log("something is wrong...")
                     done(err);
                 }
-                
+
+                const body = response.body;
                 expect(response).to.have.status(200);
                 expect(response).to.not.be.null;
+                
+                //map the object within the response body
+                body.map((booking) => {
+
+                    expect(booking).to.be.a('object');
+                    expect(booking).to.contain.keys('name');
+                    expect(booking.showingTime).to.be.a('string')
+                })
                 done();
             });
     });
@@ -69,8 +132,10 @@ describe('testing bookings routes', function () {
                     console.log("something is wrong...")
                     done(err);
                 }
-                
+                console.log(response.body)
+
                 expect(response).to.have.status(200);
+                expect(response.body.bookingRef).to.be.equal(123456);
                 expect(response).to.not.be.null;
                 done();
             });
@@ -82,7 +147,7 @@ describe('testing bookings routes', function () {
       .delete("/bookings/delete/61b874a5cdb04d2ed1a07bd6")
 
       .end((err, response) => {
-        expect(response).to.have.status(204);
+          expect(response).to.have.status(204);
         expect(response).to.not.be.null;
 
         done();
@@ -93,14 +158,29 @@ describe('testing bookings routes', function () {
         chai
             .request(server)
         
-            .put('/bookings/update/61b86fdeeec7ca23103ae235')
+            .put('/bookings/update/61b9de2291f3716e80a31686')
+            
+            .send(createBooking)
         
             .end((err, response) => {
+                if (err) {
+                    console.log(err);
+                    done(err);
+                }
+
+                console.log(response)
                 expect(response).to.have.status(202);
+                expect(response.body.name).to.be.equal("updatedName")
                 expect(response).to.not.be.null;
+                
+                chai.request(server).put('/bookings/update/61b9de2291f3716e80a31686')
+                .send(createBooking)
 
                 done();
             });
     });
+
+
+
 
 });

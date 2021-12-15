@@ -14,8 +14,10 @@ const bookingSchema = new Schema({
     movieTitle: String,
     screen: String,
     total: Number
+}, {
+    versionKey: false
 
-})
+});
 
 const Booking = model('Booking', bookingSchema);
 
