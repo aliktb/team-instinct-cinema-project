@@ -153,7 +153,7 @@ describe("basic testing", function () {
     chai
       .request(server)
 
-      .get("/movies/61b87979a2d60a8bcfa04425")
+      .get("/movies/61ba026281c395e0be00dd33")
 
       .end((err, response) => {
         if (err) {
@@ -162,8 +162,7 @@ describe("basic testing", function () {
         }
 
         expect(response).to.have.status(200);
-        // console.log(response);
-        expect(response.body.title).to.have.keys("createMovieTitle");
+        expect(response.body.title).to.be.equal("createMovieTitle");
         expect(response).to.not.be.null;
         done();
       });
@@ -202,16 +201,25 @@ describe("basic testing", function () {
   });
 
   it("should return 202 when updating a movie [UPDATE MOVIE]", function (done) {
+    let newObj = {
+      title: "updatedMovieTitle",
+      rating: "13",
+      runtime: 150,
+      cast: ["cast3", "cast4"],
+      imageUrl: "testUrl2",
+      release: "releaseDate2",
+      tags: ["tag3", "tag4"],
+      description: "descriptionText2"
+    }
     chai
       .request(server)
 
-      .put("/movies/update/61b9c757e8b9472a5b72c50e")
+      .put("/movies/update/61ba0121438802e1d1f1d96a")
 
-      .send(updatedMovie)
+      .send(newObj)
 
       .end((err, response) => {
         expect(response).to.have.status(202);
-        console.log(response);
         expect(response.body.title).to.be.equal("updatedMovieTitle");
         expect(response).to.not.be.null;
 
