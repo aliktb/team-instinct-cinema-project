@@ -5,7 +5,7 @@ import { Input, Button, Alert } from "reactstrap";
 
 const Search = ({ setResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchType, setSearchType] = useState("");
+  const [searchType, setSearchType] = useState("title");
   const [emptySearch, setEmptySearch] = useState(false);
 
   const [curLength, setCurLength] = useState(0);

@@ -8,8 +8,9 @@ import {
   CardGroup,
   Button,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
-const SearchPage = () => {
+const SearchPage = ({ setSearchShowing }) => {
   const [results, setResults] = useState([]);
 
   if (results.length >= 1) {
@@ -39,10 +40,10 @@ const SearchPage = () => {
           return (
             <>
               <CardTitle tag="h5">
-                <b>Standard Date: </b>
+                <b>Standard: </b>
                 {new Date(movie.nextStandard[0].date).toUTCString().slice(0, 16)}
               </CardTitle>
-              {movie.nextStandard.map((showing) => { return <Button>{showing.time}</Button> })}
+              {movie.nextStandard.map((showing) => { return <Link to='/Bookings'><Button onClick={() => { setSearchShowing(showing) }}>{showing.time}</Button></Link> })}
 
             </>
           )
@@ -54,10 +55,10 @@ const SearchPage = () => {
           return (
             <>
               <CardTitle tag="h5">
-                <b>Deluxe Date: </b>
-                {movie.nextDeluxe[0].date}
+                <b>Deluxe: </b>
+                {new Date(movie.nextDeluxe[0].date).toUTCString().slice(0, 16)}
               </CardTitle>
-              {movie.nextDeluxe.map((showing) => { return <Button>{showing.time}</Button> })}
+              {movie.nextDeluxe.map((showing) => { return <Link to='/Bookings'><Button onClick={() => { setSearchShowing(showing) }}>{showing.time}</Button></Link> })}
             </>
           )
         }
