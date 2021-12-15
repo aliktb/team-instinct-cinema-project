@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, Route } from "react-router-dom";
 import { Button, Input } from 'reactstrap'
+import Booking from "./Booking";
 
 
 const ViewBooking = () => {
@@ -24,7 +25,18 @@ const ViewBooking = () => {
         }
     }
 
+    const cancellation = () => {
+        if (window.confirm("Are you sure? There are no refunds for cancellation")) {
+            axios.delete(`http://localhost:3001/bookings/delete/${bookingDetails._id}`).then((response) => {
+                if (response.status != 204) {
+                    window.alert("There has been an error, please try again")
+                } else {
+                    window.alert("Booking has been cancelled");
+                }
 
+            })
+        }
+    }
 
 
     if (isLoaded) {
@@ -43,6 +55,7 @@ const ViewBooking = () => {
                     <p>Seats: {bookingDetails.seats.join(', ')}</p>
                     <p>Total: £{bookingDetails.total}</p>
                     <Button onClick={() => { setIsLoaded(false) }}>Back</Button>
+                    <Link to='/Bookings' ><Button color="danger" className="mx-5" onClick={cancellation}>Cancel Booking</Button></Link>
                 </div>
             );
 
