@@ -1,0 +1,24 @@
+Things to show off:
+
+Homepage
+Listings gallery
+New Listings
+Bookings
+seat selection
+payments
+stripe dashboard
+view existing booking
+discussion board
+CRUD for discussion board
+film classification page
+Film search - by title, tags, cast
+About us - with scrum stuff
+opening times
+screens
+getting here - google map
+places to go
+contact us
+email form
+logo
+footer
+404 page
