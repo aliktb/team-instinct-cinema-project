@@ -7,6 +7,16 @@ const Search = ({ setResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchType, setSearchType] = useState("");
   const [emptySearch, setEmptySearch] = useState(false);
+
+  const [curLength, setCurLength] = useState(0);
+
+  const arrayCheck = (list) => {
+    if (list.length === curLength) {
+      console.log(list)
+      setResults(list)
+    }
+  }
+
   const search = () => {
     if (searchTerm !== "") {
       setEmptySearch(false);
@@ -14,12 +24,35 @@ const Search = ({ setResults }) => {
         axios
           .get(`http://localhost:3001/movies/title/${searchTerm}`)
           .then((response) => {
-            // const movies = response.data;
-            // console.log(response.data);
-            // const filteredmovies = movies.filter((movies) => { return movies.title.includes(searchTerm) })
-            // console.log(filteredmovies);
-            //  setResults(filteredmovies);
-            setResults(response.data);
+            let resultsArray = [];
+            setCurLength(response.data.length);
+            for (let result of response.data) {
+              console.log(result);
+              axios.get(`http://localhost:3001/showings/title/e/${result.title}`).then((data) => {
+                console.log(data.data)
+                if (data.data.length > 0) {
+                  let futureShowings = data.data.filter((showing) => { return new Date(showing.date) < new Date() ? false : true })
+                  let deluxeShowings = futureShowings.filter((showing) => { return showing.screen === "Deluxe" ? true : false })
+                  let standardShowings = futureShowings.filter((showing) => { return showing.screen === "Standard" ? true : false })
+                  console.log(deluxeShowings);
+                  console.log(standardShowings);
+                  console.log("postSort");
+                  if (deluxeShowings[0]) {
+                    result.nextDeluxe = deluxeShowings;
+                  }
+                  if (standardShowings[0]) {
+                    result.nextStandard = standardShowings;
+                  }
+                  console.log(result)
+                  resultsArray.push(result);
+                } else {
+                  resultsArray.push(result);
+                }
+                arrayCheck(resultsArray);
+              })
+
+            }
+            // setResults(response.data);
           });
       } else if (searchType === "tags") {
         axios

@@ -6,6 +6,7 @@ import {
   CardBody,
   CardTitle,
   CardGroup,
+  Button,
 } from "reactstrap";
 
 const SearchPage = () => {
@@ -32,6 +33,35 @@ const SearchPage = () => {
       // for (let i = 0; i < movies.cast.length; i++) {
       //   castList += "<li>{movies.cast}</li>";
       // }
+
+      const standardShowing = ((movie) => {
+        if (movie.nextStandard) {
+          return (
+            <>
+              <CardTitle tag="h5">
+                <b>Standard Date: </b>
+                {new Date(movie.nextStandard[0].date).toUTCString().slice(0, 16)}
+              </CardTitle>
+              {movie.nextStandard.map((showing) => { return <Button>{showing.time}</Button> })}
+
+            </>
+          )
+        }
+      })
+
+      const deluxeShowing = ((movie) => {
+        if (movie.nextDeluxe) {
+          return (
+            <>
+              <CardTitle tag="h5">
+                <b>Deluxe Date: </b>
+                {movie.nextDeluxe[0].date}
+              </CardTitle>
+              {movie.nextDeluxe.map((showing) => { return <Button>{showing.time}</Button> })}
+            </>
+          )
+        }
+      })
 
       return (
         <span>
@@ -78,6 +108,8 @@ const SearchPage = () => {
                 <b>Castlist: </b>
                 <ul>{castList}</ul>
               </CardTitle>
+              {standardShowing(movies)}
+              {deluxeShowing(movies)}
             </CardBody>
           </Card>
         </span>
