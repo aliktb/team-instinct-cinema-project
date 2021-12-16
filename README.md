@@ -4,10 +4,10 @@ Coverage: 82.15%
 #  Final Project - QA Cinemas 
 
 
-For this group project we created a MERN stack web application for our QA cinema's webpage. This was connected to a backend database using MongoDB which allowed us to record films and customer bookings.
+For this group project we created a MERN stack web application for our QA cinema's website. This was connected to a backend database using MongoDB Cloud Atlas which allowed us to record films and customer bookings.
 
 # Aim:
-The aim of the project was to develop a full stack application where users can navigate through the website and make bookings for movies, viweing latest releases, view current movies showing, accessing how to get to QA cinema, viewing an about us page, make comments and rate movies theyve seen on our discussion board, checking for film classifications before making a booking and we also implemented a page where we have provided a places to go page around the area for activities and tourists attractions within the area.
+The aim of the project was to develop a full stack application where users can navigate through the website and make bookings for movies, viweing latest releases, view current movies showing, accessing how to get to QA cinema, viewing an about us page, make comments and rate movies they've seen on our discussion board, checking for film classifications before making a booking and we also implemented a page where we have provided a places to go page around the area for activities and tourists attractions within the area.
 
 # Technologies Used:
 This project consisted of us using the following technlogies:
@@ -28,7 +28,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 # Prerequisites What things you need to install the software and how to install them:
 
-Clone the link into your files and install it in your Visual Studio Code IDE. Make sure you git clone it down. Once installed you can navigate through the methods and code.A step by step series of examples that tell you how to get a development env running
+Git bash needs to be installed to clone this repository. Instructions for download can be found [here](https://git-scm.com/downloads) 
+
+MongoDB can be installed [here](https://www.mongodb.com/products/compass) if not already installed for access to a local database. Alternatively, a cloud instance can be used.
+
+Node.js can be installed from [here](https://nodejs.org/en/download/)
+
+## Setup
+
+Clone or download the repository into your files. Make sure you git clone it down. Once installed you can navigate through the methods and code.A step by step series of examples that tell you how to get a development env running
 
 In git bash from from root project folder (cinema-project-app):
 ```
