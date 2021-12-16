@@ -1,5 +1,5 @@
 # Team-Instinct-Cinema-Project
-Coverage:82.15%
+Coverage: 82.15%
 
 # Specialism Project QA Cinema's 
 
