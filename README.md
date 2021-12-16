@@ -1,9 +1,9 @@
 # Team-Instinct-Cinema-Project
 Coverage: 82.15%
 
-# Specialism Project QA Cinema's 
+#  Final Project - QA Cinemas 
 
-QA cinemas project 
+
 For this group project we created a MERN stack web application for our QA cinema's webpage. This was connected to a backend database using MongoDB which allowed us to record films and customer bookings.
 
 # Aim:
