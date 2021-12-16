@@ -71,13 +71,14 @@ const DiscussionPage = () => {
           onDelete={updateList}
         />
         <div className="mt-5">
-          <Button
-            onClick={updateList}
-            className="center-map"
-            style={{ maxWidth: "400px", marginBottom: "2rem" }}
-          >
-            Refresh Posts
-          </Button>
+          <div className="center" style={{ maxWidth: "500px", padding: "0" }}>
+            <Button
+              onClick={updateList}
+              style={{ width: "100%", marginBottom: "2rem" }}
+            >
+              Refresh Posts &#8635;
+            </Button>
+          </div>
           <div id="listOfCards">
             {data.map((postData) => (
               <DiscussionPostCard post={postData} onDelete={updateList} />
