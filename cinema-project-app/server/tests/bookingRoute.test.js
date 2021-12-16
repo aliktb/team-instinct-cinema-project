@@ -135,7 +135,7 @@ describe('testing bookings routes', function () {
 
 
                 expect(response).to.have.status(200);
-                expect(response.body.bookingRef).to.be.equal(123456);
+                expect(response.body.bookingRef).to.be.equal("123456");
                 expect(response).to.not.be.null;
                 done();
             });
