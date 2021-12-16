@@ -73,7 +73,7 @@ const DiscussionPage = () => {
         <div className="mt-5">
           <Button
             onClick={updateList}
-            className="center"
+            className="center-map"
             style={{ maxWidth: "400px", marginBottom: "2rem" }}
           >
             Refresh Posts
