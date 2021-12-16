@@ -14,7 +14,7 @@ const ViewBooking = () => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     const [confirmationModal, setConfirmationModal] = useState(false);
-    const toggleConfirmation = () => setConfirmationModal(!confirmationModal);
+    const toggleConfirmation = () => { if (confirmationModal) { setIsLoaded(false) }; setConfirmationModal(!confirmationModal) };
 
 
     const searchType = (searchTerm) => {
@@ -93,7 +93,7 @@ const ViewBooking = () => {
                             Booking Cancelled
                         </ModalBody>
                         <ModalFooter>
-                            <Button onClick={() => { toggleConfirmation(); setIsLoaded(false); }}>Back</Button>
+                            <Button onClick={() => { toggleConfirmation() }}>Back</Button>
                         </ModalFooter>
                     </Modal>
                 </div>
