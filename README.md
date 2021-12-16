@@ -26,7 +26,7 @@ This project consisted of us using the following technlogies:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-# Prerequisites What things you need to install the software and how to install them:
+# Prerequisites - What things you need to install the software and how to install them:
 
 Git bash needs to be installed to clone this repository. Instructions for download can be found [here](https://git-scm.com/downloads) 
 
@@ -40,12 +40,12 @@ Clone or download the repository into your files. Make sure you git clone it dow
 
 In git bash from from root project folder (cinema-project-app):
 ```
-- npm install
+npm install
 ```
 
 from 'client' folder:
 ```
-- npm install
+npm install
 ```
 
 In 'server' folder create a 'secrets' folder and insert a mongoDB URI as:
