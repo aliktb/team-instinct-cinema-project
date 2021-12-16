@@ -13,6 +13,7 @@ import BookingConfirmation from "../Components/BookingConfirmation";
 const Booking = ({ searchShowing, setSearchShowing }) => {
 
     const bookingObject = {
+        showingId: "",
         bookingRef: 0,
         bookingDate: "",
         showingDate: "",
@@ -78,14 +79,14 @@ const Booking = ({ searchShowing, setSearchShowing }) => {
                         Adults: {bookingDetails.adults}<br></br>
                         children : {bookingDetails.children} < br ></br>
 
-                        Total: {bookingDetails.total}</p>
+                        Total: £{bookingDetails.total}</p>
 
 
 
 
                 </div>
                 <div className="paymentFrame">
-                    <PaymentProvider booking={bookingDetails} />
+                    <PaymentProvider booking={bookingDetails} setBooking={setBookingDetails} setPayments={setPayments} setConfirmation={setConfirmation} />
                     <Button type="button" onClick={() => { clearSeats(); setBookingDetails(bookingObject); setPayments(false); setPaymentButton(null) }}>Cancel</Button>
                 </div>
             </div >

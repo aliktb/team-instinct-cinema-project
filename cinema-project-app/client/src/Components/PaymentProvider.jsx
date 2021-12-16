@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useEffect, useState } from 'react';
 import Payment from './Payment';
 
-const PaymentProvider = ({ booking }) => {
+const PaymentProvider = ({ booking, setBooking, setPayments, setConfirmation }) => {
 
     const [clientSecret, setClientSecret] = useState("");
 
@@ -58,7 +58,7 @@ const PaymentProvider = ({ booking }) => {
 
                 <Elements options={options} stripe={stripePromise}>
 
-                    <Payment booking={booking} />
+                    <Payment booking={booking} setBooking={setBooking} setPayments={setPayments} setConfirmation={setConfirmation} />
 
                 </Elements>
 

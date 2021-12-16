@@ -9,7 +9,6 @@ const MovieListBooking = ({ movieDate, setSelectedScreening, setConfirmation }) 
 
     const makeCards = (date) => {
         axios.get(`http://localhost:3001/showings/date/${date}`).then((data) => {
-            console.log(data.data);
             if (data.data.length > 0) {
                 let processedMovies = []
                 let todaysMovies = data.data.map((showing) => {
@@ -79,9 +78,8 @@ const MovieListBooking = ({ movieDate, setSelectedScreening, setConfirmation }) 
     }
 
     useEffect(() => {
-        console.log(movieDate)
         makeCards(movieDate);
-    }, [movieDate, makeCards])
+    }, [movieDate])
 
     return (
         <>
