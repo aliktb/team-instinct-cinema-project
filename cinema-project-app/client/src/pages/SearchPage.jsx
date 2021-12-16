@@ -6,9 +6,11 @@ import {
   CardBody,
   CardTitle,
   CardGroup,
+  Button,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
-const SearchPage = () => {
+const SearchPage = ({ setSearchShowing }) => {
   const [results, setResults] = useState([]);
 
   if (results.length >= 1) {
@@ -32,6 +34,35 @@ const SearchPage = () => {
       // for (let i = 0; i < movies.cast.length; i++) {
       //   castList += "<li>{movies.cast}</li>";
       // }
+
+      const standardShowing = ((movie) => {
+        if (movie.nextStandard) {
+          return (
+            <>
+              <CardTitle tag="h5">
+                <b>Standard: </b>
+                {new Date(movie.nextStandard[0].date).toUTCString().slice(0, 16)}
+              </CardTitle>
+              {movie.nextStandard.map((showing) => { return <Link to='/Bookings'><Button onClick={() => { setSearchShowing(showing) }}>{showing.time}</Button></Link> })}
+
+            </>
+          )
+        }
+      })
+
+      const deluxeShowing = ((movie) => {
+        if (movie.nextDeluxe) {
+          return (
+            <>
+              <CardTitle tag="h5">
+                <b>Deluxe: </b>
+                {new Date(movie.nextDeluxe[0].date).toUTCString().slice(0, 16)}
+              </CardTitle>
+              {movie.nextDeluxe.map((showing) => { return <Link to='/Bookings'><Button onClick={() => { setSearchShowing(showing) }}>{showing.time}</Button></Link> })}
+            </>
+          )
+        }
+      })
 
       return (
         <span>
@@ -77,6 +108,11 @@ const SearchPage = () => {
               <CardTitle tag="h5">
                 <b>Castlist: </b>
                 <ul>{castList}</ul>
+              </CardTitle>
+              <CardTitle tag="h5">
+                <b>Next Showings: </b>
+                {standardShowing(movies)}
+                {deluxeShowing(movies)}
               </CardTitle>
             </CardBody>
           </Card>

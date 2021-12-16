@@ -1,6 +1,6 @@
 import '../css/booking.css'
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Input } from "reactstrap";
 import PaymentProvider from "../Components/PaymentProvider";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import BookingConfirmation from "../Components/BookingConfirmation";
 
 
 
-const Booking = () => {
+const Booking = ({ searchShowing, setSearchShowing }) => {
 
     const bookingObject = {
         bookingRef: 0,
@@ -36,6 +36,14 @@ const Booking = () => {
     const [selectedScreening, setSelectedScreening] = useState();
     const [movieDate, setMovieDate] = useState(new Date().toISOString().slice(0, 10));
 
+
+    useEffect(() => {
+        if (searchShowing) {
+            setSelectedScreening(searchShowing);
+            setSearchShowing(null)
+            setConfirmation(true);
+        }
+    }, [])
 
     if (payments) {
 

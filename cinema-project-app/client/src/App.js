@@ -33,8 +33,11 @@ import "./css/general.css";
 import ScreensPage from "./pages/ScreensPage";
 import "./css/ScreensPage.css";
 import ViewBooking from "./pages/ViewBooking";
+import { useState } from "react";
 
 function App() {
+  const [searchShowing, setSearchShowing] = useState();
+
   return (
     <div>
       <Navigationbar />
@@ -51,7 +54,7 @@ function App() {
             <Route path="/Movie_Two" element={<MovieTwo />}></Route>
             <Route path="/Movie_Three" element={<MovieThree />}></Route>
             <Route path="/Movie_Four" element={<MovieFour />}></Route>
-            <Route path="/Bookings" element={<Booking />}></Route>
+            <Route path="/Bookings" element={<Booking searchShowing={searchShowing} setSearchShowing={setSearchShowing} />}></Route>
             <Route path="/Bookings/View" element={<ViewBooking />}></Route>
             <Route
               path="/DiscussionBoard"
@@ -65,7 +68,7 @@ function App() {
             <Route path="/Film_Classification" element={<FilmClass />}></Route>
             <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/Getting_Here" element={<GettingHere />}></Route>
-            <Route path="/Search" element={<SearchPage />}></Route>
+            <Route path="/Search" element={<SearchPage setSearchShowing={setSearchShowing} />}></Route>
             <Route path="/Places_to_go" element={<PlacesToGo />}></Route>
             <Route path="/Opening_Times" element={<OpeningTimes />}></Route>
             <Route path="/Contact_us" element={<Contact />}></Route>
