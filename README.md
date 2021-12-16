@@ -75,13 +75,13 @@ https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-
 
 server dependencies:
 ```
-- npm i mocha chai chai-http nodemon express concurrently cors mongoose
+- npm i mocha chai chai-http nodemon express concurrently cors mongoose stripe
 
 - npm i --save-dev nyc
 
 client dependencies:
 
-- npm i react-router-doms axios reactstrap react react-dom
+- npm i react-router-doms axios reactstrap react react-dom @stripe/react-stripe-js @stripe/stripe-js emailjs react-rating-stars-component
 
 - npm install --save bootstrap
 ```
@@ -89,9 +89,13 @@ client dependencies:
 To make sure the Mongo DB URI in the secrets folder within the server folder matches the URI in the Mongo URI.js.
 
 # Testing
-Once you got the project setup intsall Mocha, Chai and Istanbul to view coverage. In your terminal run:
-```npm test```
-```npm run coverage```
+Once you got the project setup install Mocha, Chai and Istanbul to view coverage. Set testDB on line 10 in server.js to true before running tests. This way, it will use a different database when testing and won't affect the production database.
+<br/>
+
+
+In your terminal run:
+```npm test``` to run the tests and check that they all pass or run
+```npm run coverage``` to check the test coverage
 
 This is the code for our movieRoutesTest:
 ```
