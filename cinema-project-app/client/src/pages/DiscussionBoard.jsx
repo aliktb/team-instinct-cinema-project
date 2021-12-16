@@ -61,8 +61,8 @@ const DiscussionBoard = () => {
   }, []);
 
   return (
-    <div>
-      <Table borderless className="center-map">
+    <div style={{ maxWidth: "80rem" }} className="center">
+      <Table borderless>
         <thead>
           <tr>
             <td>
