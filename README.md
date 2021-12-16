@@ -86,7 +86,7 @@ client dependencies:
 - npm install --save bootstrap
 ```
 # Troubleshooting
-To make sure the Mongo DB URI in the secrets folder within the server folder matches the URI in the Mongo URI.js.
+Make sure the Mongo DB URI in the secrets folder within the server folder matches the URI in the Mongo URI.js. This project uses ports 3000 for the front end and 3001 for the backend. Make sure they are free before running or modify server.js if necessary.
 
 # Testing
 Once you got the project setup install Mocha, Chai and Istanbul to view coverage. Set testDB on line 10 in server.js to true before running tests. This way, it will use a different database when testing and won't affect the production database.
@@ -117,6 +117,8 @@ React
 Node
 Mocha
 Chai
+Stripe API
+emailJS
 
 
 # Versioning
