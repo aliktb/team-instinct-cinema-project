@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, Navigate, Route } from "react-router-dom";
-import { Button, Input } from 'reactstrap'
+import { Button, Input, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
 import Booking from "./Booking";
+
 
 
 const ViewBooking = () => {
@@ -10,6 +11,11 @@ const ViewBooking = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [bookingDetails, setBookingDetails] = useState(null);
     const [code, setCode] = useState("");
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+    const [confirmationModal, setConfirmationModal] = useState(false);
+    const toggleConfirmation = () => setConfirmationModal(!confirmationModal);
+
 
     const searchType = (searchTerm) => {
         if (searchTerm.length === 8) {
@@ -26,16 +32,27 @@ const ViewBooking = () => {
     }
 
     const cancellation = () => {
-        if (window.confirm("Are you sure? There are no refunds for cancellation")) {
-            axios.delete(`http://localhost:3001/bookings/delete/${bookingDetails._id}`).then((response) => {
-                if (response.status != 204) {
-                    window.alert("There has been an error, please try again")
-                } else {
-                    window.alert("Booking has been cancelled");
-                }
+        axios.delete(`http://localhost:3001/bookings/delete/${bookingDetails._id}`).then((response) => {
+            if (response.status != 204) {
+                window.alert("There has been an error, please try again")
+            } else {
+                axios.get(`http://localhost:3001/showings/${bookingDetails.showingId}`).then((response) => {
+                    let newObj = response.data
+                    newObj.seats.map((seat) => { for (let bookedSeat of bookingDetails.seats) { if (seat.seat === bookedSeat) { seat.taken = false } } })
+                    axios.put(`http://localhost:3001/showings/update/${bookingDetails.showingId}`, newObj).then((response) => {
+                        console.log(response)
+                        if (response.status != 202) {
+                            window.alert("There has been an error, please try again")
+                        } else {
+                            toggle();
+                            toggleConfirmation();
 
-            })
-        }
+                        }
+                    })
+                })
+
+            }
+        })
     }
 
 
@@ -55,7 +72,30 @@ const ViewBooking = () => {
                     <p>Seats: {bookingDetails.seats.join(', ')}</p>
                     <p>Total: £{bookingDetails.total}</p>
                     <Button onClick={() => { setIsLoaded(false) }}>Back</Button>
-                    <Link to='/Bookings' ><Button color="danger" className="mx-5" onClick={cancellation}>Cancel Booking</Button></Link>
+                    <Button color="danger" className="mx-5" onClick={toggle}>Cancel Booking</Button>
+                    <Modal isOpen={modal} toggle={toggle}>
+                        <ModalHeader toggle={toggle}>
+                            Are you sure?
+                        </ModalHeader>
+                        <ModalBody>
+                            We do not offer refunds for cancellations.
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button onClick={() => { toggle(); console.log(modal) }}>Back</Button>
+                            <Button color="danger" onClick={cancellation}>Cancel Booking</Button>
+                        </ModalFooter>
+                    </Modal>
+                    <Modal isOpen={confirmationModal} toggle={toggleConfirmation}>
+                        <ModalHeader toggle={toggleConfirmation}>
+                            Confirmation
+                        </ModalHeader>
+                        <ModalBody>
+                            Booking Cancelled
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button onClick={() => { toggleConfirmation(); setIsLoaded(false); }}>Back</Button>
+                        </ModalFooter>
+                    </Modal>
                 </div>
             );
 
@@ -79,6 +119,6 @@ const ViewBooking = () => {
             </div>
         );
     }
-}
 
+}
 export default ViewBooking;

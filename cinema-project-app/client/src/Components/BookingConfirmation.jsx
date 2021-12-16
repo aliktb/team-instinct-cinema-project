@@ -49,6 +49,7 @@ const BookingConfirmation = ({ bookingDetails, setBookingDetails, selectedScreen
     const updateBooking = (seat, operation) => {
         let tempObj = bookingDetails;
         tempObj.bookingRef = String(new Date().getTime()).slice(-8);
+        tempObj.showingId = selectedScreening._id;
         tempObj.screen = selectedScreening.screen;
         tempObj.movieTitle = selectedScreening.movie.title;
         tempObj.showingTime = selectedScreening.time;

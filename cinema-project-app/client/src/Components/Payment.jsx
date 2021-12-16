@@ -9,14 +9,35 @@ import {
     useElements
 
 } from "@stripe/react-stripe-js";
-import { Button } from 'reactstrap'
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader, NavbarToggler } from 'reactstrap'
 import axios from "axios";
 
-const Payment = ({ booking }) => {
+const Payment = ({ booking, setBooking, setPayments, setConfirmation }) => {
     const stripe = useStripe();
 
     const elements = useElements();
 
+    const [modal, setModal] = useState(false);
+    const toggle = () => {
+        if (modal) {
+            const bookingObject = {
+                showingId: "",
+                bookingRef: 0,
+                bookingDate: "",
+                showingDate: "",
+                showingTime: "",
+                name: "",
+                seats: [],
+                children: 0,
+                adults: 0,
+                movieTitle: "",
+                screen: "",
+                total: 0
+            };
+            setBooking(bookingObject); setConfirmation(false); setPayments(false); setIsLoading(false);
+        }
+        setModal(!modal)
+    };
 
     const [message, setMessage] = useState(null);
 
@@ -101,7 +122,6 @@ const Payment = ({ booking }) => {
 
         }
 
-
         setIsLoading(true);
 
 
@@ -141,32 +161,45 @@ const Payment = ({ booking }) => {
         // }
 
 
-        setIsLoading(false);
+        toggle();
+
 
     };
 
 
     return (
+        <div>
+            <form id="payment-form" onSubmit={handleSubmit}>
 
-        <form id="payment-form" onSubmit={handleSubmit}>
+                <PaymentElement id="payment-element" />
 
-            <PaymentElement id="payment-element" />
+                <Button disabled={isLoading || !stripe || !elements} id="submit" style={{ marginTop: "5%" }}>
 
-            <Button disabled={isLoading || !stripe || !elements} id="submit" style={{ marginTop: "5%" }}>
+                    <span id="button-text">
 
-                <span id="button-text">
+                        {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
 
-                    {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+                    </span>
 
-                </span>
+                </Button>
 
-            </Button>
+                {/* Show any error or success messages */}
 
-            {/* Show any error or success messages */}
+                {message && <div id="payment-message">{message}</div>}
 
-            {message && <div id="payment-message">{message}</div>}
-
-        </form>
+            </form>
+            <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>
+                    Payment Confirmation
+                </ModalHeader>
+                <ModalBody>
+                    Payment has been successfully processed
+                </ModalBody>
+                <ModalFooter>
+                    <Button onClick={() => { toggle(); }}>Back</Button>
+                </ModalFooter>
+            </Modal>
+        </div>
 
     );
 };
