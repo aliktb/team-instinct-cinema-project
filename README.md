@@ -97,10 +97,7 @@ In your terminal run:
 ```npm test``` to run the tests and check that they all pass or run
 ```npm run coverage``` to check the test coverage
 
-This is the code for our movieRoutesTest:
-```
 
-```
 
 
 
