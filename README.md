@@ -45,6 +45,8 @@ In 'server' folder create a 'secrets' folder and insert a mongoDB URI as:
 module.exports = {
   mongoURI:
     <MONGO_DB_URL>,
+  mongoTestURI:
+    <MONGO_TEST_DB_URL>
 };
 ```
 
