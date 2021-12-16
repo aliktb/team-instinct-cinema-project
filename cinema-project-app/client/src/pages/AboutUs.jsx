@@ -1,11 +1,5 @@
 import "../css/center.css";
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardText,
-  List,
-} from "reactstrap";
+import { Card, CardBody, CardTitle, CardText, List } from "reactstrap";
 
 const AboutUs = () => {
   return (
@@ -181,7 +175,6 @@ const AboutUs = () => {
           </CardText>
         </CardBody>
       </Card>
-      v
     </div>
   );
 };

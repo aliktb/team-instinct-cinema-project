@@ -33,7 +33,7 @@ const TableOpeningTimes = () => {
         </tr>
         <tr>
           <th scope="row">Friday</th>
-          <td>11:am</td>
+          <td>11:00am</td>
           <td>02:00am</td>
         </tr>
         <tr>
