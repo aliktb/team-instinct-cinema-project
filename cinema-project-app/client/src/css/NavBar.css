@@ -1,0 +1,38 @@
+h4 {
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.image {
+    background-color: transparent !important;
+}
+
+h6 {
+    font-weight: bold;
+    color: black;
+}
+
+ 
+.box {
+
+    color: rgb(0, 0, 0);
+    background: transparent;
+
+    border-radius: 10px;
+    transition: all 0.3s ease ease-in-out;
+    margin: 0;
+    border: 1px solid #fff;
+    padding: 1.5px;
+
+}
+
+.box:hover {
+    border: 0;
+    box-shadow: 0 0 3px #ffe100, 0 0 7px #ffe205, 0 0 2px #edd205;
+
+
+}
+

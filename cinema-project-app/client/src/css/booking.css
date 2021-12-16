@@ -1,0 +1,210 @@
+.extender {
+    min-height: 80vh;
+}
+
+.bookingRefInput {
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.bookingRefExtender {
+    min-height: 60vh;
+    padding: 4em
+}
+
+.dateSelect {
+    width: 270px;
+    position: "inline-block"
+}
+
+.bookingContainer {
+    display: flex;
+    padding: 4em
+}
+
+.cardMain {
+    margin: 0px 0px 20px 100px;
+    min-height: 250px
+}
+
+.cardFlex {
+    display: flex;
+}
+
+.timesFlex {
+    display: flex;
+}
+
+.cardImageContainer {
+    min-height: 250px;
+    width: 225px
+}
+
+.cardImageClass {
+    min-height: 100%;
+    width: 225px
+}
+
+.cardTitleClass {
+    margin-left: 20px
+}
+
+.standardLabel {
+    margin: 10px 8px 6px 8px
+}
+
+.deluxeLabel {
+    margin: 16px 8px 0px 8px
+}
+
+.timesContainer {
+    display: flex;
+    margin: 5px
+}
+
+.paymentPage {
+    display: flex;
+    padding: 4em;
+    min-height: 60vh;
+}
+
+.paymentDetails {
+    max-width: 400px;
+}
+
+.paymentFrame {
+    margin: 0px auto 0px auto;
+    width: 400px;
+}
+
+.viewExistingButton {
+    margin-top: 20px;
+}
+
+.confirmationContainer {
+    display: flex;
+    padding: 4em
+}
+
+.confirmationDetails {
+    width: 300px
+}
+
+.selectionContainer {
+    position: relative;
+    width: 50%;
+    text-align: center;
+    margin: 0px auto 0px auto
+}
+
+.screenName {
+    margin: -10px;
+    padding: 0px
+}
+
+.screenImage {
+    width: 100%;
+    rotate: 180deg
+}
+
+.seats {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.seat {
+    width: 8%;
+    margin: 1%
+}
+
+.movieList {
+    margin-left: 200px
+}
+
+@media only screen and (max-width: 1199px) {
+    .movieList {
+        margin: unset;
+        text-align: center;
+    }
+
+    .bookingContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 4em
+    }
+
+    .cardMain {
+        padding: 0px;
+        margin: 20px 0px 20px 0px;
+        min-height: 250px;
+    }
+
+
+
+    .confirmationContainer {
+        padding: 1em
+    }
+
+    .paymentFrame {
+        padding: unset;
+        margin-left: 40px;
+        max-width: 400px;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    .paymentFrame {
+        margin: unset;
+        display: unset;
+        width: 100%;
+    }
+
+    .paymentPage {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .bookingContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 1em
+    }
+
+    .movieList {
+        margin: unset;
+        text-align: center;
+    }
+
+    .cardFlex {
+        flex-direction: column;
+    }
+
+    .cardMain {
+        padding: 0px;
+        margin: 20px 0px 20px 0px;
+        min-height: 250px
+    }
+
+    .cardImageContainer {
+        width: 100%;
+    }
+
+    .cardImageClass {
+        width: 100%;
+    }
+
+    .timesContainer {
+        flex-wrap: wrap;
+    }
+
+    .selectionContainer {
+        width: 100%;
+    }
+
+    .confirmationContainer {
+        flex-direction: column-reverse;
+        padding: .5em
+    }
+}

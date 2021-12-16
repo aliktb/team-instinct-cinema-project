@@ -1,0 +1,48 @@
+In git bash from from root project folder (cinema-project-app):
+
+- npm install
+
+
+from 'client' folder:
+
+- npm install
+
+
+In 'server' folder create a 'secrets' folder and insert a mongoDB URI as:
+
+module.exports = {
+  mongoURI:
+    <MONGO_DB_URL>,
+};
+
+
+To run whole project from root folder:
+
+- npm run dev
+
+To run only backend from root folder:
+
+- npm run server
+- or nodemon index.js
+
+To run only frontend from 'client' folder:
+
+- npm run client
+
+
+--------------------notes--------------------
+
+This project was set up using these instructions:
+https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/
+
+server dependencies:
+
+- npm i mocha chai chai-http nodemon express concurrently cors mongoose
+
+- npm i --save-dev nyc
+
+client dependencies:
+
+- npm i react-router-doms axios reactstrap react react-dom
+
+- npm install --save bootstrap
