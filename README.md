@@ -50,6 +50,10 @@ module.exports = {
 };
 ```
 
+The folder structure for the server should look like this:
+
+![folder structure](/Documentation/Screenshots/secrets-folder.png "Secrets Folder")
+
 To run whole project from root folder:
 ```
 - npm run dev
