@@ -155,3 +155,4 @@ We Used Git for versioning
 # Acknowledgements
 Many thanks go to the QA Academy and their trainers for their expertise and support
 
+# Final-project-Qa-cinemas
